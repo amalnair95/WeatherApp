@@ -1,4 +1,4 @@
-package com.example.weatherapp.WeatherFragment
+package com.example.weatherapp.weatherFragment
 
 import android.app.AlertDialog
 import android.content.Context
@@ -9,7 +9,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.weatherapp.CommonMethod.GPSTracker
+import com.example.weatherapp.commonMethod.GPSTracker
 import com.example.weatherapp.R
 import com.example.weatherapp.databinding.FragmentWeatherBinding
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
@@ -111,12 +111,6 @@ fun showAlert(context: Context?) {
 
     //Setting Dialog Message
     alertDialog.setMessage(R.string.NetworkConnection)
-
-    /*  //On Pressing Setting button
-      alertDialog.setPositiveButton(R.string.action_settings) { dialog, which ->
-          val intent = Intent(Settings.ACTION_NETWORK_OPERATOR_SETTINGS)
-          context?.startActivity(intent)
-      }*/
 
     //On pressing cancel button
     alertDialog.setNegativeButton(R.string.ok) { dialog, which -> dialog.cancel() }
