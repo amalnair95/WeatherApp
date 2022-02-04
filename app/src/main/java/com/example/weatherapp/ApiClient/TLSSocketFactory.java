@@ -1,4 +1,4 @@
-package com.example.weatherapp.ApiClient;
+package com.example.weatherapp.apiClient;
 
 import androidx.annotation.Nullable;
 

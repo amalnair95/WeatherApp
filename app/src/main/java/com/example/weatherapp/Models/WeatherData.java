@@ -1,4 +1,4 @@
-package com.example.weatherapp.Models;
+package com.example.weatherapp.models;
 
 import android.annotation.SuppressLint;
 import android.os.Parcel;

@@ -1,12 +1,12 @@
-package com.example.weatherapp.WeatherFragment
+package com.example.weatherapp.weatherFragment
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.weatherapp.ApiClient.WeatherApiClient
-import com.example.weatherapp.ApiClient.WeatherApiInterface
-import com.example.weatherapp.Models.WeatherData
-import com.example.weatherapp.Models.WeatherResults
+import com.example.weatherapp.apiClient.WeatherApiClient
+import com.example.weatherapp.apiClient.WeatherApiInterface
+import com.example.weatherapp.models.WeatherData
+import com.example.weatherapp.models.WeatherResults
 import retrofit2.Call
 import retrofit2.Response
 

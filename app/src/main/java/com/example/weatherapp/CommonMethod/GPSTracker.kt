@@ -1,7 +1,7 @@
-package com.example.weatherapp.CommonMethod
+package com.example.weatherapp.commonMethod
 
 import android.Manifest
-import com.example.weatherapp.CommonMethod.GPSTracker
+import com.example.weatherapp.commonMethod.GPSTracker
 import androidx.core.app.ActivityCompat
 import android.content.pm.PackageManager
 import android.app.Activity
