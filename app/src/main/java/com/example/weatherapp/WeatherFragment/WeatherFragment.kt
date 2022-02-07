@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.weatherapp.commonMethod.GPSTracker
 import com.example.weatherapp.R
+import com.example.weatherapp.commonMethod.CommonMethod
 import com.example.weatherapp.databinding.FragmentWeatherBinding
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 
@@ -73,7 +74,7 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
         }
     }
 
-    private fun isNetworkAvailable(): Boolean {
+  /*  private fun isNetworkAvailable(): Boolean {
         val connectivityManager =
             context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetworkInfo = connectivityManager.activeNetworkInfo
@@ -87,15 +88,15 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
             showAlert(context)
             false
         }
-    }
+    }*/
 
     private fun init() {
         weatherViewModel = ViewModelProvider(requireActivity()).get(WeatherViewModel::class.java)
         weatherViewModel.clearResultSet()
         fragmentWeatherBinding.testButton.setOnClickListener {
             fragmentWeatherBinding.mainLayout.visibility=View.GONE
-            fragmentWeatherBinding.loadingProgressBar.visibility=View.VISIBLE
-            if (isNetworkConnected()) {
+            if (CommonMethod.isNetworkConnected(requireContext())) {
+                fragmentWeatherBinding.loadingProgressBar.visibility=View.VISIBLE
                 getLocation()
             }
             //weatherViewModel.getWeatherDetail(12.9889055,77.574044)
@@ -103,6 +104,7 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
     }
 }
 
+/*
 fun showAlert(context: Context?) {
     val alertDialog = AlertDialog.Builder(context)
 
@@ -115,4 +117,4 @@ fun showAlert(context: Context?) {
     //On pressing cancel button
     alertDialog.setNegativeButton(R.string.ok) { dialog, which -> dialog.cancel() }
     alertDialog.show()
-}
+}*/
