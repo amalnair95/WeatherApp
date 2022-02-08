@@ -60,35 +60,16 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
     private fun getLocation() {
         gpsTracker = GPSTracker(requireContext())
         if (gpsTracker?.isGPSTrackingEnabled!!) {
-            val latitude = gpsTracker!!.getCurrentLatitude()
-            val longitude = gpsTracker!!.getCurrentLongitude()
-            address = gpsTracker!!.getAddressLine(context)
-            val postalCode = gpsTracker!!.getPostalCode(context)
-            val country = gpsTracker!!.getCountryName(context)
-            println("Latitude:$latitude & Longitude:$longitude")
+            val coordinates=CommonMethod.getLocation(requireContext())
+            address=coordinates.address
             //weatherViewModel.clearResultSet()
-            weatherViewModel.getWeatherDetail(latitude,longitude)
+            weatherViewModel.getWeatherDetail(coordinates.latitude,coordinates.longitude)
 
         } else {
             gpsTracker!!.showSettingsAlert()
         }
     }
 
-  /*  private fun isNetworkAvailable(): Boolean {
-        val connectivityManager =
-            context?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        val activeNetworkInfo = connectivityManager.activeNetworkInfo
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected
-    }
-
-    fun isNetworkConnected(): Boolean {
-        return if (isNetworkAvailable()) {
-            true
-        } else {
-            showAlert(context)
-            false
-        }
-    }*/
 
     private fun init() {
         weatherViewModel = ViewModelProvider(requireActivity()).get(WeatherViewModel::class.java)
@@ -98,23 +79,9 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
             if (CommonMethod.isNetworkConnected(requireContext())) {
                 fragmentWeatherBinding.loadingProgressBar.visibility=View.VISIBLE
                 getLocation()
+                //CommonMethod.getLocation(requireContext())
             }
             //weatherViewModel.getWeatherDetail(12.9889055,77.574044)
         }
     }
 }
-
-/*
-fun showAlert(context: Context?) {
-    val alertDialog = AlertDialog.Builder(context)
-
-    //Setting Dialog Title
-    alertDialog.setTitle(R.string.NetworkPermission)
-
-    //Setting Dialog Message
-    alertDialog.setMessage(R.string.NetworkConnection)
-
-    //On pressing cancel button
-    alertDialog.setNegativeButton(R.string.ok) { dialog, which -> dialog.cancel() }
-    alertDialog.show()
-}*/

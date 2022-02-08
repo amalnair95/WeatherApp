@@ -3,18 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/weatherFragment">
+    app:startDestination="@id/categoryFragment">
 
+
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.example.weatherapp.chooseCategory.ChooseCategoryFragment"
+        android:label="Choose Category"
+        tools:layout="@layout/fragment_category"
+        >
+        <action
+            android:id="@+id/action_category_to_weather"
+            app:destination="@+id/weatherFragment" />
+        <action
+            android:id="@+id/action_category_to_air"
+            app:destination="@+id/airFragment" />
+
+    </fragment>
 
     <fragment
         android:id="@+id/weatherFragment"
         android:name="com.example.weatherapp.weatherFragment.WeatherFragment"
         android:label="Weather Report"
         tools:layout="@layout/fragment_weather">
-
-<!--        <action
-            android:id="@+id/action_category_to_books"
-            app:destination="@+id/bookFragment" />-->
     </fragment>
+    <fragment
+        android:id="@+id/airFragment"
+        android:name="com.example.weatherapp.airFragment.AirFragment"
+        android:label="Air Report"
+        tools:layout="@layout/fragment_air">
+    </fragment>
+
 
 </navigation>

@@ -9,6 +9,7 @@
     <string name="NetworkPermission">Internet Permission</string>
     <string name="_176_c">°F</string>
     <string name="weather_details">Weather Details</string>
+    <string name="air_details">Air Details</string>
     <string name="apparent_temperature">Apparent Temperature</string>
     <string name="humidity">Humidity</string>
     <string name="wind_speed">Wind Speed</string>
@@ -18,4 +19,11 @@
     <string name="cloud_cover">Cloud Cover</string>
     <string name="wind_bearing">Wind Bearing</string>
     <string name="ozone">Ozone</string>
+    <string name="air_quality_details">Air Quality Details</string>
+    <string name="carbon_monoxide">Carbon Monoxide</string>
+    <string name="nitrogen_oxide">Nitrogen Oxide</string>
+    <string name="pm10">PM10</string>
+    <string name="pm2_5">PM2.5</string>
+    <string name="sulphur_dioxide">Sulphur Dioxide</string>
+    <string name="air_quality_index">Air Quality Index</string>
 </resources>

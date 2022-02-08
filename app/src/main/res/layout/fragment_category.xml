@@ -1,11 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:background="@drawable/gradient_background">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/weatherCardView"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:layout_margin="@dimen/_10dp"
+            app:cardCornerRadius="@dimen/_6dp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#ADD1AE"
+            app:cardElevation="@dimen/_4dp"
+            >
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:src="@drawable/raining"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/_6dp"
+                android:layout_gravity="bottom"
+                android:fontFamily="@font/lato_bold"
+                android:textSize="@dimen/_16sp"
+                android:text="@string/weather_details"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/airCardView"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:layout_margin="@dimen/_10dp"
+            app:cardCornerRadius="@dimen/_6dp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="#ADD1AE"
+            app:cardElevation="@dimen/_4dp"
+            >
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:src="@drawable/clean_air"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/_6dp"
+                android:layout_gravity="bottom"
+                android:fontFamily="@font/lato_bold"
+                android:textSize="@dimen/_16sp"
+                android:text="@string/air_quality_details"/>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
 
 
 </LinearLayout>

@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/amalk/StudioProjects/WeatherApp/app/src/main/res/drawable/gradient_background.xml" value="0.1805" />
+        <entry key="..\:/Users/amalk/StudioProjects/WeatherApp/app/src/main/res/layout/fragment_air.xml" value="0.1453804347826087" />
+        <entry key="..\:/Users/amalk/StudioProjects/WeatherApp/app/src/main/res/layout/fragment_category.xml" value="0.14666666666666667" />
+        <entry key="..\:/Users/amalk/StudioProjects/WeatherApp/app/src/main/res/layout/fragment_weather.xml" value="0.1453804347826087" />
         <entry key="..\:/Users/bulus/AndroidStudioProjects/WeatherApp/app/src/main/res/drawable/gradient_background.xml" value="0.1805" />
         <entry key="..\:/Users/bulus/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/activity_main.xml" value="0.1453804347826087" />
         <entry key="..\:/Users/bulus/AndroidStudioProjects/WeatherApp/app/src/main/res/layout/fragment_category.xml" value="0.1453804347826087" />
