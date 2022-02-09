@@ -26,4 +26,10 @@
     <string name="pm2_5">PM2.5</string>
     <string name="sulphur_dioxide">Sulphur Dioxide</string>
     <string name="air_quality_index">Air Quality Index</string>
+    <string name="pollen_details">Pollen Details</string>
+    <string name="grass_pollen">Grass Pollen</string>
+    <string name="tree_pollen">Tree Pollen</string>
+    <string name="count">Count:</string>
+    <string name="risk">Risk:</string>
+    <string name="weed_pollen">Weed Pollen</string>
 </resources>

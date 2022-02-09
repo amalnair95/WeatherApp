@@ -33,6 +33,9 @@ class ChooseCategoryFragment:Fragment(R.layout.fragment_category) {
         fragmentCategoryBinding.airCardView.setOnClickListener {
             Navigation.findNavController(fragmentCategoryBinding.root).navigate(R.id.action_category_to_air)
         }
+        fragmentCategoryBinding.pollenCardView.setOnClickListener {
+            Navigation.findNavController(fragmentCategoryBinding.root).navigate(R.id.action_category_to_pollen)
+        }
     }
 
 

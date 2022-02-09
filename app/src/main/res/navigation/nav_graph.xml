@@ -15,9 +15,14 @@
         <action
             android:id="@+id/action_category_to_weather"
             app:destination="@+id/weatherFragment" />
+
         <action
             android:id="@+id/action_category_to_air"
             app:destination="@+id/airFragment" />
+
+        <action
+            android:id="@+id/action_category_to_pollen"
+            app:destination="@+id/pollenFragment" />
 
     </fragment>
 
@@ -31,6 +36,12 @@
         android:id="@+id/airFragment"
         android:name="com.example.weatherapp.airFragment.AirFragment"
         android:label="Air Report"
+        tools:layout="@layout/fragment_air">
+    </fragment>
+    <fragment
+        android:id="@+id/pollenFragment"
+        android:name="com.example.weatherapp.pollenFragment.PollenFragment"
+        android:label="Pollen Report"
         tools:layout="@layout/fragment_air">
     </fragment>
 

@@ -11,7 +11,6 @@ import com.example.weatherapp.commonMethod.GPSTracker
 import com.example.weatherapp.databinding.FragmentAirBinding
 import com.example.weatherapp.weatherFragment.WeatherViewModel
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
-
 class AirFragment : Fragment(R.layout.fragment_air) {
     private val fragmentAirBinding by viewBinding(FragmentAirBinding::bind)
     private val TAG = AirFragment::class.java.simpleName
@@ -29,7 +28,7 @@ class AirFragment : Fragment(R.layout.fragment_air) {
     private fun setObservers() {
         weatherViewModel.airResultLiveDataList.observe(viewLifecycleOwner) {
             fragmentAirBinding.loadingProgressBar.visibility = View.GONE
-            fragmentAirBinding.mainLayout.visibility = View.VISIBLE
+            fragmentAirBinding.airMainLayout.visibility = View.VISIBLE
             println("data $it")
             val airDetails = it[0]
             fragmentAirBinding.address.text=address
@@ -47,9 +46,10 @@ class AirFragment : Fragment(R.layout.fragment_air) {
     private fun init() {
         weatherViewModel = ViewModelProvider(requireActivity()).get(WeatherViewModel::class.java)
         weatherViewModel.clearResultSet()
-        fragmentAirBinding.airTestButton.setOnClickListener {
+        fragmentAirBinding.testButton.setOnClickListener {
             fragmentAirBinding.loadingProgressBar.visibility=View.VISIBLE
-            fragmentAirBinding.mainLayout.visibility=View.GONE
+            fragmentAirBinding.airMainLayout.visibility=View.GONE
+            fragmentAirBinding.pollenMainLayout.visibility=View.GONE
             getLocation()
         }
     }
