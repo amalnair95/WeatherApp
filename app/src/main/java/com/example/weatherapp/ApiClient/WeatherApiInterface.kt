@@ -1,6 +1,8 @@
 package com.example.weatherapp.apiClient
 
 import com.example.weatherapp.models.AirResults
+import com.example.weatherapp.models.PollenResults
+import com.example.weatherapp.models.SoilResults
 import com.example.weatherapp.models.WeatherResults
 import retrofit2.Call
 import retrofit2.http.GET
@@ -16,5 +18,13 @@ interface WeatherApiInterface {
     @Headers("Content-Type: application/json","x-api-key: 9ba29c96f9a67ee5abbe6c8ec146a393d56f422db854dc4d521bf37e4a9b30d3")
     @GET("/latest/by-lat-lng")
     fun getAirDetail(@Query("lat") lat:Double, @Query("lng") long:Double):Call<AirResults>
+
+    @Headers("Content-Type: application/json","x-api-key: 9ba29c96f9a67ee5abbe6c8ec146a393d56f422db854dc4d521bf37e4a9b30d3")
+    @GET("/latest/pollen/by-lat-lng")
+    fun getPollenDetail(@Query("lat") lat:Double, @Query("lng") long:Double):Call<PollenResults>
+
+    @Headers("Content-Type: application/json","x-api-key: 9ba29c96f9a67ee5abbe6c8ec146a393d56f422db854dc4d521bf37e4a9b30d3")
+    @GET("/soil/latest/by-lat-lng")
+    fun getSoilDetail(@Query("lat") lat:Double, @Query("lng") long:Double):Call<SoilResults>
 
 }

@@ -24,6 +24,9 @@
             android:id="@+id/action_category_to_pollen"
             app:destination="@+id/pollenFragment" />
 
+        <action
+            android:id="@+id/action_category_to_soil"
+            app:destination="@+id/soilFragment" />
     </fragment>
 
     <fragment
@@ -44,6 +47,11 @@
         android:label="Pollen Report"
         tools:layout="@layout/fragment_air">
     </fragment>
-
+    <fragment
+        android:id="@+id/soilFragment"
+        android:name="com.example.weatherapp.soilFragment.SoilFragment"
+        android:label="Soil Report"
+        tools:layout="@layout/fragment_air">
+    </fragment>
 
 </navigation>

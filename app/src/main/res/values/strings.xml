@@ -32,4 +32,8 @@
     <string name="count">Count:</string>
     <string name="risk">Risk:</string>
     <string name="weed_pollen">Weed Pollen</string>
+    <string name="soil_details">Soil Details</string>
+    <string name="soil_moisture">Soil Moisture:</string>
+    <string name="soil_temperature">Soil Temperature:</string>
+
 </resources>

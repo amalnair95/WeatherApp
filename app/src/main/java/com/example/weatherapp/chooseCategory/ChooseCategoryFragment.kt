@@ -36,6 +36,9 @@ class ChooseCategoryFragment:Fragment(R.layout.fragment_category) {
         fragmentCategoryBinding.pollenCardView.setOnClickListener {
             Navigation.findNavController(fragmentCategoryBinding.root).navigate(R.id.action_category_to_pollen)
         }
+        fragmentCategoryBinding.soilCardView.setOnClickListener {
+            Navigation.findNavController(fragmentCategoryBinding.root).navigate(R.id.action_category_to_soil)
+        }
     }
 
 
