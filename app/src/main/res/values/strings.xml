@@ -35,5 +35,11 @@
     <string name="soil_details">Soil Details</string>
     <string name="soil_moisture">Soil Moisture:</string>
     <string name="soil_temperature">Soil Temperature:</string>
+    <string name="fire_details">Fire Details</string>
+    <string name="confidence">Confidence</string>
+    <string name="frp">frp</string>
+    <string name="daynight">DayNight</string>
+    <string name="distance">Distance</string>
+
 
 </resources>

@@ -27,6 +27,10 @@
         <action
             android:id="@+id/action_category_to_soil"
             app:destination="@+id/soilFragment" />
+
+        <action
+            android:id="@+id/action_category_to_fire"
+            app:destination="@+id/fireFragment" />
     </fragment>
 
     <fragment
@@ -51,6 +55,12 @@
         android:id="@+id/soilFragment"
         android:name="com.example.weatherapp.soilFragment.SoilFragment"
         android:label="Soil Report"
+        tools:layout="@layout/fragment_air">
+    </fragment>
+    <fragment
+        android:id="@+id/fireFragment"
+        android:name="com.example.weatherapp.fireFragment.FireFragment"
+        android:label="Fire Report"
         tools:layout="@layout/fragment_air">
     </fragment>
 

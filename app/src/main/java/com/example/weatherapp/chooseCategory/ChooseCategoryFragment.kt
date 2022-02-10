@@ -39,6 +39,10 @@ class ChooseCategoryFragment:Fragment(R.layout.fragment_category) {
         fragmentCategoryBinding.soilCardView.setOnClickListener {
             Navigation.findNavController(fragmentCategoryBinding.root).navigate(R.id.action_category_to_soil)
         }
+
+        fragmentCategoryBinding.fireCardView.setOnClickListener {
+            Navigation.findNavController(fragmentCategoryBinding.root).navigate(R.id.action_category_to_fire)
+        }
     }
 
 

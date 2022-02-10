@@ -15,11 +15,13 @@ class WeatherViewModel:ViewModel() {
     private lateinit var airCall: Call<AirResults>
     private lateinit var pollenCall: Call<PollenResults>
     private lateinit var soilCall: Call<SoilResults>
+    private lateinit var fireCall: Call<FireResults>
 
     var resultLiveDataList: MutableLiveData<WeatherData> = MutableLiveData()
     var airResultLiveDataList: MutableLiveData<List<AirData>> = MutableLiveData()
     var pollenResultLiveDataList: MutableLiveData<List<PollenData>> = MutableLiveData()
     var soilResultLiveDataList: MutableLiveData<List<SoilData>> = MutableLiveData()
+    var fireResultLiveDataList: MutableLiveData<List<FireData>> = MutableLiveData()
 
 
     fun clearResultSet(){
@@ -27,6 +29,7 @@ class WeatherViewModel:ViewModel() {
         resultLiveDataList = MutableLiveData()
         pollenResultLiveDataList = MutableLiveData()
         soilResultLiveDataList = MutableLiveData()
+        fireResultLiveDataList = MutableLiveData()
     }
 
     fun getWeatherDetail(lat: Double,long:Double) {
@@ -107,6 +110,27 @@ class WeatherViewModel:ViewModel() {
             }
 
             override fun onFailure(call: Call<SoilResults>, t: Throwable) {
+                val responseResult = t.toString()
+                Log.e(TAG, "Response $responseResult")
+            }
+
+
+        })
+    }
+
+    fun getFireDetail(lat: Double,long:Double) {
+        Log.d(TAG,"API called for lat $lat and long $long")
+        val apiInterface: WeatherApiInterface = WeatherApiClient.getApiClient().create(WeatherApiInterface::class.java)
+        fireCall = apiInterface.getFireDetail(lat,long)
+        fireCall.enqueue(object : retrofit2.Callback<FireResults> {
+            override fun onResponse(call: Call<FireResults>, response: Response<FireResults>) {
+                if (response.body() != null && response.isSuccessful && response.body()!= null) {
+                    val  fireData = response.body()!!.results
+                    fireResultLiveDataList.postValue(fireData)
+                }
+            }
+
+            override fun onFailure(call: Call<FireResults>, t: Throwable) {
                 val responseResult = t.toString()
                 Log.e(TAG, "Response $responseResult")
             }
