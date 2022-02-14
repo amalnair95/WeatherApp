@@ -6,6 +6,7 @@ import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -21,7 +22,7 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
     private val TAG = WeatherFragment::class.java.simpleName
     private lateinit var weatherViewModel: WeatherViewModel
     private var gpsTracker: GPSTracker? = null
-    private var address:String?=null
+    private var address: String? = null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         Log.e(TAG, "On create view started..")
@@ -44,15 +45,19 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
             fragmentWeatherBinding.temperatureTextView.text = it.temperature
             //((Fahrenheit-32)*5)/9;
             fragmentWeatherBinding.summaryTextView.text = it.summary
-            fragmentWeatherBinding.address.text=address
-            fragmentWeatherBinding.apparentTempTextview.text="${it.apparentTemperature} \u2109"
-            fragmentWeatherBinding.humidityTextview.text=it.humidity
-            fragmentWeatherBinding.windSpeedTextview.text="${it.windSpeed} km/h"
-            fragmentWeatherBinding.dewPointTextview.text=it.dewPoint
-            fragmentWeatherBinding.visibilityTextview.text="${it.visibility} km"
-            fragmentWeatherBinding.airPressureTextview.text="${it.pressure} hPa"
-            fragmentWeatherBinding.cloudCoverTextview.text=it.cloudCover
-            fragmentWeatherBinding.ozoneTextview.text=it.ozone
+            if (address != null) {
+                fragmentWeatherBinding.address.text = address
+            } else {
+                fragmentWeatherBinding.address.visibility = View.GONE
+            }
+            fragmentWeatherBinding.apparentTempTextview.text = "${it.apparentTemperature} \u2109"
+            fragmentWeatherBinding.humidityTextview.text = it.humidity
+            fragmentWeatherBinding.windSpeedTextview.text = "${it.windSpeed} km/h"
+            fragmentWeatherBinding.dewPointTextview.text = it.dewPoint
+            fragmentWeatherBinding.visibilityTextview.text = "${it.visibility} km"
+            fragmentWeatherBinding.airPressureTextview.text = "${it.pressure} hPa"
+            fragmentWeatherBinding.cloudCoverTextview.text = it.cloudCover
+            fragmentWeatherBinding.ozoneTextview.text = it.ozone
         })
     }
 
@@ -60,13 +65,22 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
     private fun getLocation() {
         gpsTracker = GPSTracker(requireContext())
         if (gpsTracker?.isGPSTrackingEnabled!!) {
-            val coordinates=CommonMethod.getLocation(requireContext())
-            address=coordinates.address
+            val coordinates = CommonMethod.getLocation(requireContext())
+            address = coordinates.address
             //weatherViewModel.clearResultSet()
-            weatherViewModel.getWeatherDetail(coordinates.latitude,coordinates.longitude)
+            weatherViewModel.getWeatherDetail(coordinates.latitude, coordinates.longitude)
 
         } else {
             gpsTracker!!.showSettingsAlert()
+        }
+    }
+
+    private fun getData() {
+        fragmentWeatherBinding.mainLayout.visibility = View.GONE
+        if (CommonMethod.isNetworkConnected(requireContext())) {
+            fragmentWeatherBinding.loadingProgressBar.visibility = View.VISIBLE
+            getLocation()
+            //CommonMethod.getLocation(requireContext())
         }
     }
 
@@ -74,14 +88,19 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
     private fun init() {
         weatherViewModel = ViewModelProvider(requireActivity()).get(WeatherViewModel::class.java)
         weatherViewModel.clearResultSet()
-        fragmentWeatherBinding.testButton.setOnClickListener {
-            fragmentWeatherBinding.mainLayout.visibility=View.GONE
-            if (CommonMethod.isNetworkConnected(requireContext())) {
-                fragmentWeatherBinding.loadingProgressBar.visibility=View.VISIBLE
-                getLocation()
-                //CommonMethod.getLocation(requireContext())
-            }
-            //weatherViewModel.getWeatherDetail(12.9889055,77.574044)
+        getData()
+        /*  fragmentWeatherBinding.testButton.setOnClickListener {
+              fragmentWeatherBinding.mainLayout.visibility=View.GONE
+              if (CommonMethod.isNetworkConnected(requireContext())) {
+                  fragmentWeatherBinding.loadingProgressBar.visibility=View.VISIBLE
+                  getLocation()
+                  //CommonMethod.getLocation(requireContext())
+              }
+              //weatherViewModel.getWeatherDetail(12.9889055,77.574044)
+          }*/
+        fragmentWeatherBinding.swipeRefreshLayout.setOnRefreshListener {
+            getData()
+            fragmentWeatherBinding.swipeRefreshLayout.isRefreshing = false
         }
     }
 }

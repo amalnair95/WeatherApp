@@ -3,6 +3,8 @@ package com.example.weatherapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import android.view.View
+import androidx.appcompat.app.ActionBar
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -11,10 +13,30 @@ import androidx.navigation.fragment.NavHostFragment
 class MainActivity : AppCompatActivity() {
     private var navHostFragment: NavHostFragment? = null
     private var navController: NavController? = null
+    private var actionBar: ActionBar? = null
+    private var toolbarMenu: Menu? = null
+    private lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        toolbar = findViewById(R.id.toolbar)
+        toolbar.setTitle(null)
+        actionBar = supportActionBar
+        if (actionBar == null) {
+            setSupportActionBar(toolbar)
+            actionBar = supportActionBar
+            actionBar?.elevation = 4.0f
+            actionBar?.setDisplayHomeAsUpEnabled(true)
+        } else {
+            toolbar.visibility = View.GONE
+        }
+        //actionBar!!.setDisplayHomeAsUpEnabled(true)
+        //actionBar!!.setDisplayHomeAsUpEnabled(true)
+        //actionBar!!.setDisplayShowHomeEnabled(true)
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
+        navController!!.addOnDestinationChangedListener { controller, destination, arguments ->
+            actionBar!!.title = destination.label
+        }
     }
 }
