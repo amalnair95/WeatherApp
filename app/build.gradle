@@ -76,4 +76,8 @@ dependencies {
 
     //QR-barcode Scanner
     implementation 'com.github.yuriy-budiyev:code-scanner:2.1.0'
+
+    //swipeRefresh Layout
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+
 }

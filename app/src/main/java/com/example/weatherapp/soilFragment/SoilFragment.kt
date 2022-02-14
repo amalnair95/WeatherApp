@@ -14,7 +14,7 @@ import com.example.weatherapp.weatherFragment.WeatherViewModel
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 import kotlin.math.roundToInt
 
-class SoilFragment:Fragment(R.layout.fragment_air) {
+class SoilFragment : Fragment(R.layout.fragment_air) {
 
     private val fragmentSoilBinding by viewBinding(FragmentAirBinding::bind)
     private val TAG = SoilFragment::class.java.simpleName
@@ -34,22 +34,41 @@ class SoilFragment:Fragment(R.layout.fragment_air) {
             fragmentSoilBinding.soilMainLayout.visibility = View.VISIBLE
             println("data $it")
             val soilDetails = it[0]
-            fragmentSoilBinding.soilAddress.text=address
-            fragmentSoilBinding.soilTempTextView.text= "${soilDetails.soilTemp.roundToInt().toString()} \u2103"
-            fragmentSoilBinding.soilMoistTextView.text= "${soilDetails.soilMoist.roundToInt().toString()}%"
+            if (fragmentSoilBinding.soilAddress.text != null) {
+                fragmentSoilBinding.soilAddress.text = address
+            } else {
+                fragmentSoilBinding.soilAddress.visibility = View.GONE
+            }
+            fragmentSoilBinding.soilTempTextView.text =
+                "${soilDetails.soilTemp.roundToInt().toString()} \u2103"
+            fragmentSoilBinding.soilMoistTextView.text =
+                "${soilDetails.soilMoist.roundToInt().toString()}%"
 
         }
+    }
+
+    private fun getData() {
+        fragmentSoilBinding.loadingProgressBar.visibility = View.VISIBLE
+        fragmentSoilBinding.airMainLayout.visibility = View.GONE
+        fragmentSoilBinding.pollenMainLayout.visibility = View.GONE
+        fragmentSoilBinding.soilMainLayout.visibility = View.GONE
+        getLocation()
     }
 
     private fun init() {
         weatherViewModel = ViewModelProvider(requireActivity()).get(WeatherViewModel::class.java)
         weatherViewModel.clearResultSet()
-        fragmentSoilBinding.testButton.setOnClickListener {
+        /*fragmentSoilBinding.testButton.setOnClickListener {
             fragmentSoilBinding.loadingProgressBar.visibility=View.VISIBLE
             fragmentSoilBinding.airMainLayout.visibility=View.GONE
             fragmentSoilBinding.pollenMainLayout.visibility=View.GONE
             fragmentSoilBinding.soilMainLayout.visibility=View.GONE
             getLocation()
+        }*/
+        getData()
+        fragmentSoilBinding.swipeRefreshLayout.setOnRefreshListener {
+            getData()
+            fragmentSoilBinding.swipeRefreshLayout.isRefreshing = false
         }
     }
 

@@ -14,7 +14,7 @@ import com.example.weatherapp.weatherFragment.WeatherViewModel
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 import kotlin.math.roundToInt
 
-class FireFragment:Fragment(R.layout.fragment_air){
+class FireFragment : Fragment(R.layout.fragment_air) {
 
     private val fragmentFireBinding by viewBinding(FragmentAirBinding::bind)
     private val TAG = FireFragment::class.java.simpleName
@@ -36,32 +36,52 @@ class FireFragment:Fragment(R.layout.fragment_air){
             fragmentFireBinding.fireMainLayout.visibility = View.VISIBLE
             println("data $it")
             val fireDetails = it[0]
-            fragmentFireBinding.fireAddress.text=address
-            fragmentFireBinding.fireConfidenceTextView.text= fireDetails.confidence
-            fragmentFireBinding.frpTextView.text= "${fireDetails.frp.toString()} MW"
-            if (fireDetails.dayNight!=null){
-                fragmentFireBinding.dayNightLayout.visibility=View.VISIBLE
-                fragmentFireBinding.dayNightTextView.text=fireDetails.dayNight
-            }else{
-                fragmentFireBinding.dayNightLayout.visibility=View.GONE
+            if (fragmentFireBinding.fireAddress.text != null) {
+                fragmentFireBinding.fireAddress.text = address
+            } else {
+                fragmentFireBinding.fireAddress.visibility = View.GONE
             }
-            fragmentFireBinding.distanceTextView.text="${fireDetails.distance.roundToInt().toString()} km"
+
+            fragmentFireBinding.fireConfidenceTextView.text = fireDetails.confidence
+            fragmentFireBinding.frpTextView.text = "${fireDetails.frp.toString()} MW"
+            if (fireDetails.dayNight != null) {
+                fragmentFireBinding.dayNightLayout.visibility = View.VISIBLE
+                fragmentFireBinding.dayNightTextView.text = fireDetails.dayNight
+            } else {
+                fragmentFireBinding.dayNightLayout.visibility = View.GONE
+            }
+            fragmentFireBinding.distanceTextView.text =
+                "${fireDetails.distance.roundToInt().toString()} km"
 
         }
 
     }
 
+    private fun getData() {
+        fragmentFireBinding.loadingProgressBar.visibility = View.VISIBLE
+        fragmentFireBinding.airMainLayout.visibility = View.GONE
+        fragmentFireBinding.pollenMainLayout.visibility = View.GONE
+        fragmentFireBinding.soilMainLayout.visibility = View.GONE
+        fragmentFireBinding.fireMainLayout.visibility = View.GONE
+        getLocation()
+    }
+
     private fun init() {
         weatherViewModel = ViewModelProvider(requireActivity()).get(WeatherViewModel::class.java)
         weatherViewModel.clearResultSet()
-        fragmentFireBinding.testButton.setOnClickListener {
-            fragmentFireBinding.loadingProgressBar.visibility=View.VISIBLE
-            fragmentFireBinding.airMainLayout.visibility=View.GONE
-            fragmentFireBinding.pollenMainLayout.visibility=View.GONE
-            fragmentFireBinding.soilMainLayout.visibility=View.GONE
-            fragmentFireBinding.fireMainLayout.visibility=View.GONE
-            getLocation()
+        getData()
+        fragmentFireBinding.swipeRefreshLayout.setOnRefreshListener {
+            getData()
+            fragmentFireBinding.swipeRefreshLayout.isRefreshing = false
         }
+        /* fragmentFireBinding.testButton.setOnClickListener {
+             fragmentFireBinding.loadingProgressBar.visibility=View.VISIBLE
+             fragmentFireBinding.airMainLayout.visibility=View.GONE
+             fragmentFireBinding.pollenMainLayout.visibility=View.GONE
+             fragmentFireBinding.soilMainLayout.visibility=View.GONE
+             fragmentFireBinding.fireMainLayout.visibility=View.GONE
+             getLocation()
+         }*/
     }
 
     private fun getLocation() {
