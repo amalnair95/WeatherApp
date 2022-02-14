@@ -31,9 +31,6 @@ class MainActivity : AppCompatActivity() {
         } else {
             toolbar.visibility = View.GONE
         }
-        //actionBar!!.setDisplayHomeAsUpEnabled(true)
-        //actionBar!!.setDisplayHomeAsUpEnabled(true)
-        //actionBar!!.setDisplayShowHomeEnabled(true)
         navController = Navigation.findNavController(this, R.id.nav_host_fragment)
         navController!!.addOnDestinationChangedListener { controller, destination, arguments ->
             actionBar!!.title = destination.label
