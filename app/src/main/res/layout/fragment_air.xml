@@ -26,18 +26,18 @@
                     android:id="@+id/address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/airDetailsLayout"
                     android:layout_marginStart="@dimen/_10dp"
                     android:fontFamily="@font/lato_regular"
                     android:padding="@dimen/_8dp"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_14sp"
+                    android:textSize="@dimen/_16sp"
                     tools:text="bsidbi" />
 
                 <TextView
                     android:id="@+id/weatherDetailsTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/address"
                     android:layout_marginStart="@dimen/_10dp"
                     android:layout_marginTop="@dimen/_10dp"
                     android:fontFamily="@font/lato_bold"
@@ -47,6 +47,7 @@
                     android:textSize="@dimen/_18sp" />
 
                 <LinearLayout
+                    android:id="@+id/airDetailsLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/weatherDetailsTextView"
@@ -288,18 +289,18 @@
                     android:id="@+id/pollenAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/pollenDetailsLayout"
                     android:layout_marginStart="@dimen/_10dp"
                     android:fontFamily="@font/lato_regular"
                     android:padding="@dimen/_8dp"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_14sp"
+                    android:textSize="@dimen/_16sp"
                     tools:text="bsidbi" />
 
                 <TextView
                     android:id="@+id/pollenDetailsTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/pollenAddress"
                     android:layout_marginStart="@dimen/_10dp"
                     android:layout_marginTop="@dimen/_10dp"
                     android:fontFamily="@font/lato_bold"
@@ -309,6 +310,7 @@
                     android:textSize="@dimen/_18sp" />
 
                 <LinearLayout
+                    android:id="@+id/pollenDetailsLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/pollenDetailsTextView"
@@ -586,16 +588,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_10dp"
                     android:fontFamily="@font/lato_regular"
+                    android:layout_below="@id/soilDetailsLayout"
                     android:padding="@dimen/_8dp"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_14sp"
+                    android:textSize="@dimen/_16sp"
                     tools:text="bsidbi" />
 
                 <TextView
                     android:id="@+id/soilDetailsTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/soilAddress"
                     android:layout_marginStart="@dimen/_10dp"
                     android:layout_marginTop="@dimen/_10dp"
                     android:fontFamily="@font/lato_bold"
@@ -605,6 +607,7 @@
                     android:textSize="@dimen/_18sp" />
 
                 <LinearLayout
+                    android:id="@+id/soilDetailsLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/soilDetailsTextView"
@@ -704,18 +707,18 @@
                     android:id="@+id/fireAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/fireDetailsLayout"
                     android:layout_marginStart="@dimen/_10dp"
                     android:fontFamily="@font/lato_regular"
                     android:padding="@dimen/_8dp"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/_14sp"
+                    android:textSize="@dimen/_16sp"
                     tools:text="bsidbi" />
 
                 <TextView
                     android:id="@+id/fireDetailsTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/fireAddress"
                     android:layout_marginStart="@dimen/_10dp"
                     android:layout_marginTop="@dimen/_10dp"
                     android:fontFamily="@font/lato_bold"
@@ -725,6 +728,7 @@
                     android:textSize="@dimen/_18sp" />
 
                 <LinearLayout
+                    android:id="@+id/fireDetailsLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/fireDetailsTextView"

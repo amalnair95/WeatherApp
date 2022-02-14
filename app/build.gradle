@@ -73,4 +73,7 @@ dependencies {
 
     // ViewBinding Delegate
     implementation 'com.github.Zhuinden:fragmentviewbindingdelegate-kt:1.0.0'
+
+    //QR-barcode Scanner
+    implementation 'com.github.yuriy-budiyev:code-scanner:2.1.0'
 }

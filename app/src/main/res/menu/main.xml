@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/scanner"
+        android:title="Scanner"
+        android:icon="@drawable/ic_baseline_qr_code_scanner_24"
+        app:actionViewClass="com.budiyev.android.codescanner.CodeScannerView"
+        app:showAsAction="always" />
+
+</menu>

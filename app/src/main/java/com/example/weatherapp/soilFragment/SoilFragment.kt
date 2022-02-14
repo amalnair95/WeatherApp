@@ -35,8 +35,8 @@ class SoilFragment:Fragment(R.layout.fragment_air) {
             println("data $it")
             val soilDetails = it[0]
             fragmentSoilBinding.soilAddress.text=address
-            fragmentSoilBinding.soilTempTextView.text= soilDetails.soilTemp.roundToInt().toString()
-            fragmentSoilBinding.soilMoistTextView.text= soilDetails.soilMoist.toString()
+            fragmentSoilBinding.soilTempTextView.text= "${soilDetails.soilTemp.roundToInt().toString()} \u2103"
+            fragmentSoilBinding.soilMoistTextView.text= "${soilDetails.soilMoist.roundToInt().toString()}%"
 
         }
     }

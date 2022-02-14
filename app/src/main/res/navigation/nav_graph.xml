@@ -31,6 +31,9 @@
         <action
             android:id="@+id/action_category_to_fire"
             app:destination="@+id/fireFragment" />
+        <action
+            android:id="@+id/action_category_to_scanner"
+            app:destination="@+id/scannerFragment" />
     </fragment>
 
     <fragment
@@ -62,6 +65,12 @@
         android:name="com.example.weatherapp.fireFragment.FireFragment"
         android:label="Fire Report"
         tools:layout="@layout/fragment_air">
+    </fragment>
+    <fragment
+        android:id="@+id/scannerFragment"
+        android:name="com.example.weatherapp.barcodeScannerFragment.ScannerFragment"
+        android:label="Barcode Scanner"
+        tools:layout="@layout/fragment_scanner">
     </fragment>
 
 </navigation>

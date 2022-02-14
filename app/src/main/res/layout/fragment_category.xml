@@ -130,16 +130,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:weightSum="2"
         >
 
         <androidx.cardview.widget.CardView
             android:id="@+id/fireCardView"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="140dp"
             android:layout_margin="@dimen/_10dp"
             app:cardCornerRadius="@dimen/_6dp"
             app:cardBackgroundColor="#ADD1AE"
             app:cardElevation="@dimen/_4dp"
+            android:layout_weight="1"
             >
             <ImageView
                 android:layout_width="70dp"
@@ -157,8 +159,8 @@
                 android:text="@string/fire_details"/>
         </androidx.cardview.widget.CardView>
 
-        <!--<androidx.cardview.widget.CardView
-            android:id="@+id/soilCardView"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/scannerCardView"
             android:layout_width="0dp"
             android:layout_height="140dp"
             android:layout_margin="@dimen/_10dp"
@@ -171,7 +173,7 @@
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
-                android:src="@drawable/soil"/>
+                android:src="@drawable/qr_code"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -180,8 +182,8 @@
                 android:layout_gravity="bottom"
                 android:fontFamily="@font/lato_bold"
                 android:textSize="@dimen/_16sp"
-                android:text="@string/soil_details"/>
-        </androidx.cardview.widget.CardView>-->
+                android:text="@string/scanner"/>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 </LinearLayout>

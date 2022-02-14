@@ -38,14 +38,14 @@ class FireFragment:Fragment(R.layout.fragment_air){
             val fireDetails = it[0]
             fragmentFireBinding.fireAddress.text=address
             fragmentFireBinding.fireConfidenceTextView.text= fireDetails.confidence
-            fragmentFireBinding.frpTextView.text= fireDetails.frp.toString()
+            fragmentFireBinding.frpTextView.text= "${fireDetails.frp.toString()} MW"
             if (fireDetails.dayNight!=null){
                 fragmentFireBinding.dayNightLayout.visibility=View.VISIBLE
                 fragmentFireBinding.dayNightTextView.text=fireDetails.dayNight
             }else{
                 fragmentFireBinding.dayNightLayout.visibility=View.GONE
             }
-            fragmentFireBinding.distanceTextView.text=fireDetails.distance.roundToInt().toString()
+            fragmentFireBinding.distanceTextView.text="${fireDetails.distance.roundToInt().toString()} km"
 
         }
 
