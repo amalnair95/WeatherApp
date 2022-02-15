@@ -1,12 +1,18 @@
 package com.example.weatherapp.weatherFragment
 
+import android.Manifest
 import android.app.AlertDialog
 import android.content.Context
+import android.content.pm.PackageManager
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -67,7 +73,6 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
         if (gpsTracker?.isGPSTrackingEnabled!!) {
             val coordinates = CommonMethod.getLocation(requireContext())
             address = coordinates.address
-            //weatherViewModel.clearResultSet()
             weatherViewModel.getWeatherDetail(coordinates.latitude, coordinates.longitude)
 
         } else {
@@ -80,7 +85,6 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
         if (CommonMethod.isNetworkConnected(requireContext())) {
             fragmentWeatherBinding.loadingProgressBar.visibility = View.VISIBLE
             getLocation()
-            //CommonMethod.getLocation(requireContext())
         }
     }
 
@@ -89,15 +93,6 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
         weatherViewModel = ViewModelProvider(requireActivity()).get(WeatherViewModel::class.java)
         weatherViewModel.clearResultSet()
         getData()
-        /*  fragmentWeatherBinding.testButton.setOnClickListener {
-              fragmentWeatherBinding.mainLayout.visibility=View.GONE
-              if (CommonMethod.isNetworkConnected(requireContext())) {
-                  fragmentWeatherBinding.loadingProgressBar.visibility=View.VISIBLE
-                  getLocation()
-                  //CommonMethod.getLocation(requireContext())
-              }
-              //weatherViewModel.getWeatherDetail(12.9889055,77.574044)
-          }*/
         fragmentWeatherBinding.swipeRefreshLayout.setOnRefreshListener {
             getData()
             fragmentWeatherBinding.swipeRefreshLayout.isRefreshing = false
