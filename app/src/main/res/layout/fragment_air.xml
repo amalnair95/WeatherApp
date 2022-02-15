@@ -20,6 +20,7 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
                 <!--          Air Layout            -->
                 <RelativeLayout
                     android:id="@+id/airMainLayout"
@@ -624,7 +625,7 @@
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_10dp"
                             app:cardCornerRadius="@dimen/_6dp"
-                            app:cardBackgroundColor="#ADD1AE"
+                            app:cardBackgroundColor="@color/cardBackground"
                             app:cardElevation="@dimen/_4dp">
 
                             <LinearLayout
@@ -744,7 +745,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_10dp"
-                            app:cardBackgroundColor="#ADD1AE"
+                            app:cardBackgroundColor="@color/cardBackground"
                             app:cardCornerRadius="@dimen/_6dp"
                             app:cardElevation="@dimen/_4dp">
 

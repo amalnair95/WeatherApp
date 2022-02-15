@@ -53,11 +53,13 @@ class PollenFragment : Fragment(R.layout.fragment_air) {
         }
     }
 
-    fun getData() {
-        fragmentPollenBinding.loadingProgressBar.visibility = View.VISIBLE
+    private fun getData() {
         fragmentPollenBinding.pollenMainLayout.visibility = View.GONE
         fragmentPollenBinding.airMainLayout.visibility = View.GONE
-        getLocation()
+        if (CommonMethod.isNetworkConnected(requireContext())) {
+            fragmentPollenBinding.loadingProgressBar.visibility = View.VISIBLE
+            getLocation()
+        }
     }
 
     private fun init() {
@@ -68,12 +70,6 @@ class PollenFragment : Fragment(R.layout.fragment_air) {
             getData()
             fragmentPollenBinding.swipeRefreshLayout.isRefreshing = false
         }
-        /*fragmentPollenBinding.testButton.setOnClickListener {
-            fragmentPollenBinding.loadingProgressBar.visibility=View.VISIBLE
-            fragmentPollenBinding.pollenMainLayout.visibility=View.GONE
-            fragmentPollenBinding.airMainLayout.visibility=View.GONE
-            getLocation()
-        }*/
     }
 
     private fun getLocation() {
@@ -81,7 +77,6 @@ class PollenFragment : Fragment(R.layout.fragment_air) {
         if (gpsTracker?.isGPSTrackingEnabled!!) {
             val coordinates = CommonMethod.getLocation(requireContext())
             address = coordinates.address
-            //weatherViewModel.clearResultSet()
             weatherViewModel.getPollenDetail(coordinates.latitude, coordinates.longitude)
 
         } else {

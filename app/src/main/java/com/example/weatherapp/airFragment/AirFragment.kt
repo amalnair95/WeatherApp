@@ -50,10 +50,12 @@ class AirFragment : Fragment(R.layout.fragment_air) {
     }
 
     private fun getData() {
-        fragmentAirBinding.loadingProgressBar.visibility = View.VISIBLE
         fragmentAirBinding.airMainLayout.visibility = View.GONE
         fragmentAirBinding.pollenMainLayout.visibility = View.GONE
-        getLocation()
+        if (CommonMethod.isNetworkConnected(requireContext())) {
+            fragmentAirBinding.loadingProgressBar.visibility = View.VISIBLE
+            getLocation()
+        }
     }
 
     private fun init() {

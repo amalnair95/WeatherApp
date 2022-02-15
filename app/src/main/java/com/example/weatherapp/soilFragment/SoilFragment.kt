@@ -6,7 +6,6 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.weatherapp.R
-import com.example.weatherapp.airFragment.AirFragment
 import com.example.weatherapp.commonMethod.CommonMethod
 import com.example.weatherapp.commonMethod.GPSTracker
 import com.example.weatherapp.databinding.FragmentAirBinding
@@ -48,23 +47,18 @@ class SoilFragment : Fragment(R.layout.fragment_air) {
     }
 
     private fun getData() {
-        fragmentSoilBinding.loadingProgressBar.visibility = View.VISIBLE
         fragmentSoilBinding.airMainLayout.visibility = View.GONE
         fragmentSoilBinding.pollenMainLayout.visibility = View.GONE
         fragmentSoilBinding.soilMainLayout.visibility = View.GONE
-        getLocation()
+        if (CommonMethod.isNetworkConnected(requireContext())) {
+            fragmentSoilBinding.loadingProgressBar.visibility = View.VISIBLE
+            getLocation()
+        }
     }
 
     private fun init() {
         weatherViewModel = ViewModelProvider(requireActivity()).get(WeatherViewModel::class.java)
         weatherViewModel.clearResultSet()
-        /*fragmentSoilBinding.testButton.setOnClickListener {
-            fragmentSoilBinding.loadingProgressBar.visibility=View.VISIBLE
-            fragmentSoilBinding.airMainLayout.visibility=View.GONE
-            fragmentSoilBinding.pollenMainLayout.visibility=View.GONE
-            fragmentSoilBinding.soilMainLayout.visibility=View.GONE
-            getLocation()
-        }*/
         getData()
         fragmentSoilBinding.swipeRefreshLayout.setOnRefreshListener {
             getData()
@@ -77,7 +71,6 @@ class SoilFragment : Fragment(R.layout.fragment_air) {
         if (gpsTracker?.isGPSTrackingEnabled!!) {
             val coordinates = CommonMethod.getLocation(requireContext())
             address = coordinates.address
-            //weatherViewModel.clearResultSet()
             weatherViewModel.getSoilDetail(coordinates.latitude, coordinates.longitude)
 
         } else {

@@ -58,12 +58,14 @@ class FireFragment : Fragment(R.layout.fragment_air) {
     }
 
     private fun getData() {
-        fragmentFireBinding.loadingProgressBar.visibility = View.VISIBLE
         fragmentFireBinding.airMainLayout.visibility = View.GONE
         fragmentFireBinding.pollenMainLayout.visibility = View.GONE
         fragmentFireBinding.soilMainLayout.visibility = View.GONE
         fragmentFireBinding.fireMainLayout.visibility = View.GONE
-        getLocation()
+        if (CommonMethod.isNetworkConnected(requireContext())) {
+            fragmentFireBinding.loadingProgressBar.visibility = View.VISIBLE
+            getLocation()
+        }
     }
 
     private fun init() {

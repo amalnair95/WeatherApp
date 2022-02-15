@@ -20,7 +20,7 @@
             android:layout_margin="@dimen/_10dp"
             app:cardCornerRadius="@dimen/_6dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="#ADD1AE"
+            app:cardBackgroundColor="@color/cardBackground"
             app:cardElevation="@dimen/_4dp"
             >
             <ImageView
@@ -46,7 +46,7 @@
             android:layout_margin="@dimen/_10dp"
             app:cardCornerRadius="@dimen/_6dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="#ADD1AE"
+            app:cardBackgroundColor="@color/cardBackground"
             app:cardElevation="@dimen/_4dp"
             >
             <ImageView
@@ -80,7 +80,7 @@
             android:layout_margin="@dimen/_10dp"
             app:cardCornerRadius="@dimen/_6dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="#ADD1AE"
+            app:cardBackgroundColor="@color/cardBackground"
             app:cardElevation="@dimen/_4dp"
             >
             <ImageView
@@ -106,7 +106,7 @@
             android:layout_margin="@dimen/_10dp"
             app:cardCornerRadius="@dimen/_6dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="#ADD1AE"
+            app:cardBackgroundColor="@color/cardBackground"
             app:cardElevation="@dimen/_4dp"
             >
             <ImageView
@@ -139,7 +139,7 @@
             android:layout_height="140dp"
             android:layout_margin="@dimen/_10dp"
             app:cardCornerRadius="@dimen/_6dp"
-            app:cardBackgroundColor="#ADD1AE"
+            app:cardBackgroundColor="@color/cardBackground"
             app:cardElevation="@dimen/_4dp"
             android:layout_weight="1"
             >
@@ -166,7 +166,7 @@
             android:layout_margin="@dimen/_10dp"
             app:cardCornerRadius="@dimen/_6dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="#ADD1AE"
+            app:cardBackgroundColor="@color/cardBackground"
             app:cardElevation="@dimen/_4dp"
             >
             <ImageView
