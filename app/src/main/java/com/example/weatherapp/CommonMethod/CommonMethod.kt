@@ -1,8 +1,12 @@
 package com.example.weatherapp.commonMethod
 
 import android.app.AlertDialog
+import android.app.Dialog
 import android.content.Context
 import android.net.ConnectivityManager
+import android.text.method.ScrollingMovementMethod
+import android.widget.ImageButton
+import android.widget.TextView
 import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.weatherapp.R
 import com.example.weatherapp.models.Coordinates
@@ -55,6 +59,19 @@ class CommonMethod {
 
             }
             return coordinates
+        }
+
+        fun loadPopUp(stringMessage:String,context: Context) {
+            val dialog = Dialog(context)
+            dialog.setContentView(R.layout.load_popup)
+            val txt: TextView = dialog.findViewById(R.id.messageTextView)
+            val dismissButton: ImageButton =dialog.findViewById(R.id.dismissButton)
+            txt.movementMethod = ScrollingMovementMethod()
+            txt.text = stringMessage
+            dialog.show()
+            dismissButton.setOnClickListener {
+                dialog.dismiss()
+            }
         }
     }
 }

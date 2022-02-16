@@ -13,6 +13,7 @@ import android.view.View
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
@@ -29,6 +30,7 @@ class ChooseCategoryFragment : Fragment(R.layout.fragment_category) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         Log.e(TAG, "On create view started..")
+        (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(false)
         permissionSetup()
         init()
         setObservers()
@@ -57,6 +59,7 @@ class ChooseCategoryFragment : Fragment(R.layout.fragment_category) {
             println("Permission has been granted by user")
         }else{
             Toast.makeText(requireContext(), "Permission denied", Toast.LENGTH_SHORT).show()
+            //requireActivity().finish()
         }
     }
 

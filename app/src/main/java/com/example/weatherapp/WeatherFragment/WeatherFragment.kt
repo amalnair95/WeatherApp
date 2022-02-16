@@ -32,6 +32,7 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         Log.e(TAG, "On create view started..")
+        (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         init()
         setObservers()
         super.onViewCreated(view, savedInstanceState)

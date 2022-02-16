@@ -3,6 +3,7 @@ package com.example.weatherapp.pollenFragment
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.weatherapp.R
@@ -21,6 +22,7 @@ class PollenFragment : Fragment(R.layout.fragment_air) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         Log.e(TAG, "On create view started..")
+        (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         init()
         setObservers()
         super.onViewCreated(view, savedInstanceState)

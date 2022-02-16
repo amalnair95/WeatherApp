@@ -2,15 +2,22 @@ package com.example.weatherapp.barcodeScannerFragment
 
 import android.Manifest
 import android.app.Activity
+import android.app.Dialog
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.view.View
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import com.budiyev.android.codescanner.*
 import com.example.weatherapp.R
+import com.example.weatherapp.commonMethod.CommonMethod
 import com.example.weatherapp.databinding.FragmentScannerBinding
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 
@@ -20,6 +27,7 @@ class ScannerFragment : Fragment(R.layout.fragment_scanner) {
     private lateinit var codeScanner: CodeScanner
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         checkCameraPermission()
         init()
         super.onViewCreated(view, savedInstanceState)
@@ -55,7 +63,11 @@ class ScannerFragment : Fragment(R.layout.fragment_scanner) {
          }
      }
  */
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == 1) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -74,7 +86,8 @@ class ScannerFragment : Fragment(R.layout.fragment_scanner) {
         codeScanner.isFlashEnabled = false
         codeScanner.decodeCallback = DecodeCallback {
             activity?.runOnUiThread {
-                Toast.makeText(activity, "Scan result: ${it.text}", Toast.LENGTH_LONG).show()
+                CommonMethod.loadPopUp(it.text,requireContext())
+                //Toast.makeText(activity, "Scan result: ${it.text}", Toast.LENGTH_LONG).show()
                 print("Scan result:${it.text}")
             }
         }
@@ -100,6 +113,7 @@ class ScannerFragment : Fragment(R.layout.fragment_scanner) {
 //        codeScanner = CodeScanner(requireContext(), fragmentScannerBinding.scannerView)
         codeScanner.startPreview()
     }
+
 
     override fun onPause() {
         codeScanner.releaseResources()
