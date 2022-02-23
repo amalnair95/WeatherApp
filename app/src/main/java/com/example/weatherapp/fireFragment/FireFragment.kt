@@ -35,25 +35,30 @@ class FireFragment : Fragment(R.layout.fragment_air) {
 
         weatherViewModel.fireResultLiveDataList.observe(viewLifecycleOwner) {
             fragmentFireBinding.loadingProgressBar.visibility = View.GONE
-            fragmentFireBinding.fireMainLayout.visibility = View.VISIBLE
             println("data $it")
-            val fireDetails = it[0]
-            if (fragmentFireBinding.fireAddress.text != null) {
-                fragmentFireBinding.fireAddress.text = address
-            } else {
-                fragmentFireBinding.fireAddress.visibility = View.GONE
+            if(it!=null){
+                fragmentFireBinding.fireMainLayout.visibility = View.VISIBLE
+                val fireDetails = it[0]
+                if (fragmentFireBinding.fireAddress.text != null) {
+                    fragmentFireBinding.fireAddress.text = address
+                } else {
+                    fragmentFireBinding.fireAddress.visibility = View.GONE
+                }
+
+                fragmentFireBinding.fireConfidenceTextView.text = fireDetails.confidence
+                fragmentFireBinding.frpTextView.text = "${fireDetails.frp.toString()} MW"
+                if (fireDetails.dayNight != null) {
+                    fragmentFireBinding.dayNightLayout.visibility = View.VISIBLE
+                    fragmentFireBinding.dayNightTextView.text = fireDetails.dayNight
+                } else {
+                    fragmentFireBinding.dayNightLayout.visibility = View.GONE
+                }
+                fragmentFireBinding.distanceTextView.text =
+                    "${fireDetails.distance.roundToInt().toString()} km"
+            }else{
+                CommonMethod.loadPopUp("No Data Retrieved from API",requireContext())
             }
 
-            fragmentFireBinding.fireConfidenceTextView.text = fireDetails.confidence
-            fragmentFireBinding.frpTextView.text = "${fireDetails.frp.toString()} MW"
-            if (fireDetails.dayNight != null) {
-                fragmentFireBinding.dayNightLayout.visibility = View.VISIBLE
-                fragmentFireBinding.dayNightTextView.text = fireDetails.dayNight
-            } else {
-                fragmentFireBinding.dayNightLayout.visibility = View.GONE
-            }
-            fragmentFireBinding.distanceTextView.text =
-                "${fireDetails.distance.roundToInt().toString()} km"
 
         }
 

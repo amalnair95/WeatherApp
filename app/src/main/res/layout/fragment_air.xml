@@ -30,10 +30,22 @@
                     android:visibility="gone">
 
                     <TextView
+                        android:id="@+id/addressTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10dp"
+                        android:layout_marginTop="@dimen/_10dp"
+                        android:fontFamily="@font/lato_bold"
+                        android:padding="@dimen/_8dp"
+                        android:text="@string/location"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_18sp" />
+
+                    <TextView
                         android:id="@+id/address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/airDetailsLayout"
+                        android:layout_below="@id/addressTitle"
                         android:layout_marginStart="@dimen/_10dp"
                         android:fontFamily="@font/lato_regular"
                         android:padding="@dimen/_8dp"
@@ -42,12 +54,13 @@
                         tools:text="bsidbi" />
 
                     <TextView
-                        android:id="@+id/weatherDetailsTextView"
+                        android:id="@+id/airDetailsTextView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10dp"
                         android:layout_marginTop="@dimen/_10dp"
                         android:fontFamily="@font/lato_bold"
+                        android:layout_below="@id/address"
                         android:padding="@dimen/_8dp"
                         android:text="@string/air_details"
                         android:textColor="@color/grey"
@@ -57,7 +70,7 @@
                         android:id="@+id/airDetailsLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/weatherDetailsTextView"
+                        android:layout_below="@id/airDetailsTextView"
                         android:orientation="vertical">
 
                         <LinearLayout
@@ -293,10 +306,22 @@
                     android:visibility="gone">
 
                     <TextView
+                        android:id="@+id/pollenAddressTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10dp"
+                        android:layout_marginTop="@dimen/_10dp"
+                        android:fontFamily="@font/lato_bold"
+                        android:padding="@dimen/_8dp"
+                        android:text="@string/location"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_18sp" />
+
+                    <TextView
                         android:id="@+id/pollenAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/pollenDetailsLayout"
+                        android:layout_below="@id/pollenAddressTitle"
                         android:layout_marginStart="@dimen/_10dp"
                         android:fontFamily="@font/lato_regular"
                         android:padding="@dimen/_8dp"
@@ -311,6 +336,7 @@
                         android:layout_marginStart="@dimen/_10dp"
                         android:layout_marginTop="@dimen/_10dp"
                         android:fontFamily="@font/lato_bold"
+                        android:layout_below="@id/pollenAddress"
                         android:padding="@dimen/_8dp"
                         android:text="@string/pollen_details"
                         android:textColor="@color/grey"
@@ -590,12 +616,24 @@
                     android:visibility="gone">
 
                     <TextView
-                        android:id="@+id/soilAddress"
+                        android:id="@+id/soilAddressTitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_10dp"
+                        android:layout_marginTop="@dimen/_10dp"
+                        android:fontFamily="@font/lato_bold"
+                        android:padding="@dimen/_8dp"
+                        android:text="@string/location"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_18sp" />
+
+                    <TextView
+                        android:id="@+id/soilAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/soilAddressTitle"
+                        android:layout_marginStart="@dimen/_10dp"
                         android:fontFamily="@font/lato_regular"
-                        android:layout_below="@id/soilDetailsLayout"
                         android:padding="@dimen/_8dp"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_16sp"
@@ -608,6 +646,7 @@
                         android:layout_marginStart="@dimen/_10dp"
                         android:layout_marginTop="@dimen/_10dp"
                         android:fontFamily="@font/lato_bold"
+                        android:layout_below="@id/soilAddress"
                         android:padding="@dimen/_8dp"
                         android:text="@string/soil_details"
                         android:textColor="@color/grey"
@@ -624,8 +663,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_margin="@dimen/_10dp"
-                            app:cardCornerRadius="@dimen/_6dp"
                             app:cardBackgroundColor="@color/cardBackground"
+                            app:cardCornerRadius="@dimen/_6dp"
                             app:cardElevation="@dimen/_4dp">
 
                             <LinearLayout
@@ -644,13 +683,13 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_margin="@dimen/_8dp"
-                                        android:padding="@dimen/_6dp"
                                         android:layout_weight="1"
                                         android:fontFamily="@font/lato_bold"
-                                        android:textSize="@dimen/_16sp"
-                                        android:textColor="@color/grey"
+                                        android:padding="@dimen/_6dp"
                                         android:text="@string/soil_temperature"
-                                        />
+                                        android:textColor="@color/grey"
+                                        android:textSize="@dimen/_16sp" />
+
                                     <TextView
                                         android:id="@+id/soilTempTextView"
                                         android:layout_width="match_parent"
@@ -658,11 +697,10 @@
                                         android:layout_margin="@dimen/_8dp"
                                         android:layout_weight="1"
                                         android:fontFamily="@font/lato_regular"
-                                        tools:text="dkjfah"
-                                        android:textColor="@color/white"
-                                        android:textSize="@dimen/_16sp"
                                         android:padding="@dimen/_6dp"
-                                        />
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_16sp"
+                                        tools:text="dkjfah" />
                                 </LinearLayout>
 
 
@@ -676,25 +714,24 @@
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_margin="@dimen/_8dp"
-                                        android:padding="@dimen/_6dp"
                                         android:layout_weight="1"
                                         android:fontFamily="@font/lato_bold"
-                                        android:textSize="@dimen/_16sp"
-                                        android:textColor="@color/grey"
+                                        android:padding="@dimen/_6dp"
                                         android:text="@string/soil_moisture"
-                                        />
+                                        android:textColor="@color/grey"
+                                        android:textSize="@dimen/_16sp" />
+
                                     <TextView
                                         android:id="@+id/soilMoistTextView"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_margin="@dimen/_8dp"
                                         android:layout_weight="1"
-                                        android:padding="@dimen/_6dp"
-                                        android:textColor="@color/white"
                                         android:fontFamily="@font/lato_regular"
+                                        android:padding="@dimen/_6dp"
+                                        android:textColor="@color/black"
                                         android:textSize="@dimen/_16sp"
-                                        tools:text="dskjfb"
-                                        />
+                                        tools:text="dskjfb" />
                                 </LinearLayout>
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
@@ -711,10 +748,22 @@
                     android:visibility="gone">
 
                     <TextView
+                        android:id="@+id/fireAddressTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10dp"
+                        android:layout_marginTop="@dimen/_10dp"
+                        android:fontFamily="@font/lato_bold"
+                        android:padding="@dimen/_8dp"
+                        android:text="@string/location"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_18sp" />
+
+                    <TextView
                         android:id="@+id/fireAddress"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/fireDetailsLayout"
+                        android:layout_below="@id/fireAddressTitle"
                         android:layout_marginStart="@dimen/_10dp"
                         android:fontFamily="@font/lato_regular"
                         android:padding="@dimen/_8dp"
@@ -729,6 +778,7 @@
                         android:layout_marginStart="@dimen/_10dp"
                         android:layout_marginTop="@dimen/_10dp"
                         android:fontFamily="@font/lato_bold"
+                        android:layout_below="@id/fireAddress"
                         android:padding="@dimen/_8dp"
                         android:text="@string/fire_details"
                         android:textColor="@color/grey"
@@ -780,7 +830,7 @@
                                         android:layout_weight="1"
                                         android:fontFamily="@font/lato_regular"
                                         android:padding="@dimen/_6dp"
-                                        android:textColor="@color/white"
+                                        android:textColor="@color/black"
                                         android:textSize="@dimen/_16sp"
                                         tools:text="dkjfah" />
                                 </LinearLayout>
@@ -810,7 +860,7 @@
                                         android:layout_weight="1"
                                         android:fontFamily="@font/lato_regular"
                                         android:padding="@dimen/_6dp"
-                                        android:textColor="@color/white"
+                                        android:textColor="@color/black"
                                         android:textSize="@dimen/_16sp"
                                         tools:text="dskjfb" />
                                 </LinearLayout>
@@ -841,7 +891,7 @@
                                         android:layout_weight="1"
                                         android:fontFamily="@font/lato_regular"
                                         android:padding="@dimen/_6dp"
-                                        android:textColor="@color/white"
+                                        android:textColor="@color/black"
                                         android:textSize="@dimen/_16sp"
                                         tools:text="dskjfb" />
                                 </LinearLayout>
@@ -871,7 +921,7 @@
                                         android:layout_weight="1"
                                         android:fontFamily="@font/lato_regular"
                                         android:padding="@dimen/_6dp"
-                                        android:textColor="@color/white"
+                                        android:textColor="@color/black"
                                         android:textSize="@dimen/_16sp"
                                         tools:text="dskjfb" />
                                 </LinearLayout>
