@@ -1,5 +1,11 @@
 package com.example.weatherapp.apiClient;
 
+import android.os.AsyncTask;
+
+import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.GenericHandler;
+import com.example.weatherapp.MainActivity;
+import com.example.weatherapp.models.CognitoSettings;
+
 import java.security.KeyManagementException;
 import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
@@ -28,6 +34,7 @@ public class WeatherApiClient {
                 .writeTimeout(60, TimeUnit.SECONDS)
                 .addInterceptor(interceptor)
                 .build();*/
+
         if (okHttpClient == null)
             initOkHttp();
 
@@ -71,4 +78,5 @@ public class WeatherApiClient {
         }
 
     }
+
 }

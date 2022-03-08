@@ -6,18 +6,13 @@ import android.Manifest.permission.CAMERA
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import android.view.View
-import android.widget.SearchView
+import android.view.*
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import com.budiyev.android.codescanner.CodeScanner
 import com.example.weatherapp.R
 import com.example.weatherapp.databinding.FragmentCategoryBinding
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
@@ -31,6 +26,20 @@ class ChooseCategoryFragment : Fragment(R.layout.fragment_category) {
 
         Log.e(TAG, "On create view started..")
         (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(false)
+        view.isFocusableInTouchMode=true
+        view.requestFocus()
+        view.setOnKeyListener(object : View.OnKeyListener{
+            override fun onKey(v: View?, keyCode: Int, event: KeyEvent): Boolean {
+                if (event.action === KeyEvent.ACTION_DOWN) {
+                    if (keyCode == KeyEvent.KEYCODE_BACK) {
+                        return true
+                    }
+                }
+                return false
+            }
+        })
+
+
         permissionSetup()
         init()
         setObservers()
@@ -67,6 +76,8 @@ class ChooseCategoryFragment : Fragment(R.layout.fragment_category) {
         fragmentCategoryBinding.weatherCardView.setOnClickListener {
             Navigation.findNavController(fragmentCategoryBinding.root)
                 .navigate(R.id.action_category_to_weather)
+           /* Navigation.findNavController(fragmentCategoryBinding.root)
+                .navigate(R.id.action_category_to_register)*/
         }
         fragmentCategoryBinding.airCardView.setOnClickListener {
             Navigation.findNavController(fragmentCategoryBinding.root)
