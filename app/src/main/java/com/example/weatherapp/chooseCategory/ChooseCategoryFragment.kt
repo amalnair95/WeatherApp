@@ -21,6 +21,7 @@ class ChooseCategoryFragment : Fragment(R.layout.fragment_category) {
 
     private val fragmentCategoryBinding by viewBinding(FragmentCategoryBinding::bind)
     private val TAG = ChooseCategoryFragment::class.java.simpleName
+    var userReceived: String=""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
@@ -43,11 +44,32 @@ class ChooseCategoryFragment : Fragment(R.layout.fragment_category) {
         permissionSetup()
         init()
         setObservers()
+        setHasOptionsMenu(true)
         super.onViewCreated(view, savedInstanceState)
     }
 
     private fun setObservers() {
 
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.main,menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.userProfile ->{
+                Log.d(TAG,"username:$userReceived")
+                val args = Bundle()
+                args.putString("@USERNAME", userReceived)
+                Navigation.findNavController(fragmentCategoryBinding.root).navigate(R.id.action_category_to_user_profile,args)
+            }
+            R.id.scanner->{
+                Navigation.findNavController(fragmentCategoryBinding.root).navigate(R.id.action_category_to_scanner)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun permissionSetup() {
@@ -73,6 +95,13 @@ class ChooseCategoryFragment : Fragment(R.layout.fragment_category) {
     }
 
     private fun init() {
+        val bundle = arguments
+        if (bundle != null) {
+            userReceived = bundle.getString("@USERNAME").toString()
+            Log.d(TAG,"UserName:$userReceived")
+        }
+
+
         fragmentCategoryBinding.weatherCardView.setOnClickListener {
             Navigation.findNavController(fragmentCategoryBinding.root)
                 .navigate(R.id.action_category_to_weather)

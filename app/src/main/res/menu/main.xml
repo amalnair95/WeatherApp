@@ -3,9 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/scanner"
-        android:title="Scanner"
+        android:title="Code Reader"
         android:icon="@drawable/ic_baseline_qr_code_scanner_24"
         app:actionViewClass="com.budiyev.android.codescanner.CodeScannerView"
-        app:showAsAction="always" />
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/userProfile"
+        android:title="My Profile"
+        android:icon="@drawable/ic_baseline_person_24"
+        app:showAsAction="ifRoom" />
 
 </menu>

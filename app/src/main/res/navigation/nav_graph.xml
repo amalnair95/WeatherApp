@@ -37,8 +37,18 @@
         <action
             android:id="@+id/action_category_to_register"
             app:destination="@+id/registerFragment" />
+
+        <action
+            android:id="@+id/action_category_to_user_profile"
+            app:destination="@+id/userProfileFragment" />
     </fragment>
 
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.example.weatherapp.loginFragment.UserProfileFragment"
+        android:label="My Profile"
+        tools:layout="@layout/fragment_user_profile">
+    </fragment>
     <fragment
         android:id="@+id/weatherFragment"
         android:name="com.example.weatherapp.weatherFragment.WeatherFragment"

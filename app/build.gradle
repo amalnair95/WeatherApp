@@ -79,10 +79,14 @@ dependencies {
     //QR-barcode Scanner
     implementation 'com.github.yuriy-budiyev:code-scanner:2.1.0'
 
-    //swipeRefresh Layout
+    //SwipeRefresh Layout
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
-implementation 'com.amazonaws:aws-android-sdk-cognitoidentityprovider:2.6.30'
-implementation 'com.amazonaws:aws-android-sdk-core:2.6.30'
+    //Circular ImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    //amazon cognito dependencies
+    implementation 'com.amazonaws:aws-android-sdk-cognitoidentityprovider:2.6.30'
+    implementation 'com.amazonaws:aws-android-sdk-core:2.6.30'
 
 }

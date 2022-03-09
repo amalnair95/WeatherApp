@@ -1,6 +1,7 @@
 package com.example.weatherapp.loginFragment
 
 import android.os.Bundle
+import android.text.method.PasswordTransformationMethod
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -18,9 +19,9 @@ import com.example.weatherapp.commonMethod.CommonMethod
 import com.example.weatherapp.databinding.FragmentLoginBinding
 import com.example.weatherapp.models.CognitoSettings
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
-import java.lang.Exception
 
-class LoginFragment:Fragment(R.layout.fragment_login) {
+
+class LoginFragment : Fragment(R.layout.fragment_login) {
     private val fragmentLoginBinding by viewBinding(FragmentLoginBinding::bind)
 
     private val TAG = LoginFragment::class.java.simpleName
@@ -30,47 +31,71 @@ class LoginFragment:Fragment(R.layout.fragment_login) {
         init()
         super.onViewCreated(view, savedInstanceState)
     }
+
     private fun init() {
-        val authenticationHandler = object : AuthenticationHandler{
+
+        fragmentLoginBinding.showPasswordCheckbox.setOnCheckedChangeListener { compoundButton, isChecked ->
+            if (!isChecked) {
+                fragmentLoginBinding.passwordEditText.transformationMethod =
+                    PasswordTransformationMethod()
+            } else {
+                fragmentLoginBinding.passwordEditText.transformationMethod = null
+            }
+        }
+        val authenticationHandler = object : AuthenticationHandler {
             override fun onSuccess(userSession: CognitoUserSession?, newDevice: CognitoDevice?) {
-               Log.d(TAG,"Login Successful")
-                Navigation.findNavController(fragmentLoginBinding.root).navigate(R.id.action_login_to_category)
+                Log.d(TAG, "Login Successful")
+                val args = Bundle()
+                args.putString("@USERNAME", fragmentLoginBinding.userNameEditText.text.toString())
+                Navigation.findNavController(fragmentLoginBinding.root)
+                    .navigate(R.id.action_login_to_category, args)
             }
 
-            override fun getAuthenticationDetails(authenticationContinuation: AuthenticationContinuation, userId: String?) {
-                Log.d(TAG,"inside getAuthenticationDetails")
-                val authenticationDetails = AuthenticationDetails(userId,fragmentLoginBinding.passwordEditText.text.toString(),null)
+            override fun getAuthenticationDetails(
+                authenticationContinuation: AuthenticationContinuation,
+                userId: String?
+            ) {
+                Log.d(TAG, "inside getAuthenticationDetails")
+                val authenticationDetails = AuthenticationDetails(
+                    userId,
+                    fragmentLoginBinding.passwordEditText.text.toString(),
+                    null
+                )
                 authenticationContinuation.setAuthenticationDetails(authenticationDetails)
                 authenticationContinuation.continueTask()
             }
 
             override fun getMFACode(continuation: MultiFactorAuthenticationContinuation?) {
-                Log.d(TAG,"inside getMFACode")
+                Log.d(TAG, "inside getMFACode")
             }
 
             override fun authenticationChallenge(continuation: ChallengeContinuation?) {
-                Log.d(TAG,"inside authenticationChallenge")
+                Log.d(TAG, "inside authenticationChallenge")
             }
 
             override fun onFailure(exception: Exception?) {
-                Log.d(TAG,"Login Failed:${exception?.localizedMessage}")
-                CommonMethod.loadPopUp(exception?.localizedMessage.toString(),requireContext())
+                Log.d(TAG, "Login Failed:${exception?.localizedMessage}")
+                CommonMethod.loadPopUp(exception?.localizedMessage.toString(), requireContext())
             }
 
         }
         fragmentLoginBinding.loginButton.setOnClickListener {
             val cognitoSettings = CognitoSettings(requireContext())
-            val thisUser = cognitoSettings.userPool.getUser(fragmentLoginBinding.userNameEditText.text.toString())
-            Log.d(TAG,"Login Button Clicked")
+            val thisUser =
+                cognitoSettings.userPool.getUser(fragmentLoginBinding.userNameEditText.text.toString())
+            Log.d(TAG, "Login Button Clicked")
+            //thisUser.getDetailsInBackground(userDetailsHandler)
             thisUser.getSessionInBackground(authenticationHandler)
         }
 
         fragmentLoginBinding.signUpButton.setOnClickListener {
-            Navigation.findNavController(fragmentLoginBinding.root).navigate(R.id.action_login_to_register)
+            Navigation.findNavController(fragmentLoginBinding.root)
+                .navigate(R.id.action_login_to_register)
         }
 
         fragmentLoginBinding.forgotPasswordTextView.setOnClickListener {
-            Navigation.findNavController(fragmentLoginBinding.root).navigate(R.id.action_login_to_forgot_password)
+            Navigation.findNavController(fragmentLoginBinding.root)
+                .navigate(R.id.action_login_to_forgot_password)
         }
     }
 }
