@@ -3,50 +3,68 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_centerInParent="true">
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
         <EditText
             android:id="@+id/userNameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_10dp"
-            android:padding="@dimen/_10dp"
+            android:background="@drawable/edittext_bg"
             android:fontFamily="@font/lato_regular"
-            android:hint="UserName"
-            />
+            android:drawableStart="@drawable/ic_baseline_email_24"
+            android:hint="@string/email_or_phone_number"
+            android:padding="@dimen/_14dp" />
+
         <EditText
             android:id="@+id/verifyCodeEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_10dp"
-            android:padding="@dimen/_10dp"
             android:fontFamily="@font/lato_regular"
+            android:hint="@string/verification_code"
+            android:drawableStart="@drawable/ic_baseline_confirmation_number_24"
             android:inputType="number"
-            android:hint="Verification Code"
-            />
+            android:background="@drawable/edittext_bg"
+            android:padding="@dimen/_14dp" />
+
         <Button
             android:id="@+id/verifyButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_10dp"
-            android:padding="@dimen/_10dp"
             android:fontFamily="@font/lato_bold"
-            android:text="Verify"
-            />
+            android:padding="@dimen/_12dp"
+            android:backgroundTint="@color/colorVirenxia"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16sp"
+            android:text="@string/verify" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/_6dp"
+            android:fontFamily="@font/lato_regular"
+            android:padding="@dimen/_6dp"
+            android:text="@string/didn_t_receive_any_code"
+            android:textColor="@color/colorVirenxia" />
 
         <TextView
             android:id="@+id/resendCodeTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Resend Verification Code?"
+            android:layout_gravity="center"
             android:layout_margin="@dimen/_6dp"
-            android:textColor="#41C0D1"
-            android:padding="@dimen/_6dp"
             android:fontFamily="@font/lato_regular"
-            android:layout_gravity="center"/>
+            android:padding="@dimen/_6dp"
+            android:text="@string/resend_code"
+            android:textColor="@color/colorVirenxia" />
     </LinearLayout>
 
 </RelativeLayout>

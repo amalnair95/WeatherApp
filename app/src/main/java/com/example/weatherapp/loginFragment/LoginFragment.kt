@@ -1,5 +1,6 @@
 package com.example.weatherapp.loginFragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
 import android.util.Log
@@ -18,6 +19,13 @@ import com.example.weatherapp.R
 import com.example.weatherapp.commonMethod.CommonMethod
 import com.example.weatherapp.databinding.FragmentLoginBinding
 import com.example.weatherapp.models.CognitoSettings
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.SignInButton
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.Task
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 
 
@@ -25,14 +33,34 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private val fragmentLoginBinding by viewBinding(FragmentLoginBinding::bind)
 
     private val TAG = LoginFragment::class.java.simpleName
+    private lateinit var mGoogleSignInClient:GoogleSignInClient
+    private val RC_SIGN_IN=100
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Log.e(TAG, "On create view started..")
-        (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(false)
+        (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+       // CommonMethod.backButtonCode(view)
         init()
         super.onViewCreated(view, savedInstanceState)
     }
 
     private fun init() {
+
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestEmail()
+            .build()
+
+
+        mGoogleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
+
+        val account = GoogleSignIn.getLastSignedInAccount(requireContext())
+        //updateUI(account)
+
+        // Set the dimensions of the sign-in button.
+        fragmentLoginBinding.signInButton.setSize(SignInButton.SIZE_STANDARD)
+        fragmentLoginBinding.signInButton.setOnClickListener {
+            signIn()
+        }
+
 
         fragmentLoginBinding.showPasswordCheckbox.setOnCheckedChangeListener { compoundButton, isChecked ->
             if (!isChecked) {
@@ -42,19 +70,22 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 fragmentLoginBinding.passwordEditText.transformationMethod = null
             }
         }
+
+        fragmentLoginBinding.googleLoginButton.setOnClickListener {
+            Navigation.findNavController(fragmentLoginBinding.root)
+                .navigate(R.id.action_login_to_web_view)
+        }
+
         val authenticationHandler = object : AuthenticationHandler {
             override fun onSuccess(userSession: CognitoUserSession?, newDevice: CognitoDevice?) {
                 Log.d(TAG, "Login Successful")
                 val args = Bundle()
                 args.putString("@USERNAME", fragmentLoginBinding.userNameEditText.text.toString())
-                Navigation.findNavController(fragmentLoginBinding.root)
-                    .navigate(R.id.action_login_to_category, args)
+                args.putString("@PROGRESSBAR","50")
+                Navigation.findNavController(fragmentLoginBinding.root).navigate(R.id.action_login_to_farmer_details, args)
             }
 
-            override fun getAuthenticationDetails(
-                authenticationContinuation: AuthenticationContinuation,
-                userId: String?
-            ) {
+            override fun getAuthenticationDetails(authenticationContinuation: AuthenticationContinuation, userId: String?) {
                 Log.d(TAG, "inside getAuthenticationDetails")
                 val authenticationDetails = AuthenticationDetails(
                     userId,
@@ -81,10 +112,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         }
         fragmentLoginBinding.loginButton.setOnClickListener {
             val cognitoSettings = CognitoSettings(requireContext())
-            val thisUser =
-                cognitoSettings.userPool.getUser(fragmentLoginBinding.userNameEditText.text.toString())
+            val thisUser = cognitoSettings.userPool.getUser(fragmentLoginBinding.userNameEditText.text.toString())
             Log.d(TAG, "Login Button Clicked")
-            //thisUser.getDetailsInBackground(userDetailsHandler)
             thisUser.getSessionInBackground(authenticationHandler)
         }
 
@@ -97,5 +126,43 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             Navigation.findNavController(fragmentLoginBinding.root)
                 .navigate(R.id.action_login_to_forgot_password)
         }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode === RC_SIGN_IN) {
+            // The Task returned from this call is always completed, no need to attach
+            // a listener.
+            val task: Task<GoogleSignInAccount> =GoogleSignIn.getSignedInAccountFromIntent(data)
+            handleSignInResult(task)
+        }
+    }
+
+    private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
+        try {
+            val account = completedTask.getResult(ApiException::class.java)
+            val acct = GoogleSignIn.getLastSignedInAccount(requireContext())
+            if (acct != null) {
+                val personName = acct.displayName
+                val personGivenName = acct.givenName
+                val personFamilyName = acct.familyName
+                val personEmail = acct.email
+                val personId = acct.id
+                //val personPhoto: Uri? = acct.photoUrl
+                Log.d(TAG,"Person Name: $personName")
+            }
+            //updateUI(account)
+        } catch (e: ApiException) {
+            // The ApiException status code indicates the detailed failure reason.
+            // Please refer to the GoogleSignInStatusCodes class reference for more information.
+            Log.e(TAG, "signInResult:failed code=" + e.statusCode)
+           //updateUI(null)
+        }
+    }
+
+
+    private fun signIn() {
+        val signInIntent: Intent = mGoogleSignInClient.signInIntent
+        startActivityForResult(signInIntent, RC_SIGN_IN)
     }
 }

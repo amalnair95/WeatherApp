@@ -55,6 +55,19 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="location">Location:</string>
-
+    <string name="resend_code"><u>Re-send Code</u></string>
+    <string name="login">LOGIN</string>
+    <string name="create_an_account">CREATE AN ACCOUNT</string>
+    <string name="show_password">Show Password</string>
+    <string name="log_in">Log In</string>
+    <string name="password">Password</string>
+    <string name="email_or_phone_number">Email or Phone Number</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="register">Register</string>
+    <string name="verification_code">Verification Code</string>
+    <string name="verify">Verify</string>
+    <string name="didn_t_receive_any_code">Didn\'t receive any code?</string>
 
 </resources>

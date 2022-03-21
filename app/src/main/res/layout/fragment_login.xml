@@ -5,15 +5,30 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="200dp"
-        android:layout_height="100dp"
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
         android:layout_centerHorizontal="true"
+        android:visibility="gone"
         android:layout_marginVertical="@dimen/_50dp"
         android:src="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/welcomeTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageView"
+        android:layout_marginBottom="@dimen/_18dp"
+        android:fontFamily="@font/lato_black"
+        android:padding="@dimen/_14sp"
+        android:text="Welcome Back! \n Please log in to continue!"
+        android:textColor="@color/colorVirenxia"
+        android:textSize="@dimen/_16sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/welcomeTextView"
         android:layout_centerInParent="true"
         android:orientation="vertical">
 
@@ -22,35 +37,44 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_10dp"
+            android:background="@drawable/edittext_bg"
+            android:drawableStart="@drawable/ic_baseline_email_24"
             android:fontFamily="@font/lato_regular"
-            android:hint="Username"
-            android:padding="@dimen/_10dp" />
+            android:hint="@string/email_or_phone_number"
+            android:padding="@dimen/_14dp" />
 
         <EditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_10dp"
+            android:background="@drawable/edittext_bg"
+            android:drawableStart="@drawable/ic_baseline_lock_24"
             android:fontFamily="@font/lato_regular"
-            android:hint="Password"
+            android:hint="@string/password"
             android:inputType="textPassword"
-            android:padding="@dimen/_10dp" />
+            android:padding="@dimen/_14dp" />
 
         <CheckBox
             android:id="@+id/showPasswordCheckbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Show Password"
-            android:layout_marginStart="@dimen/_10dp"/>
+            android:layout_marginStart="@dimen/_10dp"
+            android:fontFamily="@font/lato_regular"
+            android:text="@string/show_password"
+            android:textColor="@color/colorVirenxia" />
 
         <Button
             android:id="@+id/loginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_10dp"
-            android:fontFamily="@font/lato_bold"
-            android:padding="@dimen/_10dp"
-            android:text="Login" />
+            android:backgroundTint="@color/colorVirenxia"
+            android:fontFamily="@font/lato_black"
+            android:padding="@dimen/_12dp"
+            android:text="@string/log_in"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_16sp" />
 
         <TextView
             android:id="@+id/forgotPasswordTextView"
@@ -58,9 +82,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_margin="@dimen/_6dp"
-            android:fontFamily="@font/lato_bold"
+            android:fontFamily="@font/lato_regular"
             android:padding="@dimen/_6dp"
-            android:text="Forgot Password?" />
+            android:text="@string/forgot_password"
+            android:textColor="@color/colorVirenxia" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -69,7 +94,8 @@
             android:layout_margin="@dimen/_4dp"
             android:fontFamily="@font/lato_bold"
             android:padding="@dimen/_8dp"
-            android:text="OR" />
+            android:text="OR"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/signUpButton"
@@ -78,7 +104,25 @@
             android:layout_margin="@dimen/_10dp"
             android:fontFamily="@font/lato_bold"
             android:padding="@dimen/_10dp"
-            android:text="Sign-UP" />
+            android:text="Sign-UP"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/googleLoginButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10dp"
+            android:fontFamily="@font/lato_bold"
+            android:padding="@dimen/_10dp"
+            android:text="Google Login"
+            android:visibility="gone" />
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
     </LinearLayout>
 
 </RelativeLayout>

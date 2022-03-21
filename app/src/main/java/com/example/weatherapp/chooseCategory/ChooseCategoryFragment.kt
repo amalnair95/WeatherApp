@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.weatherapp.R
+import com.example.weatherapp.commonMethod.CommonMethod
 import com.example.weatherapp.databinding.FragmentCategoryBinding
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 
@@ -22,25 +23,13 @@ class ChooseCategoryFragment : Fragment(R.layout.fragment_category) {
     private val fragmentCategoryBinding by viewBinding(FragmentCategoryBinding::bind)
     private val TAG = ChooseCategoryFragment::class.java.simpleName
     var userReceived: String=""
+    var percentCompleted: String=""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         Log.e(TAG, "On create view started..")
-        (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(false)
-        view.isFocusableInTouchMode=true
-        view.requestFocus()
-        view.setOnKeyListener(object : View.OnKeyListener{
-            override fun onKey(v: View?, keyCode: Int, event: KeyEvent): Boolean {
-                if (event.action === KeyEvent.ACTION_DOWN) {
-                    if (keyCode == KeyEvent.KEYCODE_BACK) {
-                        return true
-                    }
-                }
-                return false
-            }
-        })
-
-
+        (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        //CommonMethod.backButtonCode(view)
         permissionSetup()
         init()
         setObservers()
@@ -63,6 +52,7 @@ class ChooseCategoryFragment : Fragment(R.layout.fragment_category) {
                 Log.d(TAG,"username:$userReceived")
                 val args = Bundle()
                 args.putString("@USERNAME", userReceived)
+                args.putString("@PROGRESSBAR", percentCompleted)
                 Navigation.findNavController(fragmentCategoryBinding.root).navigate(R.id.action_category_to_user_profile,args)
             }
             R.id.scanner->{
@@ -98,6 +88,7 @@ class ChooseCategoryFragment : Fragment(R.layout.fragment_category) {
         val bundle = arguments
         if (bundle != null) {
             userReceived = bundle.getString("@USERNAME").toString()
+            percentCompleted = bundle.getString("@PROGRESSBAR").toString()
             Log.d(TAG,"UserName:$userReceived")
         }
 

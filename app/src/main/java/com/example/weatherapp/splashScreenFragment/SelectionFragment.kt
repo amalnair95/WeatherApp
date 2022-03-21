@@ -1,23 +1,22 @@
 package com.example.weatherapp.splashScreenFragment
 
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
 import android.view.View
 import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.weatherapp.R
 import com.example.weatherapp.commonMethod.CommonMethod
+import com.example.weatherapp.databinding.FragmentSelectionBinding
 import com.example.weatherapp.databinding.FragmentSplashBinding
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 
-class SplashScreenFragment : Fragment(R.layout.fragment_splash) {
+class SelectionFragment:Fragment(R.layout.fragment_selection) {
 
-    private val fragmentSplashBinding by viewBinding(FragmentSplashBinding::bind)
-    private val TAG = SplashScreenFragment::class.java.simpleName
+    private val fragmentSelectionBinding by viewBinding(FragmentSelectionBinding::bind)
+    private val TAG = SelectionFragment::class.java.simpleName
 
 
     lateinit var imageAnim: Animation
@@ -30,20 +29,12 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash) {
     }
 
     private fun init() {
-        /*fragmentSplashBinding.splashLogoImageView.visibility=View.VISIBLE
-        fragmentSplashBinding.mainLayout.visibility=View.GONE*/
-        imageAnim = AnimationUtils.loadAnimation(requireContext(), R.anim.image_animation)
-        fragmentSplashBinding.splashLogoImageView.animation=imageAnim
-
-        Handler().postDelayed({
-            fragmentSplashBinding.splashLogoImageView.visibility=View.GONE
-            Navigation.findNavController(fragmentSplashBinding.root)
-                .navigate(R.id.action_splash_to_selection)
-        },3000)
-
-
-
-
+        fragmentSelectionBinding.loginButton.setOnClickListener {
+            Navigation.findNavController(fragmentSelectionBinding.root).navigate(R.id.action_selection_to_login)
+        }
+        fragmentSelectionBinding.signUpButton.setOnClickListener {
+            Navigation.findNavController(fragmentSelectionBinding.root).navigate(R.id.action_selection_to_signup)
+        }
     }
 
     override fun onResume() {
@@ -53,6 +44,6 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash) {
 
     override fun onStop() {
         super.onStop()
-       // (activity as AppCompatActivity?)!!.supportActionBar!!.show()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
     }
 }

@@ -16,6 +16,7 @@ import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 class UserProfileFragment:Fragment(R.layout.fragment_user_profile) {
     private val fragmentUserProfileBinding by viewBinding(FragmentUserProfileBinding::bind)
     var userReceived: String=""
+    var percentCompleted: String=""
     private val TAG = UserProfileFragment::class.java.simpleName
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Log.e(TAG, "On create view started..")
@@ -27,6 +28,7 @@ class UserProfileFragment:Fragment(R.layout.fragment_user_profile) {
         val bundle = arguments
         if (bundle != null) {
             userReceived = bundle.getString("@USERNAME").toString()
+            percentCompleted = bundle.getString("@PROGRESSBAR").toString()
             Log.d(TAG,"UserName:$userReceived")
         }
         getUserDetails()
@@ -38,9 +40,13 @@ class UserProfileFragment:Fragment(R.layout.fragment_user_profile) {
                 Log.d(TAG,"User Details: ${cognitoUserDetails?.attributes?.attributes}")
                 val userDetails=cognitoUserDetails?.attributes?.attributes
                 if (!userDetails.isNullOrEmpty()){
-                    fragmentUserProfileBinding.userNameTextView.text=userDetails["name"]
+                    fragmentUserProfileBinding.percentCompletedTextView.text="Profile is $percentCompleted% completed"
+                    fragmentUserProfileBinding.userNameTextView.text=userDetails["given_name"]
                     fragmentUserProfileBinding.emailTextView.text= userDetails["email"]
                     fragmentUserProfileBinding.phoneNumberTextView.text=userDetails["phone_number"]
+                    fragmentUserProfileBinding.fullNameTextView.text=userDetails["custom:land_owner_name"]
+                    fragmentUserProfileBinding.landAreaTextView.text=userDetails["custom:land_area"]
+                    fragmentUserProfileBinding.addressTextView.text=userDetails["custom:farmer_address"]
                 }
             }
 

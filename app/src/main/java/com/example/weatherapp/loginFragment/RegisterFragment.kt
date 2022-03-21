@@ -24,7 +24,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     private val TAG = RegisterFragment::class.java.simpleName
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Log.e(TAG, "On create view started..")
-        (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(false)
+        (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         init()
         super.onViewCreated(view, savedInstanceState)
     }
@@ -57,12 +57,12 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
         val userAttributes = CognitoUserAttributes()
         fragmentRegisterBinding.registerButton.setOnClickListener {
-            userAttributes.attributes["phone_number"] = fragmentRegisterBinding.phoneEditText.text.toString()
+            //userAttributes.attributes["phone_number"] = fragmentRegisterBinding.phoneEditText.text.toString()
             //userAttributes.attributes["custom:land_owner_no."] = fragmentRegisterBinding.phoneEditText.text.toString()
-            userAttributes.attributes["name"]=fragmentRegisterBinding.nameEditText.text.toString()
-            userAttributes.attributes["custom:land_owner_name"]=fragmentRegisterBinding.nameEditText.text.toString()
-            userAttributes.attributes["email"] =
-                fragmentRegisterBinding.emailEditText.text.toString()
+            userAttributes.attributes["given_name"]=fragmentRegisterBinding.nameEditText.text.toString()
+            userAttributes.attributes["family_name"]=fragmentRegisterBinding.lastNameEditText.text.toString()
+            //userAttributes.attributes["custom:land_owner_name"]=fragmentRegisterBinding.nameEditText.text.toString()
+            //userAttributes.attributes["email"] = fragmentRegisterBinding.emailEditText.text.toString()
 
             val cognitoSettings=CognitoSettings(requireContext())
             cognitoSettings.userPool.signUpInBackground(fragmentRegisterBinding.userNameEditText.text.toString(),fragmentRegisterBinding.passwordEditText.text.toString(),userAttributes,null,signUpCallBack)

@@ -32,18 +32,125 @@
         android:layout_marginStart="@dimen/_8dp"
         android:layout_marginTop="@dimen/_8dp"
         android:layout_marginEnd="@dimen/_8dp"
+        android:layout_marginBottom="@dimen/_4dp"
+        android:fontFamily="@font/lato_bold"
+        android:padding="@dimen/_8dp"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_16sp"
+        tools:text="Name" />
+
+    <TextView
+        android:id="@+id/percentCompletedTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/userNameTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="@dimen/_8dp"
+        android:layout_marginEnd="@dimen/_8dp"
         android:layout_marginBottom="@dimen/_8dp"
         android:fontFamily="@font/lato_bold"
         android:padding="@dimen/_8dp"
-        tools:text="Name"
         android:textColor="@color/white"
-        android:textSize="@dimen/_16sp" />
-
+        android:textSize="@dimen/_16sp"
+        tools:text="Name" />
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fullNameCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/coverImage"
+        android:layout_marginTop="@dimen/_8dp"
+        android:layout_marginHorizontal="@dimen/_8dp"
+        app:cardCornerRadius="@dimen/_4dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/_10dp">
+            <TextView
+                android:id="@+id/fullNameLabelTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_8dp"
+                android:textSize="@dimen/_18sp"
+                android:fontFamily="@font/lato_bold"
+                android:text="Full Name"/>
+            <TextView
+                android:id="@+id/fullNameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_8dp"
+                android:textSize="@dimen/_16sp"
+                android:fontFamily="@font/lato_regular"
+                tools:text="+918652476302"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/landAreaCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fullNameCard"
+        android:layout_marginTop="@dimen/_8dp"
+        android:layout_marginHorizontal="@dimen/_8dp"
+        app:cardCornerRadius="@dimen/_4dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/_10dp">
+            <TextView
+                android:id="@+id/landAreaLabelTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_8dp"
+                android:textSize="@dimen/_18sp"
+                android:fontFamily="@font/lato_bold"
+                android:text="Toal area of Farmer"/>
+            <TextView
+                android:id="@+id/landAreaTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_8dp"
+                android:textSize="@dimen/_16sp"
+                android:fontFamily="@font/lato_regular"
+                tools:text="+918652476302"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/addressCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/landAreaCard"
+        android:layout_marginTop="@dimen/_8dp"
+        android:layout_marginHorizontal="@dimen/_8dp"
+        app:cardCornerRadius="@dimen/_4dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/_10dp">
+            <TextView
+                android:id="@+id/addressLabelTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_8dp"
+                android:textSize="@dimen/_18sp"
+                android:fontFamily="@font/lato_bold"
+                android:text="Farmer Address"/>
+            <TextView
+                android:id="@+id/addressTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_8dp"
+                android:textSize="@dimen/_16sp"
+                android:fontFamily="@font/lato_regular"
+                tools:text="+918652476302"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
         android:id="@+id/phoneCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/coverImage"
+        android:layout_below="@id/addressCard"
         android:layout_marginTop="@dimen/_8dp"
         android:layout_marginHorizontal="@dimen/_8dp"
         app:cardCornerRadius="@dimen/_4dp">

@@ -89,4 +89,7 @@ dependencies {
     implementation 'com.amazonaws:aws-android-sdk-cognitoidentityprovider:2.6.30'
     implementation 'com.amazonaws:aws-android-sdk-core:2.6.30'
 
+    //google sign-in
+    implementation 'com.google.android.gms:play-services-auth:20.1.0'
+
 }

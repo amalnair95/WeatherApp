@@ -5,9 +5,10 @@ import android.app.Dialog
 import android.content.Context
 import android.net.ConnectivityManager
 import android.text.method.ScrollingMovementMethod
+import android.view.KeyEvent
+import android.view.View
 import android.widget.ImageButton
 import android.widget.TextView
-import androidx.core.content.ContentProviderCompat.requireContext
 import com.example.weatherapp.R
 import com.example.weatherapp.models.Coordinates
 
@@ -73,5 +74,21 @@ class CommonMethod {
                 dialog.dismiss()
             }
         }
+
+        fun backButtonCode(view: View){
+            view.isFocusableInTouchMode=true
+            view.requestFocus()
+            view.setOnKeyListener(object : View.OnKeyListener{
+                override fun onKey(v: View?, keyCode: Int, event: KeyEvent): Boolean {
+                    if (event.action === KeyEvent.ACTION_DOWN) {
+                        if (keyCode == KeyEvent.KEYCODE_BACK) {
+                            return true
+                        }
+                    }
+                    return false
+                }
+            })
+        }
+
     }
 }
