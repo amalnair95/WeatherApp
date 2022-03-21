@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="TextLimitError">
+        <item name="android:textColor">@color/colorVirenxia</item>
+    </style>
+    <style name="ButtonStyle">
+        <item name="colorAccent">@color/colorVirenxia</item>
+    </style>
+</resources>

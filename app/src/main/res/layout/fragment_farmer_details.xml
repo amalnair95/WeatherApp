@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/_10dp"
+        android:layout_marginTop="@dimen/_10dp"
+        android:layout_marginEnd="@dimen/_10dp"
+        android:layout_above="@id/button_layout">
+
+        <TextView
+            android:id="@+id/farmerDetailsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_bold"
+            android:padding="@dimen/_10dp"
+            android:text="Farmer details"
+            android:textColor="@color/colorVirenxia"
+            android:textSize="@dimen/_16sp" />
+
+        <TextView
+            android:id="@+id/farmerNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/farmerDetailsTextView"
+            android:fontFamily="@font/lato_regular"
+            android:layout_marginTop="@dimen/_10dp"
+            android:padding="@dimen/_10dp"
+            android:text="Full Name"
+            android:textColor="@color/colorVirenxia"
+            android:textSize="@dimen/_16sp" />
+
+        <EditText
+            android:id="@+id/farmerNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/farmerNameTextView"
+            android:layout_marginHorizontal="@dimen/_6dp"
+            android:layout_marginVertical="@dimen/_8dp"
+            android:fontFamily="@font/lato_regular"
+            android:padding="@dimen/_10dp"
+            android:textSize="@dimen/_16sp" />
+
+        <TextView
+            android:id="@+id/farmerLandAreaTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/farmerNameEditText"
+            android:fontFamily="@font/lato_regular"
+            android:padding="@dimen/_10dp"
+            android:text="Area Owned"
+            android:textColor="@color/colorVirenxia"
+            android:textSize="@dimen/_16sp" />
+
+        <EditText
+            android:id="@+id/farmerLandAreaEdittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/farmerLandAreaTextView"
+            android:layout_marginHorizontal="@dimen/_6dp"
+            android:layout_marginVertical="@dimen/_8dp"
+            android:fontFamily="@font/lato_regular"
+            android:padding="@dimen/_10dp"
+            android:textSize="@dimen/_16sp" />
+
+        <TextView
+            android:id="@+id/farmerAddressTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/farmerLandAreaEdittext"
+            android:fontFamily="@font/lato_regular"
+            android:padding="@dimen/_10dp"
+            android:text="Address"
+            android:textColor="@color/colorVirenxia"
+            android:textSize="@dimen/_16sp" />
+
+        <EditText
+            android:id="@+id/farmerAddressEdittext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/farmerAddressTextView"
+            android:layout_marginHorizontal="@dimen/_6dp"
+            android:layout_marginVertical="@dimen/_8dp"
+            android:fontFamily="@font/lato_regular"
+            android:padding="@dimen/_10dp"
+            android:textSize="@dimen/_16sp" />
+
+
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/buttonProceed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10dp"
+            android:backgroundTint="@color/colorVirenxia"
+            android:padding="@dimen/_10dp"
+            android:layout_weight="1"
+            android:text="Proceed"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_18sp" />
+        <Button
+            android:id="@+id/buttonSkip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10dp"
+            android:backgroundTint="@color/colorVirenxia"
+            android:padding="@dimen/_10dp"
+            android:layout_weight="1"
+            android:text="Skip"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/_18sp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/touchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp">
+
+    </FrameLayout>
+</RelativeLayout>

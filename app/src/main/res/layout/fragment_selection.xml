@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginVertical="@dimen/_50dp"
+                android:background="@drawable/logo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_black"
+                android:gravity="center"
+                android:text="Search Less,"
+                android:textColor="@color/colorVirenxia"
+                android:textSize="@dimen/_30sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_20dp"
+                android:fontFamily="@font/lato_black"
+                android:gravity="center"
+                android:text="Learn More!"
+                android:textColor="@color/colorVirenxia"
+                android:textSize="@dimen/_30sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_50dp"
+                android:fontFamily="@font/lato_regular"
+                android:gravity="center"
+                android:text="Great Experience at Base Price"
+                android:textColor="@color/colorVirenxia"
+                android:textSize="@dimen/_14sp" />
+
+            <Button
+                android:id="@+id/signUpButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20dp"
+                android:layout_marginTop="@dimen/_50dp"
+                android:layout_marginBottom="@dimen/_10dp"
+                android:backgroundTint="@color/colorVirenxia"
+                android:fontFamily="@font/lato_black"
+                android:padding="@dimen/_12dp"
+                android:text="@string/create_an_account"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_16sp" />
+
+            <Button
+                android:id="@+id/loginButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20dp"
+                android:backgroundTint="@color/white"
+                android:fontFamily="@font/lato_black"
+                android:padding="@dimen/_12dp"
+                android:text="@string/login"
+                android:textColor="@color/colorVirenxia"
+                android:textSize="@dimen/_16sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30dp"
+                android:fontFamily="@font/lato_regular"
+                android:gravity="center"
+                android:text="By creating an account,you agree to our \n Terms and Conditions and agree to Privacy Policy"
+                android:textColor="@color/colorVirenxia"
+                android:textSize="@dimen/_14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>
