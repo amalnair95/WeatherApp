@@ -41,9 +41,6 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash) {
                 .navigate(R.id.action_splash_to_selection)
         },3000)
 
-
-
-
     }
 
     override fun onResume() {

@@ -1,22 +1,24 @@
 package com.example.weatherapp.loginFragment
 
+import android.content.Context
 import android.os.Bundle
+import android.telephony.TelephonyManager
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUser
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserAttributes
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserCodeDeliveryDetails
-import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.GenericHandler
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.SignUpHandler
 import com.example.weatherapp.R
 import com.example.weatherapp.commonMethod.CommonMethod
 import com.example.weatherapp.databinding.FragmentRegisterBinding
 import com.example.weatherapp.models.CognitoSettings
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
-import java.lang.Exception
+
 
 class RegisterFragment : Fragment(R.layout.fragment_register) {
     private val fragmentRegisterBinding by viewBinding(FragmentRegisterBinding::bind)
@@ -50,7 +52,9 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
             override fun onFailure(exception: Exception) {
                 Log.d(TAG,"sign up failure: ${exception.localizedMessage}")
-                CommonMethod.loadPopUp(exception.message.toString(),requireContext())
+                Log.d(TAG,"error message: ${exception.message.toString().substringBefore("(")}")
+
+                CommonMethod.loadPopUp(exception.message.toString().substringBefore("("),requireContext())
             }
 
         }
@@ -63,9 +67,10 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
             userAttributes.attributes["family_name"]=fragmentRegisterBinding.lastNameEditText.text.toString()
             //userAttributes.attributes["custom:land_owner_name"]=fragmentRegisterBinding.nameEditText.text.toString()
             //userAttributes.attributes["email"] = fragmentRegisterBinding.emailEditText.text.toString()
+            val value = CommonMethod.getUserNameForAuthentication(fragmentRegisterBinding.userNameEditText,requireActivity())
 
             val cognitoSettings=CognitoSettings(requireContext())
-            cognitoSettings.userPool.signUpInBackground(fragmentRegisterBinding.userNameEditText.text.toString(),fragmentRegisterBinding.passwordEditText.text.toString(),userAttributes,null,signUpCallBack)
+            cognitoSettings.userPool.signUpInBackground(value,fragmentRegisterBinding.passwordEditText.text.toString(),userAttributes,null,signUpCallBack)
         }
     }
 }

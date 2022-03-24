@@ -18,8 +18,6 @@ class SelectionFragment:Fragment(R.layout.fragment_selection) {
     private val fragmentSelectionBinding by viewBinding(FragmentSelectionBinding::bind)
     private val TAG = SelectionFragment::class.java.simpleName
 
-
-    lateinit var imageAnim: Animation
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Log.e(TAG, "On create view started..")
         (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(false)

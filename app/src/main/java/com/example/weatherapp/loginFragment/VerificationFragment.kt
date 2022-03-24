@@ -37,8 +37,11 @@ class VerificationFragment:Fragment(R.layout.fragment_verify) {
     private fun setObservers() {
         verificationViewModel.mutableResultData.observe(viewLifecycleOwner, Observer {
             Log.d(TAG,"result:$it")
-            //CommonMethod.loadPopUp(it!!,requireContext())
-            Navigation.findNavController(fragmentVerifyBinding.root).navigate(R.id.action_verification_to_login)
+            if(it.equals("Success")){
+                Navigation.findNavController(fragmentVerifyBinding.root).navigate(R.id.action_verification_to_login)
+            }else{
+                CommonMethod.loadPopUp(it!!,requireContext())
+            }
         })
 
         verificationViewModel.mutableResendCodeData.observe(viewLifecycleOwner, Observer {
@@ -65,13 +68,14 @@ class VerificationFragment:Fragment(R.layout.fragment_verify) {
     }
 
     private fun verifyUser() {
-        verificationViewModel.getConfirmationCallback(requireContext(),fragmentVerifyBinding.verifyCodeEditText.text.toString(),fragmentVerifyBinding.userNameEditText.text.toString())
+        val value = CommonMethod.getUserNameForAuthentication(fragmentVerifyBinding.userNameEditText,requireActivity())
+        verificationViewModel.getConfirmationCallback(requireContext(),fragmentVerifyBinding.verifyCodeEditText.text.toString(),value)
     }
 
     private fun resendCode(){
         val cognitoSettings=CognitoSettings(requireContext())
-        val thisUser = cognitoSettings.userPool.getUser(fragmentVerifyBinding.userNameEditText.text.toString())
+        val value = CommonMethod.getUserNameForAuthentication(fragmentVerifyBinding.userNameEditText,requireActivity())
+        val thisUser = cognitoSettings.userPool.getUser(value)
         verificationViewModel.resendVerificationCode(thisUser)
-
     }
 }

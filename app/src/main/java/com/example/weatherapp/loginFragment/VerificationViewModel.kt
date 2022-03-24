@@ -35,7 +35,7 @@ class VerificationViewModel : ViewModel() {
                 }
 
                 override fun onFailure(exception: Exception) {
-                    result.add(0,"Failure:${exception.localizedMessage}")
+                    result.add(0,"Failure:${exception.message.toString().substringBefore("(")}")
                 }
             }
             cognitoUser.resendConfirmationCode(resendConfCodeHandler)
@@ -64,10 +64,10 @@ class VerificationViewModel : ViewModel() {
         Completable.fromAction {
             val confirmationCallback = object : GenericHandler {
                 override fun onSuccess() {
-                    result.add(0,"Succeeded!")
+                    result.add(0,"Success")
                 }
                 override fun onFailure(exception: Exception) {
-                    result.add(0,"Failure:${exception.localizedMessage}")
+                    result.add(0,"Failure:${exception.message.toString().substringBefore("(")}")
                 }
             }
             val cognitoSettings = CognitoSettings(context)

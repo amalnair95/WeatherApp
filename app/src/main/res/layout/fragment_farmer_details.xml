@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -29,12 +30,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/farmerDetailsTextView"
-            android:fontFamily="@font/lato_regular"
             android:layout_marginTop="@dimen/_10dp"
+            android:fontFamily="@font/lato_regular"
             android:padding="@dimen/_10dp"
-            android:text="Full Name"
+            android:text=" Full Name"
             android:textColor="@color/colorVirenxia"
-            android:textSize="@dimen/_16sp" />
+            android:textSize="@dimen/_16sp"
+            app:drawableStartCompat="@drawable/ic_baseline_person_24" />
 
         <EditText
             android:id="@+id/farmerNameEditText"
@@ -43,8 +45,9 @@
             android:layout_below="@id/farmerNameTextView"
             android:layout_marginHorizontal="@dimen/_6dp"
             android:layout_marginVertical="@dimen/_8dp"
+            android:background="@drawable/edittext_bg"
             android:fontFamily="@font/lato_regular"
-            android:padding="@dimen/_10dp"
+            android:padding="@dimen/_12dp"
             android:textSize="@dimen/_16sp" />
 
         <TextView
@@ -65,8 +68,10 @@
             android:layout_below="@id/farmerLandAreaTextView"
             android:layout_marginHorizontal="@dimen/_6dp"
             android:layout_marginVertical="@dimen/_8dp"
+            android:background="@drawable/edittext_bg"
             android:fontFamily="@font/lato_regular"
-            android:padding="@dimen/_10dp"
+            android:inputType="number"
+            android:padding="@dimen/_12dp"
             android:textSize="@dimen/_16sp" />
 
         <TextView
@@ -76,9 +81,10 @@
             android:layout_below="@id/farmerLandAreaEdittext"
             android:fontFamily="@font/lato_regular"
             android:padding="@dimen/_10dp"
-            android:text="Address"
+            android:text=" Address"
             android:textColor="@color/colorVirenxia"
-            android:textSize="@dimen/_16sp" />
+            android:textSize="@dimen/_16sp"
+            app:drawableStartCompat="@drawable/ic_baseline_location_city_24" />
 
         <EditText
             android:id="@+id/farmerAddressEdittext"
@@ -88,7 +94,8 @@
             android:layout_marginHorizontal="@dimen/_6dp"
             android:layout_marginVertical="@dimen/_8dp"
             android:fontFamily="@font/lato_regular"
-            android:padding="@dimen/_10dp"
+            android:background="@drawable/edittext_bg"
+            android:padding="@dimen/_12dp"
             android:textSize="@dimen/_16sp" />
 
 
@@ -98,32 +105,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="horizontal">
+        android:layout_marginHorizontal="@dimen/_10dp"
+        android:layout_marginBottom="@dimen/_10dp"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/buttonProceed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_10dp"
             android:backgroundTint="@color/colorVirenxia"
-            android:padding="@dimen/_10dp"
-            android:layout_weight="1"
+            android:padding="@dimen/_12dp"
+            android:fontFamily="@font/lato_bold"
             android:text="Proceed"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/_18sp" />
-        <Button
+            android:textSize="@dimen/_16sp" />
+        <TextView
             android:id="@+id/buttonSkip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_10dp"
-            android:backgroundTint="@color/colorVirenxia"
             android:padding="@dimen/_10dp"
-            android:layout_weight="1"
             android:text="Skip"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/_18sp" />
+            android:fontFamily="@font/lato_black"
+            android:gravity="center"
+            android:textColor="@color/colorVirenxia"
+            android:textSize="@dimen/_16sp" />
     </LinearLayout>
 
     <FrameLayout

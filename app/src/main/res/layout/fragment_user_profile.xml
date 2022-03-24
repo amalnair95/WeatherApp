@@ -52,7 +52,7 @@
         android:padding="@dimen/_8dp"
         android:textColor="@color/white"
         android:textSize="@dimen/_16sp"
-        tools:text="Name" />
+        tools:text="Percent Completed" />
     <androidx.cardview.widget.CardView
         android:id="@+id/fullNameCard"
         android:layout_width="match_parent"

@@ -54,7 +54,8 @@ class ForgotPasswordFragment : Fragment(R.layout.fragment_forgot_password) {
         }
         fragmentForgotPasswordBinding.getCodeButton.setOnClickListener {
             val cognitoSettings = CognitoSettings(requireContext())
-            val thisUser = cognitoSettings.userPool.getUser(fragmentForgotPasswordBinding.userNameEditText.text.toString())
+            val value = CommonMethod.getUserNameForAuthentication(fragmentForgotPasswordBinding.userNameEditText,requireActivity())
+            val thisUser = cognitoSettings.userPool.getUser(value)
             Log.d(TAG, "calling forgot password to get confirmation code")
             thisUser.forgotPasswordInBackground(callback)
         }

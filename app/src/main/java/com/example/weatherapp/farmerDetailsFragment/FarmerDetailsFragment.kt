@@ -49,7 +49,7 @@ class FarmerDetailsFragment:Fragment(R.layout.fragment_farmer_details) {
             }
 
             override fun onFailure(exception:Exception?) {
-                Log.d(TAG,"attributes List ${exception?.localizedMessage}")
+                Log.d(TAG,"attributes List ${exception?.message.toString().substringBefore("(")}")
             }
 
         }

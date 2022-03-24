@@ -35,6 +35,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private val TAG = LoginFragment::class.java.simpleName
     private lateinit var mGoogleSignInClient:GoogleSignInClient
     private val RC_SIGN_IN=100
+    var value=""
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Log.e(TAG, "On create view started..")
         (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
@@ -80,7 +81,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             override fun onSuccess(userSession: CognitoUserSession?, newDevice: CognitoDevice?) {
                 Log.d(TAG, "Login Successful")
                 val args = Bundle()
-                args.putString("@USERNAME", fragmentLoginBinding.userNameEditText.text.toString())
+                args.putString("@USERNAME", value)
                 args.putString("@PROGRESSBAR","50")
                 Navigation.findNavController(fragmentLoginBinding.root).navigate(R.id.action_login_to_farmer_details, args)
             }
@@ -106,13 +107,14 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
             override fun onFailure(exception: Exception?) {
                 Log.d(TAG, "Login Failed:${exception?.localizedMessage}")
-                CommonMethod.loadPopUp(exception?.localizedMessage.toString(), requireContext())
+                CommonMethod.loadPopUp(exception?.message.toString().substringBefore("("), requireContext())
             }
 
         }
         fragmentLoginBinding.loginButton.setOnClickListener {
             val cognitoSettings = CognitoSettings(requireContext())
-            val thisUser = cognitoSettings.userPool.getUser(fragmentLoginBinding.userNameEditText.text.toString())
+            value = CommonMethod.getUserNameForAuthentication(fragmentLoginBinding.userNameEditText,requireActivity())
+            val thisUser = cognitoSettings.userPool.getUser(value)
             Log.d(TAG, "Login Button Clicked")
             thisUser.getSessionInBackground(authenticationHandler)
         }
