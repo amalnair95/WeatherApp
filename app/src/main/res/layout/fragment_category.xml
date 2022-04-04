@@ -5,52 +5,69 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:background="@drawable/gradient_background">
+    android:background="@color/screenBackground">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="2">
+        android:layout_marginTop="@dimen/_10dp"
+        android:weightSum="3">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/weatherCardView"
             android:layout_width="0dp"
             android:layout_height="140dp"
-            android:layout_margin="@dimen/_10dp"
+            android:layout_margin="@dimen/_6dp"
             app:cardCornerRadius="@dimen/_6dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="@color/cardBackground"
+            app:cardBackgroundColor="@color/cardBackground2"
             app:cardElevation="@dimen/_4dp"
             >
-            <ImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:layout_gravity="center"
-                android:src="@drawable/raining"/>
-            <TextView
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:padding="@dimen/_6dp"
-                android:layout_gravity="bottom"
-                android:fontFamily="@font/lato_bold"
-                android:textSize="@dimen/_16sp"
-                android:text="@string/weather_details"/>
+                android:orientation="vertical"
+                android:weightSum="2"
+                android:layout_gravity="bottom">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:src="@drawable/raining"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/_6dp"
+                    android:layout_gravity="bottom"
+                    android:fontFamily="@font/segoe_ui_bold"
+                    android:textSize="@dimen/_16sp"
+                    android:layout_weight="1"
+                    android:text="@string/weather_details"/>
+            </LinearLayout>
+
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/airCardView"
             android:layout_width="0dp"
             android:layout_height="140dp"
-            android:layout_margin="@dimen/_10dp"
+            android:layout_margin="@dimen/_6dp"
             app:cardCornerRadius="@dimen/_6dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="@color/cardBackground"
+            app:cardBackgroundColor="@color/cardBackground2"
             app:cardElevation="@dimen/_4dp"
             >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="2"
+                android:layout_gravity="bottom">
             <ImageView
-                android:layout_width="70dp"
+                android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:src="@drawable/clean_air"/>
@@ -60,9 +77,43 @@
                 android:gravity="center"
                 android:padding="@dimen/_6dp"
                 android:layout_gravity="bottom"
-                android:fontFamily="@font/lato_bold"
+                android:fontFamily="@font/segoe_ui_bold"
                 android:textSize="@dimen/_16sp"
                 android:text="@string/air_quality_details"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/pollenCardView"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:layout_margin="@dimen/_6dp"
+            app:cardCornerRadius="@dimen/_6dp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="@color/cardBackground2"
+            app:cardElevation="@dimen/_4dp"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="2"
+                android:layout_gravity="bottom">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/pollen"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/_6dp"
+                    android:layout_gravity="bottom"
+                    android:fontFamily="@font/segoe_ui_bold"
+                    android:textSize="@dimen/_16sp"
+                    android:text="@string/pollen_details"/>
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
@@ -71,20 +122,27 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="2">
+        android:layout_marginTop="@dimen/_10dp"
+        android:weightSum="3">
 
-        <androidx.cardview.widget.CardView
+        <!--<androidx.cardview.widget.CardView
             android:id="@+id/pollenCardView"
             android:layout_width="0dp"
             android:layout_height="140dp"
             android:layout_margin="@dimen/_10dp"
             app:cardCornerRadius="@dimen/_6dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="@color/cardBackground"
+            app:cardBackgroundColor="@color/cardBackground2"
             app:cardElevation="@dimen/_4dp"
             >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="2"
+                android:layout_gravity="bottom">
             <ImageView
-                android:layout_width="70dp"
+                android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:src="@drawable/pollen"/>
@@ -94,23 +152,30 @@
                 android:gravity="center"
                 android:padding="@dimen/_6dp"
                 android:layout_gravity="bottom"
-                android:fontFamily="@font/lato_bold"
+                android:fontFamily="@font/segoe_ui_bold"
                 android:textSize="@dimen/_16sp"
                 android:text="@string/pollen_details"/>
-        </androidx.cardview.widget.CardView>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>-->
 
         <androidx.cardview.widget.CardView
             android:id="@+id/soilCardView"
             android:layout_width="0dp"
             android:layout_height="140dp"
-            android:layout_margin="@dimen/_10dp"
+            android:layout_margin="@dimen/_6dp"
             app:cardCornerRadius="@dimen/_6dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="@color/cardBackground"
+            app:cardBackgroundColor="@color/cardBackground2"
             app:cardElevation="@dimen/_4dp"
             >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="2"
+                android:layout_gravity="bottom">
             <ImageView
-                android:layout_width="70dp"
+                android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:src="@drawable/soil"/>
@@ -120,13 +185,80 @@
                 android:gravity="center"
                 android:padding="@dimen/_6dp"
                 android:layout_gravity="bottom"
-                android:fontFamily="@font/lato_bold"
+                android:fontFamily="@font/segoe_ui_bold"
                 android:textSize="@dimen/_16sp"
                 android:text="@string/soil_details"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fireCardView"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:layout_margin="@dimen/_6dp"
+            app:cardCornerRadius="@dimen/_6dp"
+            app:cardBackgroundColor="@color/cardBackground2"
+            app:cardElevation="@dimen/_4dp"
+            android:visibility="gone"
+            android:layout_weight="1"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="2"
+                android:layout_gravity="bottom">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/fire"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/_6dp"
+                    android:layout_gravity="bottom"
+                    android:fontFamily="@font/segoe_ui_bold"
+                    android:textSize="@dimen/_16sp"
+                    android:text="@string/fire_details"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/scannerCardView"
+            android:layout_width="0dp"
+            android:layout_height="140dp"
+            android:layout_margin="@dimen/_6dp"
+            app:cardCornerRadius="@dimen/_6dp"
+            android:layout_weight="1"
+            app:cardBackgroundColor="@color/cardBackground2"
+            app:cardElevation="@dimen/_4dp"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="2"
+                android:layout_gravity="bottom">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/qr_code"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="@dimen/_6dp"
+                    android:layout_gravity="bottom"
+                    android:fontFamily="@font/segoe_ui_bold"
+                    android:textSize="@dimen/_16sp"
+                    android:text="@string/code_reader"/>
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
 
     </LinearLayout>
-    <LinearLayout
+ <!--   <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -139,12 +271,18 @@
             android:layout_height="140dp"
             android:layout_margin="@dimen/_10dp"
             app:cardCornerRadius="@dimen/_6dp"
-            app:cardBackgroundColor="@color/cardBackground"
+            app:cardBackgroundColor="@color/cardBackground2"
             app:cardElevation="@dimen/_4dp"
             android:layout_weight="1"
             >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="2"
+                android:layout_gravity="bottom">
             <ImageView
-                android:layout_width="70dp"
+                android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:src="@drawable/fire"/>
@@ -154,9 +292,10 @@
                 android:gravity="center"
                 android:padding="@dimen/_6dp"
                 android:layout_gravity="bottom"
-                android:fontFamily="@font/lato_bold"
+                android:fontFamily="@font/segoe_ui_bold"
                 android:textSize="@dimen/_16sp"
                 android:text="@string/fire_details"/>
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
@@ -166,11 +305,17 @@
             android:layout_margin="@dimen/_10dp"
             app:cardCornerRadius="@dimen/_6dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="@color/cardBackground"
+            app:cardBackgroundColor="@color/cardBackground2"
             app:cardElevation="@dimen/_4dp"
             >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="2"
+                android:layout_gravity="bottom">
             <ImageView
-                android:layout_width="70dp"
+                android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_gravity="center"
                 android:src="@drawable/qr_code"/>
@@ -180,10 +325,11 @@
                 android:gravity="center"
                 android:padding="@dimen/_6dp"
                 android:layout_gravity="bottom"
-                android:fontFamily="@font/lato_bold"
+                android:fontFamily="@font/segoe_ui_bold"
                 android:textSize="@dimen/_16sp"
                 android:text="@string/code_reader"/>
+            </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-    </LinearLayout>
+    </LinearLayout>-->
 </LinearLayout>

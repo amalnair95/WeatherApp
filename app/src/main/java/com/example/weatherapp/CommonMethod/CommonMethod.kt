@@ -10,6 +10,7 @@ import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import android.view.KeyEvent
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
@@ -21,6 +22,7 @@ import com.example.weatherapp.models.Coordinates
 class CommonMethod {
 
     companion object{
+        val rhia:String=""
         private val TAG = CommonMethod::class.java.simpleName
         fun isNetworkAvailable(context: Context): Boolean {
             val connectivityManager =
@@ -376,6 +378,16 @@ class CommonMethod {
             }
             Log.d(TAG,"UserName: $value")
             return value
+        }
+
+        fun hideKeyboard(view: View,activity: Activity) {
+            if (view != null) {
+                Log.d(TAG, "Inside hide keyboard")
+                val imm = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(view.windowToken, 0)
+            } else {
+                Log.d(TAG, "View is null")
+            }
         }
     }
 }

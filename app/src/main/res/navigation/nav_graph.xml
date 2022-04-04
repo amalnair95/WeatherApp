@@ -30,7 +30,12 @@
         <action
             android:id="@+id/action_splash_to_selection"
             app:destination="@+id/selectionFragment" />
-
+        <action
+            android:id="@+id/action_splash_to_farmer_details"
+            app:destination="@+id/farmerDetailsFragment" />
+        <action
+            android:id="@+id/action_splash_to_category"
+            app:destination="@+id/categoryFragment" />
     </fragment>
 
     <fragment
@@ -68,6 +73,10 @@
         <action
             android:id="@+id/action_category_to_user_profile"
             app:destination="@+id/userProfileFragment" />
+
+        <action
+            android:id="@+id/action_category_to_selection"
+            app:destination="@+id/selectionFragment" />
     </fragment>
 
     <fragment
@@ -75,36 +84,57 @@
         android:name="com.example.weatherapp.loginFragment.UserProfileFragment"
         android:label="My Profile"
         tools:layout="@layout/fragment_user_profile">
+
+        <action
+            android:id="@+id/action_user_to_farmer_details"
+            app:destination="@+id/farmerDetailsFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/weatherFragment"
         android:name="com.example.weatherapp.weatherFragment.WeatherFragment"
         android:label="Weather Report"
         tools:layout="@layout/fragment_weather">
+
+        <action
+            android:id="@+id/action_weather_to_category"
+            app:destination="@+id/categoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/airFragment"
         android:name="com.example.weatherapp.airFragment.AirFragment"
         android:label="Air Report"
         tools:layout="@layout/fragment_air">
+        <action
+            android:id="@+id/action_air_to_category"
+            app:destination="@+id/categoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/pollenFragment"
         android:name="com.example.weatherapp.pollenFragment.PollenFragment"
         android:label="Pollen Report"
         tools:layout="@layout/fragment_air">
+        <action
+            android:id="@+id/action_pollen_to_category"
+            app:destination="@+id/categoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/soilFragment"
         android:name="com.example.weatherapp.soilFragment.SoilFragment"
         android:label="Soil Report"
         tools:layout="@layout/fragment_air">
+        <action
+            android:id="@+id/action_soil_to_category"
+            app:destination="@+id/categoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/fireFragment"
         android:name="com.example.weatherapp.fireFragment.FireFragment"
         android:label="Fire Report"
         tools:layout="@layout/fragment_air">
+        <action
+            android:id="@+id/action_fire_to_category"
+            app:destination="@+id/categoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/scannerFragment"
@@ -153,7 +183,7 @@
 
         <action
             android:id="@+id/action_login_to_farmer_details"
-            app:destination="@+id/framerDetailsFragment" />
+            app:destination="@+id/farmerDetailsFragment" />
 
         <action
             android:id="@+id/action_login_to_web_view"
@@ -170,13 +200,16 @@
 
 
     <fragment
-        android:id="@+id/framerDetailsFragment"
+        android:id="@+id/farmerDetailsFragment"
         android:name="com.example.weatherapp.farmerDetailsFragment.FarmerDetailsFragment"
         android:label="Farmer Information"
         tools:layout="@layout/fragment_farmer_details">
         <action
             android:id="@+id/action_farmer_details_to_category"
             app:destination="@+id/categoryFragment" />
+        <action
+            android:id="@+id/action_farmer_details_to_selection"
+            app:destination="@+id/selectionFragment" />
     </fragment>
 
     <fragment

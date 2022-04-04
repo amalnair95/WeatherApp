@@ -69,5 +69,6 @@
     <string name="verification_code">Verification Code</string>
     <string name="verify">Verify</string>
     <string name="didn_t_receive_any_code">Didn\'t receive any code?</string>
+    <string name="farmer_details">Farmer details</string>
 
 </resources>

@@ -13,7 +13,7 @@
         android:layout_marginStart="@dimen/_10dp"
         android:layout_marginEnd="@dimen/_10dp"
         android:layout_marginBottom="@dimen/_10dp"
-        android:fontFamily="@font/lato_regular"
+        android:fontFamily="@font/segoe_ui"
         android:padding="@dimen/_10dp"
         android:scrollbars="vertical"
         android:textSize="@dimen/_16sp"

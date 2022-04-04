@@ -4,6 +4,7 @@
     <item
         android:id="@+id/scanner"
         android:title="Code Reader"
+        app:itemTextAppearance="@style/fontStyle"
         android:icon="@drawable/ic_baseline_qr_code_scanner_24"
         app:actionViewClass="com.budiyev.android.codescanner.CodeScannerView"
         app:showAsAction="never" />
@@ -12,5 +13,11 @@
         android:title="My Profile"
         android:icon="@drawable/ic_baseline_person_24"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/logoutProfile"
+        android:title="Logout"
+        app:itemTextAppearance="@style/fontStyle"
+        android:icon="@drawable/ic_baseline_person_24"
+        app:showAsAction="never" />
 
 </menu>

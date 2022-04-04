@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView"
         android:layout_marginBottom="@dimen/_18dp"
-        android:fontFamily="@font/lato_black"
+        android:fontFamily="@font/segoe_ui_bold"
         android:padding="@dimen/_14sp"
         android:text="Welcome Back! \n Please log in to continue!"
         android:textColor="@color/colorVirenxia"
@@ -39,7 +39,7 @@
             android:layout_margin="@dimen/_10dp"
             android:background="@drawable/edittext_bg"
             android:drawableStart="@drawable/ic_baseline_email_24"
-            android:fontFamily="@font/lato_regular"
+            android:fontFamily="@font/segoe_ui"
             android:hint="@string/email_or_phone_number"
             android:padding="@dimen/_14dp" />
 
@@ -50,7 +50,7 @@
             android:layout_margin="@dimen/_10dp"
             android:background="@drawable/edittext_bg"
             android:drawableStart="@drawable/ic_baseline_lock_24"
-            android:fontFamily="@font/lato_regular"
+            android:fontFamily="@font/segoe_ui"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:padding="@dimen/_14dp" />
@@ -60,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_10dp"
-            android:fontFamily="@font/lato_regular"
+            android:fontFamily="@font/segoe_ui"
             android:text="@string/show_password"
             android:textColor="@color/colorVirenxia" />
 
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_10dp"
             android:backgroundTint="@color/colorVirenxia"
-            android:fontFamily="@font/lato_black"
+            android:fontFamily="@font/segoe_ui_bold"
             android:padding="@dimen/_12dp"
             android:text="@string/log_in"
             android:textColor="@color/white"
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_margin="@dimen/_6dp"
-            android:fontFamily="@font/lato_regular"
+            android:fontFamily="@font/segoe_ui"
             android:padding="@dimen/_6dp"
             android:text="@string/forgot_password"
             android:textColor="@color/colorVirenxia" />
@@ -124,5 +124,11 @@
             android:layout_gravity="center"
             android:visibility="gone" />
     </LinearLayout>
+    <FrameLayout
+        android:id="@+id/touchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp">
 
+    </FrameLayout>
 </RelativeLayout>

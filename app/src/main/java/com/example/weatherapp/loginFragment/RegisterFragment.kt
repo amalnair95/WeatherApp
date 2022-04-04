@@ -32,6 +32,11 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     }
 
     private fun init() {
+        fragmentRegisterBinding.touchLayout.setOnTouchListener { view, motionEvent ->
+            Log.d(TAG, "Frame layout touch event found")
+            CommonMethod.hideKeyboard(fragmentRegisterBinding.root,requireActivity())
+            false
+        }
         registerUser()
     }
 

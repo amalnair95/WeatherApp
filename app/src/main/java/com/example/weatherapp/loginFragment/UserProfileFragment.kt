@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserDetails
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.GetDetailsHandler
 import com.example.weatherapp.R
@@ -25,6 +26,14 @@ class UserProfileFragment:Fragment(R.layout.fragment_user_profile) {
         super.onViewCreated(view, savedInstanceState)
     }
     private fun init() {
+
+        fragmentUserProfileBinding.editImageView.setOnClickListener {
+            val args = Bundle()
+            args.putString("@USERNAME", userReceived)
+            args.putString("@PROGRESSBAR", percentCompleted)
+            Navigation.findNavController(fragmentUserProfileBinding.root).navigate(R.id.action_user_to_farmer_details,args)
+        }
+
         val bundle = arguments
         if (bundle != null) {
             userReceived = bundle.getString("@USERNAME").toString()

@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.example.weatherapp.R
 import com.example.weatherapp.commonMethod.CommonMethod
 import com.example.weatherapp.commonMethod.GPSTracker
@@ -36,7 +37,11 @@ class SoilFragment : Fragment(R.layout.fragment_air) {
             println("data $it")
             val soilDetails = it[0]
             if (fragmentSoilBinding.soilAddress.text != null) {
-                fragmentSoilBinding.soilAddress.text = address
+                if(address!=null){
+                    fragmentSoilBinding.soilAddress.text = address
+                }else{
+                    fragmentSoilBinding.soilAddress.visibility = View.GONE
+                }
             } else {
                 fragmentSoilBinding.soilAddress.visibility = View.GONE
             }
@@ -62,10 +67,10 @@ class SoilFragment : Fragment(R.layout.fragment_air) {
         weatherViewModel = ViewModelProvider(requireActivity()).get(WeatherViewModel::class.java)
         weatherViewModel.clearResultSet()
         getData()
-        fragmentSoilBinding.swipeRefreshLayout.setOnRefreshListener {
+        /*fragmentSoilBinding.swipeRefreshLayout.setOnRefreshListener {
             getData()
             fragmentSoilBinding.swipeRefreshLayout.isRefreshing = false
-        }
+        }*/
     }
 
     private fun getLocation() {
@@ -77,6 +82,7 @@ class SoilFragment : Fragment(R.layout.fragment_air) {
 
         } else {
             gpsTracker!!.showSettingsAlert()
+            Navigation.findNavController(fragmentSoilBinding.root).navigate(R.id.action_soil_to_category)
         }
     }
 }

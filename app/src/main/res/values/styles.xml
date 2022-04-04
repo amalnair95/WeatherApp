@@ -8,4 +8,8 @@
     <style name="ButtonStyle">
         <item name="colorAccent">@color/colorVirenxia</item>
     </style>
+
+    <style name="fontStyle">
+        <item name="fontFamily">@font/segoe_ui</item>
+    </style>
 </resources>

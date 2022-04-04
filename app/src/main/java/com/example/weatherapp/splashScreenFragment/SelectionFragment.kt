@@ -27,6 +27,12 @@ class SelectionFragment:Fragment(R.layout.fragment_selection) {
     }
 
     private fun init() {
+        fragmentSelectionBinding.touchLayout.setOnTouchListener { view, motionEvent ->
+            Log.d(TAG, "Frame layout touch event found")
+            CommonMethod.hideKeyboard(fragmentSelectionBinding.root, requireActivity())
+            false
+
+        }
         fragmentSelectionBinding.loginButton.setOnClickListener {
             Navigation.findNavController(fragmentSelectionBinding.root).navigate(R.id.action_selection_to_login)
         }
@@ -44,4 +50,5 @@ class SelectionFragment:Fragment(R.layout.fragment_selection) {
         super.onStop()
         (activity as AppCompatActivity?)!!.supportActionBar!!.show()
     }
+
 }

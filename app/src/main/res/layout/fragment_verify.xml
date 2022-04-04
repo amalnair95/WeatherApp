@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_10dp"
             android:background="@drawable/edittext_bg"
-            android:fontFamily="@font/lato_regular"
+            android:fontFamily="@font/segoe_ui"
             android:drawableStart="@drawable/ic_baseline_email_24"
             android:hint="@string/email_or_phone_number"
             android:padding="@dimen/_14dp" />
@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_10dp"
-            android:fontFamily="@font/lato_regular"
+            android:fontFamily="@font/segoe_ui"
             android:hint="@string/verification_code"
             android:drawableStart="@drawable/ic_baseline_confirmation_number_24"
             android:inputType="number"
@@ -38,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/_10dp"
-            android:fontFamily="@font/lato_bold"
+            android:fontFamily="@font/segoe_ui_bold"
             android:padding="@dimen/_12dp"
             android:backgroundTint="@color/colorVirenxia"
             android:textColor="@color/white"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="@dimen/_6dp"
-            android:fontFamily="@font/lato_regular"
+            android:fontFamily="@font/segoe_ui"
             android:padding="@dimen/_6dp"
             android:text="@string/didn_t_receive_any_code"
             android:textColor="@color/colorVirenxia" />
@@ -61,10 +61,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="@dimen/_6dp"
-            android:fontFamily="@font/lato_regular"
+            android:fontFamily="@font/segoe_ui"
             android:padding="@dimen/_6dp"
             android:text="@string/resend_code"
             android:textColor="@color/colorVirenxia" />
     </LinearLayout>
+    <FrameLayout
+        android:id="@+id/touchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp">
 
+    </FrameLayout>
 </RelativeLayout>

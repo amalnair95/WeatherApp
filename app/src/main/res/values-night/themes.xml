@@ -4,6 +4,7 @@
         <!-- Primary brand color. -->
         <!--<item name="colorPrimary">@color/purple_200</item>-->
 <!--        <item name="colorPrimary">#ADD1AE</item>-->
+       <!-- <item name="colorPrimary">#fcfcf4</item>-->
         <item name="colorPrimary">#D9EDBF</item>
         <!--<item name="colorPrimaryVariant">@color/purple_700</item>-->
         <item name="colorPrimaryVariant">@color/black</item>

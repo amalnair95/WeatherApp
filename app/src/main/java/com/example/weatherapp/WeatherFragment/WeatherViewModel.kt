@@ -124,7 +124,7 @@ class WeatherViewModel:ViewModel() {
         fireCall = apiInterface.getFireDetail(lat,long)
         fireCall.enqueue(object : retrofit2.Callback<FireResults> {
             override fun onResponse(call: Call<FireResults>, response: Response<FireResults>) {
-                if (response.body() != null && response.isSuccessful && response.body()!= null) {
+                if (response.body()!= null && response.isSuccessful) {
                     val  fireData = response.body()!!.results
                     fireResultLiveDataList.postValue(fireData)
                 }

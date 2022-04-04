@@ -13,6 +13,7 @@ import com.example.weatherapp.commonMethod.GPSTracker
 import com.example.weatherapp.databinding.FragmentAirBinding
 import com.example.weatherapp.weatherFragment.WeatherViewModel
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
+import java.lang.Exception
 import kotlin.math.roundToInt
 
 class FireFragment : Fragment(R.layout.fragment_air) {
@@ -36,32 +37,49 @@ class FireFragment : Fragment(R.layout.fragment_air) {
         weatherViewModel.fireResultLiveDataList.observe(viewLifecycleOwner) {
             fragmentFireBinding.loadingProgressBar.visibility = View.GONE
             println("data $it")
-            if(it!=null){
-                fragmentFireBinding.fireMainLayout.visibility = View.VISIBLE
-                val fireDetails = it[0]
-                if (fragmentFireBinding.fireAddress.text != null) {
-                    fragmentFireBinding.fireAddress.text = address
-                } else {
-                    fragmentFireBinding.fireAddress.visibility = View.GONE
-                }
+            try{
+                if(it!=null){
+                    fragmentFireBinding.fireMainLayout.visibility = View.VISIBLE
+                    val fireDetails = it[0]
+                    if (fragmentFireBinding.fireAddress.text != null) {
+                        fragmentFireBinding.fireAddress.text = address
+                    } else {
+                        fragmentFireBinding.fireAddress.visibility = View.GONE
+                    }
+                    if (fireDetails.confidence != null) {
+                        fragmentFireBinding.confidenceLayout.visibility = View.VISIBLE
+                        fragmentFireBinding.fireConfidenceTextView.text = fireDetails.confidence
+                    }else{
+                        fragmentFireBinding.confidenceLayout.visibility = View.GONE
+                    }
+                    if (fireDetails.frp != null) {
+                        fragmentFireBinding.frpLayout.visibility = View.VISIBLE
+                        fragmentFireBinding.frpTextView.text = "${fireDetails.frp.toString()} MW"
+                    }else{
+                        fragmentFireBinding.frpLayout.visibility = View.GONE
+                    }
+                    if (fireDetails.dayNight != null) {
+                        fragmentFireBinding.dayNightLayout.visibility = View.VISIBLE
+                        fragmentFireBinding.dayNightTextView.text = fireDetails.dayNight
+                    } else {
+                        fragmentFireBinding.dayNightLayout.visibility = View.GONE
+                    }
+                    if (fireDetails.distance != null) {
+                        fragmentFireBinding.fireDistanceLayout.visibility = View.VISIBLE
+                        fragmentFireBinding.distanceTextView.text = "${fireDetails.distance.roundToInt().toString()} km"
+                    }else{
+                        fragmentFireBinding.fireDistanceLayout.visibility = View.GONE
+                    }
 
-                fragmentFireBinding.fireConfidenceTextView.text = fireDetails.confidence
-                fragmentFireBinding.frpTextView.text = "${fireDetails.frp.toString()} MW"
-                if (fireDetails.dayNight != null) {
-                    fragmentFireBinding.dayNightLayout.visibility = View.VISIBLE
-                    fragmentFireBinding.dayNightTextView.text = fireDetails.dayNight
-                } else {
-                    fragmentFireBinding.dayNightLayout.visibility = View.GONE
+                }else{
+                    CommonMethod.loadPopUp("No Data Retrieved from API",requireContext())
                 }
-                fragmentFireBinding.distanceTextView.text =
-                    "${fireDetails.distance.roundToInt().toString()} km"
-            }else{
+            }catch (e:Exception){
+                Log.d(TAG,"Error Occurred:$e ")
                 CommonMethod.loadPopUp("No Data Retrieved from API",requireContext())
             }
 
-
         }
-
     }
 
     private fun getData() {
@@ -79,10 +97,10 @@ class FireFragment : Fragment(R.layout.fragment_air) {
         weatherViewModel = ViewModelProvider(requireActivity()).get(WeatherViewModel::class.java)
         weatherViewModel.clearResultSet()
         getData()
-        fragmentFireBinding.swipeRefreshLayout.setOnRefreshListener {
+       /* fragmentFireBinding.swipeRefreshLayout.setOnRefreshListener {
             getData()
             fragmentFireBinding.swipeRefreshLayout.isRefreshing = false
-        }
+        }*/
         /* fragmentFireBinding.testButton.setOnClickListener {
              fragmentFireBinding.loadingProgressBar.visibility=View.VISIBLE
              fragmentFireBinding.airMainLayout.visibility=View.GONE

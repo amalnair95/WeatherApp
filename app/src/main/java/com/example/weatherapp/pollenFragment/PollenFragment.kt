@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.example.weatherapp.R
 import com.example.weatherapp.commonMethod.CommonMethod
 import com.example.weatherapp.commonMethod.GPSTracker
@@ -31,27 +32,35 @@ class PollenFragment : Fragment(R.layout.fragment_air) {
     private fun setObservers() {
         weatherViewModel.pollenResultLiveDataList.observe(viewLifecycleOwner) {
             //println(it[0])
-            val pollenData = it[0]
-            fragmentPollenBinding.loadingProgressBar.visibility = View.GONE
-            fragmentPollenBinding.pollenMainLayout.visibility = View.VISIBLE
-            if (fragmentPollenBinding.pollenAddress.text != null) {
-                fragmentPollenBinding.pollenAddress.text = address
-            } else {
-                fragmentPollenBinding.pollenAddress.visibility = View.GONE
-            }
+            if(it!=null) {
+                val pollenData = it[0]
+                fragmentPollenBinding.loadingProgressBar.visibility = View.GONE
+                fragmentPollenBinding.pollenMainLayout.visibility = View.VISIBLE
+                if (fragmentPollenBinding.pollenAddress.text != null) {
+                    if (address!=null){
+                        fragmentPollenBinding.pollenAddress.text = address
+                    }else{
+                        fragmentPollenBinding.pollenAddress.visibility = View.GONE
+                    }
+                } else {
+                    fragmentPollenBinding.pollenAddress.visibility = View.GONE
+                }
 
-            fragmentPollenBinding.countGrassPollenTextview.text =
-                pollenData.countData.grassPollen.toString()
-            fragmentPollenBinding.countTreePollenTextview.text =
-                pollenData.countData.treePollen.toString()
-            fragmentPollenBinding.countWeedPollenTextview.text =
-                pollenData.countData.weedPollen.toString()
-            fragmentPollenBinding.riskGrassPollenTextview.text =
-                pollenData.riskData.grassPollen.toString()
-            fragmentPollenBinding.riskTreePollenTextview.text =
-                pollenData.riskData.treePollen.toString()
-            fragmentPollenBinding.riskWeedPollenTextview.text =
-                pollenData.riskData.weedPollen.toString()
+                fragmentPollenBinding.countGrassPollenTextview.text =
+                    pollenData.countData.grassPollen.toString()
+                fragmentPollenBinding.countTreePollenTextview.text =
+                    pollenData.countData.treePollen.toString()
+                fragmentPollenBinding.countWeedPollenTextview.text =
+                    pollenData.countData.weedPollen.toString()
+                fragmentPollenBinding.riskGrassPollenTextview.text =
+                    pollenData.riskData.grassPollen.toString()
+                fragmentPollenBinding.riskTreePollenTextview.text =
+                    pollenData.riskData.treePollen.toString()
+                fragmentPollenBinding.riskWeedPollenTextview.text =
+                    pollenData.riskData.weedPollen.toString()
+            }else{
+                CommonMethod.loadPopUp("No Data Retrieved from API",requireContext())
+            }
         }
     }
 
@@ -68,10 +77,10 @@ class PollenFragment : Fragment(R.layout.fragment_air) {
         weatherViewModel = ViewModelProvider(requireActivity()).get(WeatherViewModel::class.java)
         weatherViewModel.clearResultSet()
         getData()
-        fragmentPollenBinding.swipeRefreshLayout.setOnRefreshListener {
+      /*  fragmentPollenBinding.swipeRefreshLayout.setOnRefreshListener {
             getData()
             fragmentPollenBinding.swipeRefreshLayout.isRefreshing = false
-        }
+        }*/
     }
 
     private fun getLocation() {
@@ -83,6 +92,7 @@ class PollenFragment : Fragment(R.layout.fragment_air) {
 
         } else {
             gpsTracker!!.showSettingsAlert()
+            Navigation.findNavController(fragmentPollenBinding.root).navigate(R.id.action_pollen_to_category)
         }
     }
 

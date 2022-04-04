@@ -17,7 +17,9 @@ import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.Mult
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.AuthenticationHandler
 import com.example.weatherapp.R
 import com.example.weatherapp.commonMethod.CommonMethod
+import com.example.weatherapp.databaseFiles.DatabaseHelper
 import com.example.weatherapp.databinding.FragmentLoginBinding
+import com.example.weatherapp.isNullOrEmpty
 import com.example.weatherapp.models.CognitoSettings
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -33,19 +35,29 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private val fragmentLoginBinding by viewBinding(FragmentLoginBinding::bind)
 
     private val TAG = LoginFragment::class.java.simpleName
-    private lateinit var mGoogleSignInClient:GoogleSignInClient
-    private val RC_SIGN_IN=100
-    var value=""
+    private lateinit var mGoogleSignInClient: GoogleSignInClient
+    private val RC_SIGN_IN = 100
+    var value = ""
+    var isRegister: Boolean = false
+
+    private var dbHelper: DatabaseHelper? = null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Log.e(TAG, "On create view started..")
         (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-       // CommonMethod.backButtonCode(view)
+        // CommonMethod.backButtonCode(view)
         init()
         super.onViewCreated(view, savedInstanceState)
     }
 
     private fun init() {
+        fragmentLoginBinding.touchLayout.setOnTouchListener { view, motionEvent ->
+            Log.d(TAG, "Frame layout touch event found")
+            CommonMethod.hideKeyboard(fragmentLoginBinding.root, requireActivity())
+            false
 
+        }
+
+        dbHelper = DatabaseHelper(requireContext())
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestEmail()
             .build()
@@ -79,14 +91,53 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         val authenticationHandler = object : AuthenticationHandler {
             override fun onSuccess(userSession: CognitoUserSession?, newDevice: CognitoDevice?) {
-                Log.d(TAG, "Login Successful")
-                val args = Bundle()
-                args.putString("@USERNAME", value)
-                args.putString("@PROGRESSBAR","50")
-                Navigation.findNavController(fragmentLoginBinding.root).navigate(R.id.action_login_to_farmer_details, args)
+                Log.d(TAG, "expiry date ${userSession?.accessToken?.expiration}")
+                val refreshToken = userSession?.refreshToken?.token
+                val checkBiQuery = dbHelper!!.ExecuteBiQuery("Select * from TokenDetails")
+                lateinit var password: String
+                if (checkBiQuery.isNullOrEmpty()) {
+                    Log.d(TAG, "No data")
+                    if (fragmentLoginBinding.passwordEditText.text.toString() != "") {
+                        val checkInsert = dbHelper!!.insertTokenData(
+                            refreshToken,
+                            value,
+                            fragmentLoginBinding.passwordEditText.text.toString()
+                        )
+                        if (checkInsert == true) {
+                            Log.d(TAG, "data inserted")
+                        } else {
+                            Log.d(TAG, "data not inserted")
+                        }
+                        val checkBiQuery2 = dbHelper!!.ExecuteBiQuery("Select * from TokenDetails")
+                        password = checkBiQuery2.getString(3)
+                    }
+                } else {
+                    Log.d(TAG, "data ${checkBiQuery.columnCount}")
+                    if (checkBiQuery.getString(1) == null) {
+                        val insertRefreshToken =
+                            dbHelper!!.ExecuteBiQuery("Update TokenDetails SET RefreshToken='$refreshToken' where UserName='$value'")
+                    }
+                    password = checkBiQuery.getString(3)
+                }
+                if (password != null) {
+                    if (password.equals(fragmentLoginBinding.passwordEditText.text.toString())) {
+                        Log.d(TAG, "Login Successful")
+                        val args = Bundle()
+                        args.putString("@USERNAME", value)
+                        args.putString("@PROGRESSBAR", "50")
+                        Navigation.findNavController(fragmentLoginBinding.root)
+                            .navigate(R.id.action_login_to_farmer_details, args)
+                    } else {
+                        CommonMethod.loadPopUp("Incorrect Password", requireContext())
+                    }
+                } else {
+                    CommonMethod.loadPopUp("Incorrect Password", requireContext())
+                }
             }
 
-            override fun getAuthenticationDetails(authenticationContinuation: AuthenticationContinuation, userId: String?) {
+            override fun getAuthenticationDetails(
+                authenticationContinuation: AuthenticationContinuation, userId: String?
+            ) {
                 Log.d(TAG, "inside getAuthenticationDetails")
                 val authenticationDetails = AuthenticationDetails(
                     userId,
@@ -107,13 +158,19 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
             override fun onFailure(exception: Exception?) {
                 Log.d(TAG, "Login Failed:${exception?.localizedMessage}")
-                CommonMethod.loadPopUp(exception?.message.toString().substringBefore("("), requireContext())
+                CommonMethod.loadPopUp(
+                    exception?.message.toString().substringBefore("("),
+                    requireContext()
+                )
             }
 
         }
         fragmentLoginBinding.loginButton.setOnClickListener {
             val cognitoSettings = CognitoSettings(requireContext())
-            value = CommonMethod.getUserNameForAuthentication(fragmentLoginBinding.userNameEditText,requireActivity())
+            value = CommonMethod.getUserNameForAuthentication(
+                fragmentLoginBinding.userNameEditText,
+                requireActivity()
+            )
             val thisUser = cognitoSettings.userPool.getUser(value)
             Log.d(TAG, "Login Button Clicked")
             thisUser.getSessionInBackground(authenticationHandler)
@@ -135,7 +192,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         if (requestCode === RC_SIGN_IN) {
             // The Task returned from this call is always completed, no need to attach
             // a listener.
-            val task: Task<GoogleSignInAccount> =GoogleSignIn.getSignedInAccountFromIntent(data)
+            val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
             handleSignInResult(task)
         }
     }
@@ -151,14 +208,14 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 val personEmail = acct.email
                 val personId = acct.id
                 //val personPhoto: Uri? = acct.photoUrl
-                Log.d(TAG,"Person Name: $personName")
+                Log.d(TAG, "Person Name: $personName")
             }
             //updateUI(account)
         } catch (e: ApiException) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
             Log.e(TAG, "signInResult:failed code=" + e.statusCode)
-           //updateUI(null)
+            //updateUI(null)
         }
     }
 
@@ -167,4 +224,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         val signInIntent: Intent = mGoogleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
+    }
+
 }

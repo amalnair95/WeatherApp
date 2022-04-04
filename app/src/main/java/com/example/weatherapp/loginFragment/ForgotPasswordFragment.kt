@@ -10,6 +10,7 @@ import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.Forg
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.ForgotPasswordHandler
 import com.example.weatherapp.R
 import com.example.weatherapp.commonMethod.CommonMethod
+import com.example.weatherapp.databaseFiles.DatabaseHelper
 import com.example.weatherapp.databinding.FragmentForgotPasswordBinding
 import com.example.weatherapp.models.CognitoSettings
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
@@ -19,7 +20,7 @@ class ForgotPasswordFragment : Fragment(R.layout.fragment_forgot_password) {
     private val fragmentForgotPasswordBinding by viewBinding(FragmentForgotPasswordBinding::bind)
     var resultContinuation: ForgotPasswordContinuation? = null
     private val TAG = ForgotPasswordFragment::class.java.simpleName
-
+    private var dbHelper: DatabaseHelper?=null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Log.e(TAG, "On create view started..")
         (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(false)
@@ -28,11 +29,20 @@ class ForgotPasswordFragment : Fragment(R.layout.fragment_forgot_password) {
     }
 
     private fun init() {
+
+        fragmentForgotPasswordBinding.touchLayout.setOnTouchListener { view, motionEvent ->
+            Log.d(TAG, "Frame layout touch event found")
+            CommonMethod.hideKeyboard(fragmentForgotPasswordBinding.root, requireActivity())
+            false
+        }
+
+        dbHelper= DatabaseHelper(requireContext())
         fragmentForgotPasswordBinding.getCodeLayout.visibility = View.VISIBLE
         fragmentForgotPasswordBinding.getNewPasswordLayout.visibility = View.GONE
         val callback = object : ForgotPasswordHandler {
             override fun onSuccess() {
                 Log.d(TAG, "Password changed successfully")
+                val checkBiQuery= dbHelper!!.ExecuteBiQuery("UPDATE TokenDetails SET Password='${fragmentForgotPasswordBinding.newPasswordEditText.text.toString()}' where UserName='${fragmentForgotPasswordBinding.userNameEditText.text.toString()}'")
                 Navigation.findNavController(fragmentForgotPasswordBinding.root).navigate(R.id.action_forgot_password_to_login)
 
             }

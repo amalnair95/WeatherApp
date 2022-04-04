@@ -1,75 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+<!--<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
     android:id="@+id/swipeRefreshLayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    >-->
 <RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/gradient_background"
+    android:background="@color/screenBackground"
     android:layout_height="match_parent">
 
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
-<RelativeLayout
-    android:id="@+id/mainLayout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingBottom="@dimen/_20dp"
-    android:visibility="gone">
-
-    <LinearLayout
-        android:id="@+id/weatherLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/_10dp">
-
-        <ImageView
-            android:id="@+id/weatherIcon"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:visibility="visible" />
-
-        <TextView
-            android:id="@+id/temperatureTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_12dp"
-            android:fontFamily="@font/lato_bold"
-            android:textColor="@color/white"
-            android:layout_gravity="center"
-            android:textSize="40sp"
-            tools:text="25" />
-        <TextView
-            android:id="@+id/celsiusTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_8dp"
-            android:fontFamily="@font/lato_bold"
-            android:text="@string/_176_c"
-            android:textColor="@color/white"
-            android:layout_gravity="center"
-            android:textSize="@dimen/_20sp" />
-
-        <LinearLayout
+        <RelativeLayout
+            android:id="@+id/mainLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/_12dp"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/_20dp"
+            android:visibility="visible">
 
-<!--            <TextView
+            <LinearLayout
+                android:id="@+id/weatherLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/_10dp">
+
+                <ImageView
+                    android:id="@+id/weatherIcon"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/temperatureTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/_12dp"
+                    android:fontFamily="@font/segoe_ui_bold"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="40sp"
+                    tools:text="25" />
+
+                <TextView
+                    android:id="@+id/celsiusTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_8dp"
+                    android:fontFamily="@font/segoe_ui_bold"
+                    android:text="@string/_176_c"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_20sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginVertical="@dimen/_12dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                <!--<TextView
                 android:id="@+id/celsiusTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -79,307 +81,307 @@
                 android:textColor="@color/white"
                 android:textSize="@dimen/_16sp" />-->
 
+                    <TextView
+                        android:id="@+id/summaryTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/segoe_ui"
+                        android:padding="@dimen/_10dp"
+                        android:textColor="@color/dark_grey"
+                        android:textSize="@dimen/_16sp"
+                        tools:text="Humid" />
+                </LinearLayout>
+
+            </LinearLayout>
+
             <TextView
-                android:id="@+id/summaryTextView"
+                android:id="@+id/addressTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/lato_bold"
-                android:textColor="@color/white"
+                android:layout_below="@id/weatherLayout"
+                android:layout_marginStart="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:fontFamily="@font/segoe_ui_bold"
+                android:padding="@dimen/_8dp"
+                android:text="@string/location"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/_18sp" />
+
+            <TextView
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addressTitle"
+                android:layout_marginStart="@dimen/_10dp"
+                android:fontFamily="@font/segoe_ui"
+                android:padding="@dimen/_8dp"
+                android:textColor="@color/dark_grey"
                 android:textSize="@dimen/_16sp"
-                tools:text="Humid" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/addressTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/weatherLayout"
-        android:layout_marginStart="@dimen/_10dp"
-        android:layout_marginTop="@dimen/_10dp"
-        android:fontFamily="@font/lato_bold"
-        android:padding="@dimen/_8dp"
-        android:text="@string/location"
-        android:textColor="@color/grey"
-        android:textSize="@dimen/_18sp" />
-
-    <TextView
-        android:id="@+id/address"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/addressTitle"
-        android:fontFamily="@font/lato_regular"
-        android:layout_marginStart="@dimen/_10dp"
-        android:padding="@dimen/_8dp"
-        android:textColor="@color/white"
-        android:textSize="@dimen/_16sp"
-        tools:text="bsidbi" />
-
-    <TextView
-        android:id="@+id/weatherDetailsTextView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/address"
-        android:layout_marginTop="@dimen/_10dp"
-        android:layout_marginStart="@dimen/_10dp"
-        android:fontFamily="@font/lato_bold"
-        android:padding="@dimen/_8dp"
-        android:text="@string/weather_details"
-        android:textColor="@color/grey"
-        android:textSize="@dimen/_18sp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/weatherDetailsTextView"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_12dp"
-            android:orientation="horizontal"
-            android:padding="@dimen/_10dp"
-            android:weightSum="2">
+                tools:text="bsidbi" />
 
             <TextView
+                android:id="@+id/weatherDetailsTextView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/lato_bold"
-                android:gravity="center"
-                android:text="@string/apparent_temperature"
+                android:layout_below="@id/address"
+                android:layout_marginStart="@dimen/_10dp"
+                android:layout_marginTop="@dimen/_10dp"
+                android:fontFamily="@font/segoe_ui_bold"
+                android:padding="@dimen/_8dp"
+                android:text="@string/weather_details"
                 android:textColor="@color/grey"
-                android:textSize="@dimen/_16sp" />
+                android:textSize="@dimen/_18sp" />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/lato_bold"
-                android:gravity="center"
-                android:text="@string/humidity"
-                android:textColor="@color/grey"
-                android:textSize="@dimen/_16sp" />
-        </LinearLayout>
+                android:layout_below="@id/weatherDetailsTextView"
+                android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_12dp"
-            android:layout_marginEnd="@dimen/_12dp"
-            android:orientation="horizontal"
-            android:weightSum="2">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_12dp"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_10dp"
+                    android:weightSum="2">
 
-            <TextView
-                android:id="@+id/apparentTempTextview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/lato_regular"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_24sp"
-                tools:text="@string/_176_c" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/segoe_ui_bold"
+                        android:gravity="center"
+                        android:text="@string/apparent_temperature"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_16sp" />
 
-            <TextView
-                android:id="@+id/humidityTextview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/lato_regular"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_24sp"
-                tools:text="0.84" />
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/segoe_ui_bold"
+                        android:gravity="center"
+                        android:text="@string/humidity"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_16sp" />
+                </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_12dp"
-            android:orientation="horizontal"
-            android:padding="@dimen/_10dp"
-            android:weightSum="2">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12dp"
+                    android:layout_marginEnd="@dimen/_12dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/lato_bold"
-                android:gravity="center"
-                android:text="@string/wind_speed"
-                android:textColor="@color/grey"
-                android:textSize="@dimen/_16sp" />
+                    <TextView
+                        android:id="@+id/apparentTempTextview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/segoe_ui"
+                        android:gravity="center"
+                        android:textColor="@color/dark_grey"
+                        android:textSize="@dimen/_24sp"
+                        tools:text="@string/_176_c" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/lato_bold"
-                android:gravity="center"
-                android:text="@string/dew_point"
-                android:textColor="@color/grey"
-                android:textSize="@dimen/_16sp" />
-        </LinearLayout>
+                    <TextView
+                        android:id="@+id/humidityTextview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/segoe_ui"
+                        android:gravity="center"
+                        android:textColor="@color/dark_grey"
+                        android:textSize="@dimen/_24sp"
+                        tools:text="0.84" />
+                </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_12dp"
-            android:layout_marginEnd="@dimen/_12dp"
-            android:orientation="horizontal"
-            android:weightSum="2">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_12dp"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_10dp"
+                    android:weightSum="2">
 
-            <TextView
-                android:id="@+id/windSpeedTextview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/lato_regular"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_24sp"
-                tools:text="@string/_176_c" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/segoe_ui_bold"
+                        android:gravity="center"
+                        android:text="@string/wind_speed"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_16sp" />
 
-            <TextView
-                android:id="@+id/dewPointTextview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/lato_regular"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_24sp"
-                tools:text="0.84" />
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/segoe_ui_bold"
+                        android:gravity="center"
+                        android:text="@string/dew_point"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_16sp" />
+                </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_12dp"
-            android:orientation="horizontal"
-            android:padding="@dimen/_10dp"
-            android:weightSum="2">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12dp"
+                    android:layout_marginEnd="@dimen/_12dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/lato_bold"
-                android:gravity="center"
-                android:text="@string/visibility"
-                android:textColor="@color/grey"
-                android:textSize="@dimen/_16sp" />
+                    <TextView
+                        android:id="@+id/windSpeedTextview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/segoe_ui"
+                        android:gravity="center"
+                        android:textColor="@color/dark_grey"
+                        android:textSize="@dimen/_24sp"
+                        tools:text="@string/_176_c" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/lato_bold"
-                android:gravity="center"
-                android:text="@string/air_pressure"
-                android:textColor="@color/grey"
-                android:textSize="@dimen/_16sp" />
-        </LinearLayout>
+                    <TextView
+                        android:id="@+id/dewPointTextview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/segoe_ui"
+                        android:gravity="center"
+                        android:textColor="@color/dark_grey"
+                        android:textSize="@dimen/_24sp"
+                        tools:text="0.84" />
+                </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_12dp"
-            android:layout_marginEnd="@dimen/_12dp"
-            android:orientation="horizontal"
-            android:weightSum="2">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_12dp"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_10dp"
+                    android:weightSum="2">
 
-            <TextView
-                android:id="@+id/visibilityTextview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/lato_regular"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_24sp"
-                tools:text="@string/_176_c" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/segoe_ui_bold"
+                        android:gravity="center"
+                        android:text="@string/visibility"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_16sp" />
 
-            <TextView
-                android:id="@+id/airPressureTextview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/lato_regular"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_24sp"
-                tools:text="0.84" />
-        </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/segoe_ui_bold"
+                        android:gravity="center"
+                        android:text="@string/air_pressure"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_16sp" />
+                </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_12dp"
-            android:orientation="horizontal"
-            android:padding="@dimen/_10dp"
-            android:weightSum="2">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12dp"
+                    android:layout_marginEnd="@dimen/_12dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/lato_bold"
-                android:gravity="center"
-                android:text="@string/cloud_cover"
-                android:textColor="@color/grey"
-                android:textSize="@dimen/_16sp" />
+                    <TextView
+                        android:id="@+id/visibilityTextview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/segoe_ui"
+                        android:gravity="center"
+                        android:textColor="@color/dark_grey"
+                        android:textSize="@dimen/_24sp"
+                        tools:text="@string/_176_c" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/lato_bold"
-                android:gravity="center"
-                android:text="@string/ozone"
-                android:textColor="@color/grey"
-                android:textSize="@dimen/_16sp" />
-        </LinearLayout>
+                    <TextView
+                        android:id="@+id/airPressureTextview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/segoe_ui"
+                        android:gravity="center"
+                        android:textColor="@color/dark_grey"
+                        android:textSize="@dimen/_24sp"
+                        tools:text="0.84" />
+                </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/_12dp"
-            android:layout_marginEnd="@dimen/_12dp"
-            android:orientation="horizontal"
-            android:weightSum="2">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_12dp"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_10dp"
+                    android:weightSum="2">
 
-            <TextView
-                android:id="@+id/cloudCoverTextview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/lato_regular"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_24sp"
-                tools:text="@string/_176_c" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/segoe_ui_bold"
+                        android:gravity="center"
+                        android:text="@string/cloud_cover"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_16sp" />
 
-            <TextView
-                android:id="@+id/ozoneTextview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/lato_regular"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_24sp"
-                tools:text="0.84" />
-        </LinearLayout>
-    </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/segoe_ui_bold"
+                        android:gravity="center"
+                        android:text="@string/ozone"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/_16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_12dp"
+                    android:layout_marginEnd="@dimen/_12dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:id="@+id/cloudCoverTextview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/segoe_ui"
+                        android:gravity="center"
+                        android:textColor="@color/dark_grey"
+                        android:textSize="@dimen/_24sp"
+                        tools:text="@string/_176_c" />
+
+                    <TextView
+                        android:id="@+id/ozoneTextview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/segoe_ui"
+                        android:gravity="center"
+                        android:textColor="@color/dark_grey"
+                        android:textSize="@dimen/_24sp"
+                        tools:text="0.84" />
+                </LinearLayout>
+            </LinearLayout>
 
 
-
-</RelativeLayout>
-</ScrollView>
+        </RelativeLayout>
+    </ScrollView>
 
     <ProgressBar
         android:id="@+id/loadingProgressBar"
@@ -401,4 +403,5 @@
         android:visibility="gone" />
     <!--</ScrollView>-->
 </RelativeLayout>
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+<!--
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>-->

@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.example.weatherapp.R
 import com.example.weatherapp.commonMethod.CommonMethod
+import com.example.weatherapp.databaseFiles.DatabaseHelper
 import com.example.weatherapp.databinding.FragmentCategoryBinding
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 
@@ -24,12 +25,13 @@ class ChooseCategoryFragment : Fragment(R.layout.fragment_category) {
     private val TAG = ChooseCategoryFragment::class.java.simpleName
     var userReceived: String=""
     var percentCompleted: String=""
+    private var dbHelper: DatabaseHelper?=null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         Log.e(TAG, "On create view started..")
-        (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        //CommonMethod.backButtonCode(view)
+        (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(false)
+        CommonMethod.backButtonCode(view)
         permissionSetup()
         init()
         setObservers()
@@ -58,6 +60,10 @@ class ChooseCategoryFragment : Fragment(R.layout.fragment_category) {
             R.id.scanner->{
                 Navigation.findNavController(fragmentCategoryBinding.root).navigate(R.id.action_category_to_scanner)
             }
+            R.id.logoutProfile->{
+                val checkBiQuery= dbHelper!!.ExecuteBiQuery("UPDATE TokenDetails SET RefreshToken=NULL where UserName='$userReceived'")
+                Navigation.findNavController(fragmentCategoryBinding.root).navigate(R.id.action_category_to_selection)
+            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -85,6 +91,7 @@ class ChooseCategoryFragment : Fragment(R.layout.fragment_category) {
     }
 
     private fun init() {
+        dbHelper= DatabaseHelper(requireContext())
         val bundle = arguments
         if (bundle != null) {
             userReceived = bundle.getString("@USERNAME").toString()
@@ -122,5 +129,9 @@ class ChooseCategoryFragment : Fragment(R.layout.fragment_category) {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
+    }
 
 }

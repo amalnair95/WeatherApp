@@ -1,105 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    >
+    android:fitsSystemWindows="true">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="@dimen/_10dp"
-        android:layout_marginTop="@dimen/_10dp"
-        android:layout_marginEnd="@dimen/_10dp"
         android:layout_above="@id/button_layout">
 
-        <TextView
-            android:id="@+id/farmerDetailsTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/lato_bold"
-            android:padding="@dimen/_10dp"
-            android:text="Farmer details"
-            android:textColor="@color/colorVirenxia"
-            android:textSize="@dimen/_16sp" />
-
-        <TextView
-            android:id="@+id/farmerNameTextView"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/farmerDetailsTextView"
+            android:layout_marginStart="@dimen/_10dp"
             android:layout_marginTop="@dimen/_10dp"
-            android:fontFamily="@font/lato_regular"
-            android:padding="@dimen/_10dp"
-            android:text=" Full Name"
-            android:textColor="@color/colorVirenxia"
-            android:textSize="@dimen/_16sp"
-            app:drawableStartCompat="@drawable/ic_baseline_person_24" />
+            android:layout_marginEnd="@dimen/_10dp">
 
-        <EditText
-            android:id="@+id/farmerNameEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/farmerNameTextView"
-            android:layout_marginHorizontal="@dimen/_6dp"
-            android:layout_marginVertical="@dimen/_8dp"
-            android:background="@drawable/edittext_bg"
-            android:fontFamily="@font/lato_regular"
-            android:padding="@dimen/_12dp"
-            android:textSize="@dimen/_16sp" />
+            <TextView
+                android:id="@+id/farmerDetailsTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/segoe_ui_bold"
+                android:padding="@dimen/_10dp"
+                android:text="@string/farmer_details"
+                android:textColor="@color/colorVirenxia"
+                android:textSize="@dimen/_16sp" />
 
-        <TextView
-            android:id="@+id/farmerLandAreaTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/farmerNameEditText"
-            android:fontFamily="@font/lato_regular"
-            android:padding="@dimen/_10dp"
-            android:text="Area Owned"
-            android:textColor="@color/colorVirenxia"
-            android:textSize="@dimen/_16sp" />
+            <TextView
+                android:id="@+id/farmerNameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/farmerDetailsTextView"
+                android:layout_marginTop="@dimen/_10dp"
+                android:fontFamily="@font/segoe_ui"
+                android:padding="@dimen/_10dp"
+                android:text=" Full Name"
+                android:textColor="@color/colorVirenxia"
+                android:textSize="@dimen/_16sp"
+                app:drawableStartCompat="@drawable/ic_baseline_person_24" />
 
-        <EditText
-            android:id="@+id/farmerLandAreaEdittext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/farmerLandAreaTextView"
-            android:layout_marginHorizontal="@dimen/_6dp"
-            android:layout_marginVertical="@dimen/_8dp"
-            android:background="@drawable/edittext_bg"
-            android:fontFamily="@font/lato_regular"
-            android:inputType="number"
-            android:padding="@dimen/_12dp"
-            android:textSize="@dimen/_16sp" />
+            <EditText
+                android:id="@+id/farmerNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/farmerNameTextView"
+                android:layout_marginHorizontal="@dimen/_6dp"
+                android:layout_marginVertical="@dimen/_8dp"
+                android:background="@drawable/edittext_bg"
+                android:fontFamily="@font/segoe_ui"
+                android:padding="@dimen/_12dp"
+                android:textSize="@dimen/_16sp" />
 
-        <TextView
-            android:id="@+id/farmerAddressTextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/farmerLandAreaEdittext"
-            android:fontFamily="@font/lato_regular"
-            android:padding="@dimen/_10dp"
-            android:text=" Address"
-            android:textColor="@color/colorVirenxia"
-            android:textSize="@dimen/_16sp"
-            app:drawableStartCompat="@drawable/ic_baseline_location_city_24" />
+            <TextView
+                android:id="@+id/farmerLandAreaTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/farmerNameEditText"
+                android:fontFamily="@font/segoe_ui"
+                android:padding="@dimen/_10dp"
+                android:text="Area Owned"
+                android:textColor="@color/colorVirenxia"
+                android:textSize="@dimen/_16sp" />
 
-        <EditText
-            android:id="@+id/farmerAddressEdittext"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/farmerAddressTextView"
-            android:layout_marginHorizontal="@dimen/_6dp"
-            android:layout_marginVertical="@dimen/_8dp"
-            android:fontFamily="@font/lato_regular"
-            android:background="@drawable/edittext_bg"
-            android:padding="@dimen/_12dp"
-            android:textSize="@dimen/_16sp" />
+            <EditText
+                android:id="@+id/farmerLandAreaEdittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/farmerLandAreaTextView"
+                android:layout_marginHorizontal="@dimen/_6dp"
+                android:layout_marginVertical="@dimen/_8dp"
+                android:background="@drawable/edittext_bg"
+                android:fontFamily="@font/segoe_ui"
+                android:inputType="number"
+                android:padding="@dimen/_12dp"
+                android:textSize="@dimen/_16sp" />
+
+            <TextView
+                android:id="@+id/farmerAddressTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/farmerLandAreaEdittext"
+                android:fontFamily="@font/segoe_ui"
+                android:padding="@dimen/_10dp"
+                android:text=" Address"
+                android:textColor="@color/colorVirenxia"
+                android:textSize="@dimen/_16sp"
+                app:drawableStartCompat="@drawable/ic_baseline_location_city_24" />
+
+            <EditText
+                android:id="@+id/farmerAddressEdittext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/farmerAddressTextView"
+                android:layout_marginHorizontal="@dimen/_6dp"
+                android:layout_marginVertical="@dimen/_8dp"
+                android:background="@drawable/edittext_bg"
+                android:fontFamily="@font/segoe_ui"
+                android:padding="@dimen/_12dp"
+                android:textSize="@dimen/_16sp" />
 
 
-    </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+
     <LinearLayout
         android:id="@+id/button_layout"
         android:layout_width="match_parent"
@@ -114,20 +119,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorVirenxia"
+            android:fontFamily="@font/segoe_ui_bold"
             android:padding="@dimen/_12dp"
-            android:fontFamily="@font/lato_bold"
             android:text="Proceed"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:textSize="@dimen/_16sp" />
+
         <TextView
             android:id="@+id/buttonSkip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/segoe_ui_bold"
+            android:gravity="center"
             android:padding="@dimen/_10dp"
             android:text="Skip"
-            android:fontFamily="@font/lato_black"
-            android:gravity="center"
             android:textColor="@color/colorVirenxia"
             android:textSize="@dimen/_16sp" />
     </LinearLayout>

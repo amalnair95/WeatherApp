@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.weatherapp.R
 import com.example.weatherapp.commonMethod.CommonMethod
@@ -36,7 +37,11 @@ class AirFragment : Fragment(R.layout.fragment_air) {
             println("data $it")
             val airDetails = it[0]
             if (fragmentAirBinding.address.text != null) {
-                fragmentAirBinding.address.text = address
+                if(address!=null){
+                    fragmentAirBinding.address.text = address
+                }else{
+                    fragmentAirBinding.address.visibility = View.GONE
+                }
             } else {
                 fragmentAirBinding.address.visibility = View.GONE
             }
@@ -70,10 +75,10 @@ class AirFragment : Fragment(R.layout.fragment_air) {
             fragmentAirBinding.pollenMainLayout.visibility=View.GONE
             getLocation()
         }*/
-        fragmentAirBinding.swipeRefreshLayout.setOnRefreshListener {
+  /*      fragmentAirBinding.swipeRefreshLayout.setOnRefreshListener {
             getData()
             fragmentAirBinding.swipeRefreshLayout.isRefreshing = false
-        }
+        }*/
     }
 
     private fun getLocation() {
@@ -86,6 +91,7 @@ class AirFragment : Fragment(R.layout.fragment_air) {
 
         } else {
             gpsTracker!!.showSettingsAlert()
+            Navigation.findNavController(fragmentAirBinding.root).navigate(R.id.action_air_to_category)
         }
     }
 }

@@ -15,6 +15,7 @@ import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.GenericHa
 import com.example.weatherapp.MainActivity
 import com.example.weatherapp.R
 import com.example.weatherapp.commonMethod.CommonMethod
+import com.example.weatherapp.databaseFiles.DatabaseHelper
 import com.example.weatherapp.databinding.FragmentVerifyBinding
 import com.example.weatherapp.models.CognitoSettings
 import com.example.weatherapp.weatherFragment.WeatherViewModel
@@ -26,6 +27,7 @@ class VerificationFragment:Fragment(R.layout.fragment_verify) {
 
     private val TAG = VerificationFragment::class.java.simpleName
     private lateinit var verificationViewModel: VerificationViewModel
+    private var dbHelper: DatabaseHelper?=null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Log.e(TAG, "On create view started..")
         (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(false)
@@ -38,6 +40,7 @@ class VerificationFragment:Fragment(R.layout.fragment_verify) {
         verificationViewModel.mutableResultData.observe(viewLifecycleOwner, Observer {
             Log.d(TAG,"result:$it")
             if(it.equals("Success")){
+                val checkBiQuery= dbHelper!!.ExecuteBiQuery("delete from TokenDetails where UserName='${fragmentVerifyBinding.userNameEditText.text.toString()}'")
                 Navigation.findNavController(fragmentVerifyBinding.root).navigate(R.id.action_verification_to_login)
             }else{
                 CommonMethod.loadPopUp(it!!,requireContext())
@@ -52,6 +55,14 @@ class VerificationFragment:Fragment(R.layout.fragment_verify) {
     }
 
     private fun init() {
+        fragmentVerifyBinding.touchLayout.setOnTouchListener { view, motionEvent ->
+            Log.d(TAG, "Frame layout touch event found")
+            CommonMethod.hideKeyboard(fragmentVerifyBinding.root, requireActivity())
+            false
+
+        }
+
+        dbHelper= DatabaseHelper(requireContext())
         verificationViewModel = ViewModelProvider(requireActivity())[VerificationViewModel::class.java]
         verificationViewModel.clearResultSet()
         fragmentVerifyBinding.verifyButton.setOnClickListener {
@@ -63,7 +74,6 @@ class VerificationFragment:Fragment(R.layout.fragment_verify) {
             }else{
                 CommonMethod.loadPopUp("Please Enter Username",requireContext())
             }
-
         }
     }
 

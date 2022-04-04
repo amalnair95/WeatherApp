@@ -16,6 +16,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.example.weatherapp.commonMethod.GPSTracker
 import com.example.weatherapp.R
 import com.example.weatherapp.commonMethod.CommonMethod
@@ -78,6 +79,7 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
 
         } else {
             gpsTracker!!.showSettingsAlert()
+            Navigation.findNavController(fragmentWeatherBinding.root).navigate(R.id.action_weather_to_category)
         }
     }
 
@@ -94,9 +96,9 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
         weatherViewModel = ViewModelProvider(requireActivity()).get(WeatherViewModel::class.java)
         weatherViewModel.clearResultSet()
         getData()
-        fragmentWeatherBinding.swipeRefreshLayout.setOnRefreshListener {
+       /* fragmentWeatherBinding.swipeRefreshLayout.setOnRefreshListener {
             getData()
             fragmentWeatherBinding.swipeRefreshLayout.isRefreshing = false
-        }
+        }*/
     }
 }

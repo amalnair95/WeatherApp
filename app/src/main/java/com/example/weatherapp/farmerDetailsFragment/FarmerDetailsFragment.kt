@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserAttributes
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserCodeDeliveryDetails
+import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserDetails
+import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.GetDetailsHandler
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.UpdateAttributesHandler
 import com.example.weatherapp.R
 import com.example.weatherapp.commonMethod.CommonMethod
@@ -32,6 +34,13 @@ class FarmerDetailsFragment:Fragment(R.layout.fragment_farmer_details) {
     }
 
     private fun init() {
+
+        fragmentFarmerDetailsBinding.touchLayout.setOnTouchListener { view, motionEvent ->
+            Log.d(TAG, "Frame layout touch event found")
+            CommonMethod.hideKeyboard(fragmentFarmerDetailsBinding.root,requireActivity())
+            false
+        }
+
         val bundle = arguments
         if (bundle != null) {
             userReceived = bundle.getString("@USERNAME").toString()
@@ -53,9 +62,6 @@ class FarmerDetailsFragment:Fragment(R.layout.fragment_farmer_details) {
             }
 
         }
-      /*  if (CommonMethod.isNetworkConnected(requireContext())) {
-            getLocation()
-        }*/
         fragmentFarmerDetailsBinding.buttonProceed.setOnClickListener {
             val cognitoSettings = CognitoSettings(requireContext())
             val userAttributes = CognitoUserAttributes()
@@ -83,6 +89,28 @@ class FarmerDetailsFragment:Fragment(R.layout.fragment_farmer_details) {
             thisUser.updateAttributesInBackground(userAttributes,callback)
             //Navigation.findNavController(fragmentFarmerDetailsBinding.root).navigate(R.id.action_farmer_details_to_category, args)
         }
+        val userDetailsHandler = object: GetDetailsHandler {
+            override fun onSuccess(cognitoUserDetails: CognitoUserDetails?) {
+                Log.d(TAG,"User Details: ${cognitoUserDetails?.attributes?.attributes}")
+                val userDetails=cognitoUserDetails?.attributes?.attributes
+                if (!userDetails.isNullOrEmpty()){
+                    fragmentFarmerDetailsBinding.farmerNameEditText.setText(userDetails["custom:land_owner_name"])
+                    fragmentFarmerDetailsBinding.farmerLandAreaEdittext.setText(userDetails["custom:land_area"])
+                    fragmentFarmerDetailsBinding.farmerAddressEdittext.setText(userDetails["custom:farmer_address"])
+                }
+            }
+
+            override fun onFailure(exception: Exception?) {
+                Log.d(TAG,"sign up failure: ${exception?.localizedMessage}")
+                CommonMethod.loadPopUp(exception?.message.toString().substringBefore("("),requireContext())
+                Navigation.findNavController(fragmentFarmerDetailsBinding.root).navigate(R.id.action_farmer_details_to_selection)
+            }
+
+        }
+        val cognitoSettings = CognitoSettings(requireContext())
+        val thisUser = cognitoSettings.userPool.getUser(userReceived)
+        Log.d(TAG,"Login Button Clicked")
+        thisUser.getDetailsInBackground(userDetailsHandler)
     }
 
     private fun getLocation() {
@@ -95,4 +123,9 @@ class FarmerDetailsFragment:Fragment(R.layout.fragment_farmer_details) {
             gpsTracker!!.showSettingsAlert()
         }
     }
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity?)!!.supportActionBar!!.show()
+    }
+
 }
