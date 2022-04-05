@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >-->
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/screenBackground"
     android:layout_height="match_parent">
 
@@ -40,7 +40,7 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
-                    android:visibility="visible" />
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/temperatureTextView"
@@ -69,6 +69,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginVertical="@dimen/_12dp"
                     android:gravity="center"
+                    android:visibility="gone"
                     android:orientation="vertical">
 
                 <!--<TextView
@@ -131,12 +132,13 @@
                 android:text="@string/weather_details"
                 android:textColor="@color/grey"
                 android:textSize="@dimen/_18sp" />
-
+<!--
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/weatherDetailsTextView"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -222,7 +224,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/segoe_ui_bold"
                         android:gravity="center"
-                        android:text="@string/dew_point"
+                        android:text="@string/min_temp"
                         android:textColor="@color/grey"
                         android:textSize="@dimen/_16sp" />
                 </LinearLayout>
@@ -247,7 +249,7 @@
                         tools:text="@string/_176_c" />
 
                     <TextView
-                        android:id="@+id/dewPointTextview"
+                        android:id="@+id/minTempTextview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -272,7 +274,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/segoe_ui_bold"
                         android:gravity="center"
-                        android:text="@string/visibility"
+                        android:text="@string/max_temp"
                         android:textColor="@color/grey"
                         android:textSize="@dimen/_16sp" />
 
@@ -282,7 +284,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/segoe_ui_bold"
                         android:gravity="center"
-                        android:text="@string/air_pressure"
+                        android:text="@string/cloud_precip"
                         android:textColor="@color/grey"
                         android:textSize="@dimen/_16sp" />
                 </LinearLayout>
@@ -296,7 +298,7 @@
                     android:weightSum="2">
 
                     <TextView
-                        android:id="@+id/visibilityTextview"
+                        android:id="@+id/maxTempTextview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -307,7 +309,7 @@
                         tools:text="@string/_176_c" />
 
                     <TextView
-                        android:id="@+id/airPressureTextview"
+                        android:id="@+id/cloudPrecipTextview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -332,7 +334,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/segoe_ui_bold"
                         android:gravity="center"
-                        android:text="@string/cloud_cover"
+                        android:text="@string/sunrise"
                         android:textColor="@color/grey"
                         android:textSize="@dimen/_16sp" />
 
@@ -342,7 +344,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/segoe_ui_bold"
                         android:gravity="center"
-                        android:text="@string/ozone"
+                        android:text="@string/sunset"
                         android:textColor="@color/grey"
                         android:textSize="@dimen/_16sp" />
                 </LinearLayout>
@@ -356,7 +358,7 @@
                     android:weightSum="2">
 
                     <TextView
-                        android:id="@+id/cloudCoverTextview"
+                        android:id="@+id/sunriseTimeTextview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -367,7 +369,7 @@
                         tools:text="@string/_176_c" />
 
                     <TextView
-                        android:id="@+id/ozoneTextview"
+                        android:id="@+id/sunsetTimeTextview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -377,6 +379,272 @@
                         android:textSize="@dimen/_24sp"
                         tools:text="0.84" />
                 </LinearLayout>
+            </LinearLayout>-->
+            <LinearLayout
+                android:id="@+id/weatherDetailsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/weatherDetailsTextView"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10dp"
+                    app:cardBackgroundColor="@color/cardBackground2"
+                    app:cardCornerRadius="@dimen/_6dp"
+                    app:cardElevation="@dimen/_4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/_8dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_8dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/segoe_ui_bold"
+                                android:padding="@dimen/_6dp"
+                                android:text="@string/apparent_temperature"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp" />
+
+                            <TextView
+                                android:id="@+id/apparentTempTextview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_8dp"
+                                android:layout_weight="1"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/segoe_ui"
+                                android:padding="@dimen/_6dp"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp"
+                                tools:text="dkjfah" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_8dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/segoe_ui_bold"
+                                android:padding="@dimen/_6dp"
+                                android:text="@string/humidity"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp" />
+
+                            <TextView
+                                android:id="@+id/humidityTextview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_8dp"
+                                android:layout_weight="1"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/segoe_ui"
+                                android:padding="@dimen/_6dp"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp"
+                                tools:text="dskjfb" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_8dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/segoe_ui_bold"
+                                android:padding="@dimen/_6dp"
+                                android:text="@string/wind_speed"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp" />
+
+                            <TextView
+                                android:id="@+id/windSpeedTextview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_8dp"
+                                android:layout_weight="1"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/segoe_ui"
+                                android:padding="@dimen/_6dp"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp"
+                                tools:text="dskjfb" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_8dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/segoe_ui_bold"
+                                android:padding="@dimen/_6dp"
+                                android:text="@string/min_temp"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp" />
+
+                            <TextView
+                                android:id="@+id/minTempTextview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_8dp"
+                                android:layout_weight="1"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/segoe_ui"
+                                android:padding="@dimen/_6dp"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp"
+                                tools:text="dskjfb" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_8dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/segoe_ui_bold"
+                                android:padding="@dimen/_6dp"
+                                android:text="@string/max_temp"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp" />
+
+                            <TextView
+                                android:id="@+id/maxTempTextview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_8dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/segoe_ui"
+                                android:layout_gravity="center"
+                                android:padding="@dimen/_6dp"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp"
+                                tools:text="dskjfb" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_8dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/segoe_ui_bold"
+                                android:padding="@dimen/_6dp"
+                                android:text="@string/cloud_precip"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp" />
+
+                            <TextView
+                                android:id="@+id/cloudPrecipTextview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_8dp"
+                                android:layout_weight="1"
+                                android:layout_gravity="center"
+                                android:fontFamily="@font/segoe_ui"
+                                android:padding="@dimen/_6dp"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp"
+                                tools:text="dskjfb" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_8dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/segoe_ui_bold"
+                                android:padding="@dimen/_6dp"
+                                android:text="@string/sunrise"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp" />
+
+                            <TextView
+                                android:id="@+id/sunriseTimeTextview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_8dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/segoe_ui"
+                                android:padding="@dimen/_6dp"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp"
+                                tools:text="dskjfb" />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_8dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/segoe_ui_bold"
+                                android:padding="@dimen/_6dp"
+                                android:text="@string/sunset"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp" />
+
+                            <TextView
+                                android:id="@+id/sunsetTimeTextview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/_8dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/segoe_ui"
+                                android:layout_gravity="center"
+                                android:padding="@dimen/_6dp"
+                                android:textColor="@color/dark_grey"
+                                android:textSize="@dimen/_16sp"
+                                tools:text="dskjfb" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
 
 

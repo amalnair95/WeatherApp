@@ -35,7 +35,7 @@ class AirFragment : Fragment(R.layout.fragment_air) {
             fragmentAirBinding.loadingProgressBar.visibility = View.GONE
             fragmentAirBinding.airMainLayout.visibility = View.VISIBLE
             println("data $it")
-            val airDetails = it[0]
+            val airDetails = it
             if (fragmentAirBinding.address.text != null) {
                 if(address!=null){
                     fragmentAirBinding.address.text = address
@@ -45,13 +45,13 @@ class AirFragment : Fragment(R.layout.fragment_air) {
             } else {
                 fragmentAirBinding.address.visibility = View.GONE
             }
-            fragmentAirBinding.carbonMonoxideTextview.text = "${airDetails.carbonMonoxide.toString()} ppm"
-            fragmentAirBinding.nitrogenTextview.text = "${airDetails.nitrogenOxide.toString()} ppb"
-            fragmentAirBinding.ozoneTextview.text = "${airDetails.ozone.toString()} ppb"
-            fragmentAirBinding.pm10Textview.text = "${ airDetails.pM10.toString() } ug/m3"
-            fragmentAirBinding.pm25Textview.text = "${airDetails.pM25.toString()} ug/m3"
-            fragmentAirBinding.sulphurTextview.text = "${airDetails.sulphurDioxide.toString()} ppb"
-            fragmentAirBinding.airQualityTextview.text = airDetails.airQualityIndex.toString()
+            fragmentAirBinding.carbonMonoxideTextview.text = "${airDetails.co.concentration.toString()} ppm"
+            fragmentAirBinding.nitrogenTextview.text = "${airDetails.no2.concentration.toString()} ppb"
+            fragmentAirBinding.ozoneTextview.text = "${airDetails.o3.concentration.toString()} ppb"
+            fragmentAirBinding.pm10Textview.text = "${ airDetails.pm10.concentration.toString() } ug/m3"
+            fragmentAirBinding.pm25Textview.text = "${airDetails.pm25.concentration.toString()} ug/m3"
+            fragmentAirBinding.sulphurTextview.text = "${airDetails.so2.concentration.toString()} ppb"
+            fragmentAirBinding.airQualityTextview.text = airDetails.aqi.toString()
 
         }
     }

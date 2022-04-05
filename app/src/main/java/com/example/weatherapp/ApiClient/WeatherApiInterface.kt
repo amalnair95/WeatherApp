@@ -28,4 +28,13 @@ interface WeatherApiInterface {
     @GET("/latest/fire")
     fun getFireDetail(@Query("lat") lat:Double, @Query("lng") long:Double):Call<FireResults>
 
+
+    @Headers("X-Api-Key: aRfzVzRyKkS4os8j1UxwPA==gDJWVcU57YYvYe6t")
+    @GET("/v1/weather")
+    fun getRapidApiWeatherDetail(@Query("lat") lat:Double, @Query("lon") long:Double):Call<RapidApiWeatherData>
+
+    @Headers("X-Api-Key: aRfzVzRyKkS4os8j1UxwPA==gDJWVcU57YYvYe6t")
+    @GET("/v1/airquality")
+    fun getRapidApiAirDetail(@Query("lat") lat:Double, @Query("lon") long:Double):Call<RapidApiAirData>
+
 }

@@ -13,12 +13,12 @@
     <string name="apparent_temperature">Apparent Temperature</string>
     <string name="humidity">Humidity</string>
     <string name="wind_speed">Wind Speed</string>
-    <string name="dew_point">Dew Point</string>
-    <string name="visibility">Visibility</string>
-    <string name="air_pressure">Air Pressure</string>
-    <string name="cloud_cover">Cloud Cover</string>
+    <string name="min_temp">Minimum Temperature</string>
+    <string name="max_temp">Maximum Temperature</string>
+    <string name="cloud_precip">Cloud Precipitation</string>
+    <string name="sunrise">Sunrise Time</string>
     <string name="wind_bearing">Wind Bearing</string>
-    <string name="ozone">Ozone</string>
+    <string name="sunset">Sunset Time</string>
     <string name="air_quality_details">Air Quality Details</string>
     <string name="carbon_monoxide">Carbon Monoxide</string>
     <string name="nitrogen_oxide">Nitrogen Oxide</string>
@@ -70,5 +70,6 @@
     <string name="verify">Verify</string>
     <string name="didn_t_receive_any_code">Didn\'t receive any code?</string>
     <string name="farmer_details">Farmer details</string>
+    <string name="ozone">Ozone</string>
 
 </resources>

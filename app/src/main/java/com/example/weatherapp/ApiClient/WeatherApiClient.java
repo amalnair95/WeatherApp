@@ -20,6 +20,8 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public class WeatherApiClient {
     private static final String BASE_URL="https://api.ambeedata.com";
+    private static final String RAPID_API_BASE_URL="https://weather-by-api-ninjas.p.rapidapi.com";
+    private static final String API_BASE_URL="https://api.api-ninjas.com";
     private static WeatherApiClient weatherApiClient;
     private static Retrofit retrofit;
     private static OkHttpClient okHttpClient;
@@ -41,6 +43,35 @@ public class WeatherApiClient {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
+                    .client(okHttpClient)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .addConverterFactory(ScalarsConverterFactory.create())
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .build();
+        }
+
+
+
+        return retrofit;
+    }
+
+    public static Retrofit getRapidApiClient(){
+       /* HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
+        interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient client = new OkHttpClient
+                .Builder()
+                .callTimeout(60, TimeUnit.SECONDS)
+                .readTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .addInterceptor(interceptor)
+                .build();*/
+
+        if (okHttpClient == null)
+            initOkHttp();
+
+        if (retrofit == null) {
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(API_BASE_URL)
                     .client(okHttpClient)
                     .addConverterFactory(GsonConverterFactory.create())
                     .addConverterFactory(ScalarsConverterFactory.create())

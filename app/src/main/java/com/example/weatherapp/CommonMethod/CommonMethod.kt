@@ -4,6 +4,8 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
+import android.content.res.AssetFileDescriptor
+import android.media.MediaPlayer
 import android.net.ConnectivityManager
 import android.telephony.TelephonyManager
 import android.text.method.ScrollingMovementMethod
@@ -14,10 +16,9 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
-import androidx.core.content.ContextCompat.getSystemService
 import com.example.weatherapp.R
-import com.example.weatherapp.loginFragment.RegisterFragment
 import com.example.weatherapp.models.Coordinates
+
 
 class CommonMethod {
 
@@ -387,6 +388,30 @@ class CommonMethod {
                 imm.hideSoftInputFromWindow(view.windowToken, 0)
             } else {
                 Log.d(TAG, "View is null")
+            }
+        }
+
+        fun playBeep(context: Context) {
+            var m =MediaPlayer()
+            try {
+                if (m.isPlaying) {
+                    m.stop()
+                    m.release()
+                    m = MediaPlayer()
+                }
+                val descriptor: AssetFileDescriptor = context.assets.openFd("sample.mp3")
+                m.setDataSource(
+                    descriptor.fileDescriptor,
+                    descriptor.startOffset,
+                    descriptor.length
+                )
+                descriptor.close()
+                m.prepare()
+                m.setVolume(1f, 1f)
+                m.isLooping = false
+                m.start()
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
         }
     }

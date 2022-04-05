@@ -17,7 +17,9 @@ import com.example.weatherapp.R
 import com.example.weatherapp.commonMethod.CommonMethod
 import com.example.weatherapp.databaseFiles.DatabaseHelper
 import com.example.weatherapp.databinding.FragmentCategoryBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
+
 
 class ChooseCategoryFragment : Fragment(R.layout.fragment_category) {
 
@@ -26,6 +28,7 @@ class ChooseCategoryFragment : Fragment(R.layout.fragment_category) {
     var userReceived: String=""
     var percentCompleted: String=""
     private var dbHelper: DatabaseHelper?=null
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
