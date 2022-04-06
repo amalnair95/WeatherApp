@@ -71,5 +71,6 @@
     <string name="didn_t_receive_any_code">Didn\'t receive any code?</string>
     <string name="farmer_details">Farmer details</string>
     <string name="ozone">Ozone</string>
+    <string name="submit">Submit</string>
 
 </resources>

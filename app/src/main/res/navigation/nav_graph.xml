@@ -22,6 +22,34 @@
     </fragment>
 
     <fragment
+        android:id="@+id/miscCategoryFragment"
+        android:name="com.example.weatherapp.chooseMiscCategory.ChooseMiscCategoryFragment"
+        android:label="Choose Category"
+        tools:layout="@layout/fragment_misc_category">
+
+        <action
+            android:id="@+id/action_misc_cate_to_food_details"
+            app:destination="@+id/foodDetailsFragment" />
+
+        <action
+            android:id="@+id/action_misc_cate_to_food_recipe"
+            app:destination="@+id/foodRecipeDetailsFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/foodDetailsFragment"
+        android:name="com.example.weatherapp.foodFragment.FoodQualityDetailsFragment"
+        android:label="Food Quality Details"
+        tools:layout="@layout/fragment_food_details">
+    </fragment>
+    <fragment
+        android:id="@+id/foodRecipeDetailsFragment"
+        android:name="com.example.weatherapp.foodFragment.FoodRecipeFragment"
+        android:label="Food Recipe Details"
+        tools:layout="@layout/fragment_food_recipe">
+    </fragment>
+    <fragment
         android:id="@+id/splashFragment"
         android:name="com.example.weatherapp.splashScreenFragment.SplashScreenFragment"
         android:label=""
@@ -77,6 +105,7 @@
         <action
             android:id="@+id/action_category_to_selection"
             app:destination="@+id/selectionFragment" />
+
     </fragment>
 
     <fragment

@@ -37,4 +37,8 @@ interface WeatherApiInterface {
     @GET("/v1/airquality")
     fun getRapidApiAirDetail(@Query("lat") lat:Double, @Query("lon") long:Double):Call<RapidApiAirData>
 
+    @Headers("X-Api-Key: aRfzVzRyKkS4os8j1UxwPA==gDJWVcU57YYvYe6t")
+    @GET("/v1/quotes")
+    fun getRapidApiQuoteDetail(@Query("category") category:String):Call<List<QuoteData>>
+
 }

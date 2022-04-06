@@ -94,6 +94,13 @@ class ChooseCategoryFragment : Fragment(R.layout.fragment_category) {
     }
 
     private fun init() {
+
+        fragmentCategoryBinding.touchLayout.setOnTouchListener { view, motionEvent ->
+            Log.d(TAG, "Frame layout touch event found")
+            CommonMethod.hideKeyboard(fragmentCategoryBinding.root,requireActivity())
+            false
+        }
+
         dbHelper= DatabaseHelper(requireContext())
         val bundle = arguments
         if (bundle != null) {

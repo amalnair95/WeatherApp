@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             actionBar!!.title = destination.label
             when (destination.id) {
                 R.id.categoryFragment -> showBottomNav()
+                R.id.miscCategoryFragment -> showBottomNav()
                 else -> hideBottomNav()
             }
         }
@@ -76,11 +77,18 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.profileFrag) {
-            Log.d("TAG", "inside Profile")
-            navController?.navigate(R.id.userProfileFragment)
-        }else {
-            Log.d("TAG", "No Option selected")
+        when (item.itemId) {
+            R.id.miscFrag -> {
+                Log.d("TAG", "inside misc category")
+                navController?.navigate(R.id.miscCategoryFragment)
+            }
+            R.id.homeFrag -> {
+                Log.d("TAG", "inside home")
+                navController?.navigate(R.id.categoryFragment)
+            }
+            else -> {
+                Log.d("TAG", "No Option selected")
+            }
         }
         return true
     }

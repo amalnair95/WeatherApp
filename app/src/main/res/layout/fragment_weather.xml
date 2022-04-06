@@ -50,7 +50,7 @@
                     android:layout_margin="@dimen/_12dp"
                     android:fontFamily="@font/segoe_ui_bold"
                     android:textColor="@color/dark_grey"
-                    android:textSize="40sp"
+                    android:textSize="46sp"
                     tools:text="25" />
 
                 <TextView

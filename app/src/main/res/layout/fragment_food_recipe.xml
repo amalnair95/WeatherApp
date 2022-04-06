@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:layout_marginEnd="@dimen/_10dp">
+
+            <TextView
+                android:id="@+id/foodRecipeDetailsTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/segoe_ui_bold"
+                android:padding="@dimen/_10dp"
+                android:text="Food Recipe Details"
+                android:textColor="@color/colorVirenxia"
+                android:textSize="@dimen/_16sp" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/foodNameTextInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/foodRecipeDetailsTextView"
+                android:layout_marginTop="@dimen/_10dp"
+                android:hint="Food Item Name"
+                android:padding="@dimen/_10dp"
+                app:startIconDrawable="@drawable/ic_baseline_fastfood_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/foodNameEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/segoe_ui"
+                    android:textSize="@dimen/_16sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/foodNameTextInputLayout"
+                android:layout_alignParentEnd="true"
+                android:backgroundTint="@color/colorVirenxia"
+                android:fontFamily="@font/segoe_ui_bold"
+                android:padding="@dimen/_12dp"
+                android:visibility="visible"
+                android:text="@string/submit"
+                android:textColor="@color/white" />
+        </RelativeLayout>
+    </ScrollView>
+    <FrameLayout
+        android:id="@+id/touchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp">
+
+    </FrameLayout>
+</RelativeLayout>
