@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true">
 
     <ImageView
@@ -31,8 +31,26 @@
         android:layout_centerInParent="true"
         android:layout_below="@id/welcomeTextView"
         android:orientation="vertical">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/firstNameTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_baseline_person_24"
+            android:hint="@string/first_name"
+            android:padding="@dimen/_10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <EditText
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16sp"
+                android:fontFamily="@font/segoe_ui"
+                android:inputType="textCapSentences"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--<EditText
             android:id="@+id/nameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -42,7 +60,7 @@
             android:fontFamily="@font/segoe_ui"
             android:inputType="textCapSentences"
             android:hint="@string/first_name"
-            android:padding="@dimen/_14dp" />
+            android:padding="@dimen/_14dp" />-->
         <!--  <EditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
@@ -54,7 +72,27 @@
             android:fontFamily="@font/lato_regular"
             android:hint="Email Id"
             />-->
-        <EditText
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lastNameTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_baseline_person_24"
+            android:hint="@string/last_name"
+            android:padding="@dimen/_10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/lastNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16sp"
+                android:fontFamily="@font/segoe_ui"
+                android:inputType="textCapSentences"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--<EditText
             android:id="@+id/lastNameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -65,9 +103,28 @@
             android:hint="@string/last_name"
             android:inputType="textCapSentences"
             android:padding="@dimen/_14dp"
-            android:visibility="visible" />
+            android:visibility="visible" />-->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/phoneTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_baseline_person_24"
+            android:hint="Phone Number"
+            android:padding="@dimen/_10dp"
+            android:visibility="gone"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <EditText
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phoneEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16sp"
+                android:fontFamily="@font/segoe_ui"
+                android:inputType="textCapSentences"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+      <!--  <EditText
             android:id="@+id/phoneEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -77,30 +134,75 @@
             android:inputType="phone"
             android:maxLength="13"
             android:padding="@dimen/_10dp"
-            android:visibility="gone" />
+            android:visibility="gone" />-->
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/userNameTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_baseline_email_24"
+            android:hint="@string/email_or_phone_number"
+            android:padding="@dimen/_10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/userNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16sp"
+                android:fontFamily="@font/segoe_ui"
+                android:inputType="textCapSentences"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--<EditText
             android:id="@+id/userNameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10dp"
+            android:layout_marginStart="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:layout_marginEnd="@dimen/_10dp"
+            android:layout_marginBottom="@dimen/_10dp"
             android:background="@drawable/edittext_bg"
             android:drawableStart="@drawable/ic_baseline_email_24"
             android:fontFamily="@font/segoe_ui"
             android:hint="@string/email_or_phone_number"
-            android:padding="@dimen/_14dp" />
+            android:padding="@dimen/_14dp" />-->
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_baseline_lock_24"
+            android:hint="@string/password"
+            android:padding="@dimen/_10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16sp"
+                android:inputType="textPassword"
+                android:fontFamily="@font/segoe_ui"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--<EditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10dp"
+            android:layout_marginStart="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:layout_marginEnd="@dimen/_10dp"
+            android:layout_marginBottom="@dimen/_10dp"
             android:background="@drawable/edittext_bg"
             android:drawableStart="@drawable/ic_baseline_lock_24"
             android:fontFamily="@font/segoe_ui"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:padding="@dimen/_14dp" />
+            android:padding="@dimen/_14dp" />-->
 
         <Button
             android:id="@+id/registerButton"

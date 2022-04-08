@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
     android:fitsSystemWindows="true">
 
@@ -23,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/segoe_ui_bold"
                 android:padding="@dimen/_10dp"
-                android:text="Food Details"
+                android:text="Food Nutrition Details"
                 android:textColor="@color/colorVirenxia"
                 android:textSize="@dimen/_16sp" />
 
@@ -48,6 +49,16 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <ProgressBar
+                android:id="@+id/loadingProgressBar"
+                style="?android:attr/progressBarStyleSmall"
+                android:visibility="gone"
+                android:layout_below="@id/submitButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                />
+
             <Button
                 android:id="@+id/submitButton"
                 android:layout_width="wrap_content"
@@ -55,13 +66,26 @@
                 android:layout_below="@id/foodNameTextInputLayout"
                 android:layout_alignParentEnd="true"
                 android:backgroundTint="@color/colorVirenxia"
+                android:elevation="@dimen/_6dp"
                 android:fontFamily="@font/segoe_ui_bold"
                 android:padding="@dimen/_12dp"
-                android:visibility="visible"
                 android:text="@string/submit"
-                android:textColor="@color/white" />
+                android:textColor="@color/white"
+                android:visibility="visible" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/itemRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/submitButton"
+                android:nestedScrollingEnabled="false"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_product" />
         </RelativeLayout>
+
+
     </ScrollView>
+
     <FrameLayout
         android:id="@+id/touchLayout"
         android:layout_width="match_parent"

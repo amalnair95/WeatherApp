@@ -21,7 +21,7 @@
             android:layout_margin="@dimen/_6dp"
             app:cardCornerRadius="@dimen/_6dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="@color/cardBackground2"
+            app:cardBackgroundColor="@color/screenBackground"
             app:cardElevation="@dimen/_4dp"
             >
             <LinearLayout
@@ -45,6 +45,7 @@
                     android:fontFamily="@font/segoe_ui_bold"
                     android:textSize="@dimen/_16sp"
                     android:layout_weight="1"
+                    android:textColor="@color/colorVirenxia"
                     android:text="Food Quality Details"/>
             </LinearLayout>
 
@@ -57,7 +58,7 @@
             android:layout_margin="@dimen/_6dp"
             app:cardCornerRadius="@dimen/_6dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="@color/cardBackground2"
+            app:cardBackgroundColor="@color/screenBackground"
             app:cardElevation="@dimen/_4dp"
             >
             <LinearLayout
@@ -79,6 +80,7 @@
                     android:layout_gravity="bottom"
                     android:fontFamily="@font/segoe_ui_bold"
                     android:textSize="@dimen/_16sp"
+                    android:textColor="@color/colorVirenxia"
                     android:text="Recipe Details"/>
 
             </LinearLayout>

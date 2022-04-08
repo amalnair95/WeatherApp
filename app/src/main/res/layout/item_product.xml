@@ -1,0 +1,362 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+
+    <!--<androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_8dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/_6dp"
+        >-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="@dimen/_8dp"
+            android:padding="@dimen/_8dp">
+
+        <TextView
+            android:id="@+id/itemNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/segoe_ui_bold"
+            android:padding="@dimen/_8dp"
+            tools:text="Apple"
+            android:textColor="@color/colorVirenxia"
+            android:textSize="@dimen/_16sp"
+            app:drawableEndCompat="@drawable/ic_baseline_expand_more_24" />
+        <LinearLayout
+            android:id="@+id/foodDetailsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:padding="@dimen/_8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui_bold"
+                    android:padding="@dimen/_6dp"
+                    android:text="Calories"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_16sp" />
+
+                <TextView
+                    android:id="@+id/caloriesTextview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui"
+                    android:padding="@dimen/_6dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_16sp"
+                    tools:text="dkjfah" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui_bold"
+                    android:padding="@dimen/_6dp"
+                    android:text="Fat"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_16sp" />
+
+                <TextView
+                    android:id="@+id/fatTextview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui"
+                    android:padding="@dimen/_6dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_16sp"
+                    tools:text="dskjfb" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui_bold"
+                    android:padding="@dimen/_6dp"
+                    android:text="Saturated Fat"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_16sp" />
+
+                <TextView
+                    android:id="@+id/saturatedFatTextview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui"
+                    android:padding="@dimen/_6dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_16sp"
+                    tools:text="dskjfb" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui_bold"
+                    android:padding="@dimen/_6dp"
+                    android:text="Protein"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_16sp" />
+
+                <TextView
+                    android:id="@+id/proteinTextview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui"
+                    android:padding="@dimen/_6dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_16sp"
+                    tools:text="dskjfb" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui_bold"
+                    android:padding="@dimen/_6dp"
+                    android:text="Sodium"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_16sp" />
+
+                <TextView
+                    android:id="@+id/sodiumTextview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui"
+                    android:padding="@dimen/_6dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_16sp"
+                    tools:text="dskjfb" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui_bold"
+                    android:padding="@dimen/_6dp"
+                    android:text="Potassium"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_16sp" />
+
+                <TextView
+                    android:id="@+id/potassiumTextview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui"
+                    android:padding="@dimen/_6dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_16sp"
+                    tools:text="dskjfb" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui_bold"
+                    android:padding="@dimen/_6dp"
+                    android:text="Cholesterol"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_16sp" />
+
+                <TextView
+                    android:id="@+id/cholesterolTextview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui"
+                    android:padding="@dimen/_6dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_16sp"
+                    tools:text="dskjfb" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui_bold"
+                    android:padding="@dimen/_6dp"
+                    android:text="Carbohydrates"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_16sp" />
+
+                <TextView
+                    android:id="@+id/carbohydratesTextview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui"
+                    android:padding="@dimen/_6dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_16sp"
+                    tools:text="dskjfb" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui_bold"
+                    android:padding="@dimen/_6dp"
+                    android:text="Fiber"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_16sp" />
+
+                <TextView
+                    android:id="@+id/fiberTextview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui"
+                    android:padding="@dimen/_6dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_16sp"
+                    tools:text="dskjfb" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui_bold"
+                    android:padding="@dimen/_6dp"
+                    android:text="Sugar"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_16sp" />
+
+                <TextView
+                    android:id="@+id/sugarTextview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui"
+                    android:padding="@dimen/_6dp"
+                    android:gravity="center"
+                    android:textColor="@color/dark_grey"
+                    android:textSize="@dimen/_16sp"
+                    tools:text="dskjfb" />
+            </LinearLayout>
+        </LinearLayout>
+        </LinearLayout>
+    <!--</androidx.cardview.widget.CardView>-->
+</RelativeLayout>

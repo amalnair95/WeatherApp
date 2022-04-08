@@ -12,11 +12,13 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.weatherapp.R
 import com.example.weatherapp.commonMethod.CommonMethod
 import com.example.weatherapp.databaseFiles.DatabaseHelper
 import com.example.weatherapp.databinding.FragmentCategoryBinding
+import com.example.weatherapp.weatherFragment.WeatherViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
 
@@ -27,6 +29,7 @@ class ChooseCategoryFragment : Fragment(R.layout.fragment_category) {
     private val TAG = ChooseCategoryFragment::class.java.simpleName
     var userReceived: String=""
     var percentCompleted: String=""
+    private lateinit var weatherViewModel: WeatherViewModel
     private var dbHelper: DatabaseHelper?=null
 
 
@@ -94,6 +97,7 @@ class ChooseCategoryFragment : Fragment(R.layout.fragment_category) {
     }
 
     private fun init() {
+        weatherViewModel = ViewModelProvider(requireActivity()).get(WeatherViewModel::class.java)
 
         fragmentCategoryBinding.touchLayout.setOnTouchListener { view, motionEvent ->
             Log.d(TAG, "Frame layout touch event found")
@@ -107,6 +111,8 @@ class ChooseCategoryFragment : Fragment(R.layout.fragment_category) {
             userReceived = bundle.getString("@USERNAME").toString()
             percentCompleted = bundle.getString("@PROGRESSBAR").toString()
             Log.d(TAG,"UserName:$userReceived")
+        }else{
+            userReceived=weatherViewModel.getUser(requireContext())
         }
 
 

@@ -21,7 +21,7 @@
             android:layout_margin="@dimen/_6dp"
             app:cardCornerRadius="@dimen/_6dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="@color/cardBackground2"
+            app:cardBackgroundColor="@color/screenBackground"
             app:cardElevation="@dimen/_4dp"
             >
             <LinearLayout
@@ -42,6 +42,7 @@
                     android:gravity="center"
                     android:padding="@dimen/_6dp"
                     android:layout_gravity="bottom"
+                    android:textColor="@color/colorVirenxia"
                     android:fontFamily="@font/segoe_ui_bold"
                     android:textSize="@dimen/_16sp"
                     android:layout_weight="1"
@@ -57,7 +58,7 @@
             android:layout_margin="@dimen/_6dp"
             app:cardCornerRadius="@dimen/_6dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="@color/cardBackground2"
+            app:cardBackgroundColor="@color/screenBackground"
             app:cardElevation="@dimen/_4dp"
             >
             <LinearLayout
@@ -78,6 +79,7 @@
                 android:padding="@dimen/_6dp"
                 android:layout_gravity="bottom"
                 android:fontFamily="@font/segoe_ui_bold"
+                android:textColor="@color/colorVirenxia"
                 android:textSize="@dimen/_16sp"
                 android:text="@string/air_quality_details"/>
 
@@ -90,7 +92,7 @@
             android:layout_margin="@dimen/_6dp"
             app:cardCornerRadius="@dimen/_6dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="@color/cardBackground2"
+            app:cardBackgroundColor="@color/screenBackground"
             app:cardElevation="@dimen/_4dp"
             >
             <LinearLayout
@@ -110,6 +112,7 @@
                     android:gravity="center"
                     android:padding="@dimen/_6dp"
                     android:layout_gravity="bottom"
+                    android:textColor="@color/colorVirenxia"
                     android:fontFamily="@font/segoe_ui_bold"
                     android:textSize="@dimen/_16sp"
                     android:text="@string/pollen_details"/>
@@ -165,7 +168,7 @@
             android:layout_margin="@dimen/_6dp"
             app:cardCornerRadius="@dimen/_6dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="@color/cardBackground2"
+            app:cardBackgroundColor="@color/screenBackground"
             app:cardElevation="@dimen/_4dp"
             >
             <LinearLayout
@@ -186,6 +189,7 @@
                 android:padding="@dimen/_6dp"
                 android:layout_gravity="bottom"
                 android:fontFamily="@font/segoe_ui_bold"
+                android:textColor="@color/colorVirenxia"
                 android:textSize="@dimen/_16sp"
                 android:text="@string/soil_details"/>
             </LinearLayout>
@@ -231,7 +235,7 @@
             android:layout_margin="@dimen/_6dp"
             app:cardCornerRadius="@dimen/_6dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="@color/cardBackground2"
+            app:cardBackgroundColor="@color/screenBackground"
             app:cardElevation="@dimen/_4dp"
             >
             <LinearLayout
@@ -251,6 +255,7 @@
                     android:gravity="center"
                     android:padding="@dimen/_6dp"
                     android:layout_gravity="bottom"
+                    android:textColor="@color/colorVirenxia"
                     android:fontFamily="@font/segoe_ui_bold"
                     android:textSize="@dimen/_16sp"
                     android:text="@string/code_reader"/>

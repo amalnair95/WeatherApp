@@ -1,10 +1,13 @@
 package com.example.weatherapp.weatherFragment
 
+import android.content.Context
 import android.util.Log
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.weatherapp.apiClient.WeatherApiClient
 import com.example.weatherapp.apiClient.WeatherApiInterface
+import com.example.weatherapp.databaseFiles.DatabaseHelper
 import com.example.weatherapp.models.*
 import retrofit2.Call
 import retrofit2.Response
@@ -16,12 +19,18 @@ class WeatherViewModel:ViewModel() {
     private lateinit var pollenCall: Call<PollenResults>
     private lateinit var soilCall: Call<SoilResults>
     private lateinit var fireCall: Call<FireResults>
+    private lateinit var foodDetailCall: Call<List<FoodDetails>>
+    private lateinit var foodRecipeDetailCall: Call<List<FoodRecipeDetails>>
+    private var dbHelper: DatabaseHelper? = null
+
 
     var resultLiveDataList: MutableLiveData<RapidApiWeatherData> = MutableLiveData()
     var airResultLiveDataList: MutableLiveData<RapidApiAirData> = MutableLiveData()
     var pollenResultLiveDataList: MutableLiveData<List<PollenData>> = MutableLiveData()
     var soilResultLiveDataList: MutableLiveData<List<SoilData>> = MutableLiveData()
     var fireResultLiveDataList: MutableLiveData<List<FireData>> = MutableLiveData()
+    var foodDetailResultLiveDataList: MutableLiveData<List<FoodDetails>> = MutableLiveData()
+    var foodRecipeDetailResultLiveDataList: MutableLiveData<List<FoodRecipeDetails>> = MutableLiveData()
 
 
     fun clearResultSet(){
@@ -30,6 +39,8 @@ class WeatherViewModel:ViewModel() {
         pollenResultLiveDataList = MutableLiveData()
         soilResultLiveDataList = MutableLiveData()
         fireResultLiveDataList = MutableLiveData()
+        foodDetailResultLiveDataList = MutableLiveData()
+        foodRecipeDetailResultLiveDataList = MutableLiveData()
     }
 
     fun getWeatherDetail(lat: Double,long:Double) {
@@ -139,5 +150,51 @@ class WeatherViewModel:ViewModel() {
 
 
         })
+    }
+
+    fun getFoodDetails(foodItem:String) {
+        val apiInterface: WeatherApiInterface = WeatherApiClient.getRapidApiClient().create(WeatherApiInterface::class.java)
+        foodDetailCall = apiInterface.getFoodDetail(foodItem)
+        foodDetailCall.enqueue(object : retrofit2.Callback<List<FoodDetails>> {
+            override fun onResponse(call: Call<List<FoodDetails>>, response: Response<List<FoodDetails>>) {
+                if (response.body() != null && response.isSuccessful && response.body()!= null) {
+                    val  foodDetailList = response.body()!!
+                    Log.d(TAG,"Food Details: $foodDetailList")
+                    foodDetailResultLiveDataList.postValue(foodDetailList)
+                }
+            }
+            override fun onFailure(call: Call<List<FoodDetails>>, t: Throwable) {
+                val responseResult = t.toString()
+                Log.e(TAG, "Response $responseResult")
+            }
+
+
+        })
+    }
+
+    fun getFoodRecipeDetails(foodItem:String) {
+        val apiInterface: WeatherApiInterface = WeatherApiClient.getRapidApiClient().create(WeatherApiInterface::class.java)
+        foodRecipeDetailCall = apiInterface.getFoodRecipeDetail(foodItem)
+        foodRecipeDetailCall.enqueue(object : retrofit2.Callback<List<FoodRecipeDetails>> {
+            override fun onResponse(call: Call<List<FoodRecipeDetails>>, response: Response<List<FoodRecipeDetails>>) {
+                if (response.body() != null && response.isSuccessful && response.body()!= null) {
+                    val  foodDetailList = response.body()!!
+                    Log.d(TAG,"Food Details: $foodDetailList")
+                    foodRecipeDetailResultLiveDataList.postValue(foodDetailList)
+                }
+            }
+            override fun onFailure(call: Call<List<FoodRecipeDetails>>, t: Throwable) {
+                val responseResult = t.toString()
+                Log.e(TAG, "Response $responseResult")
+            }
+
+
+        })
+    }
+
+    fun getUser(context: Context):String{
+        dbHelper = DatabaseHelper(context)
+        val checkBiQuery = dbHelper!!.ExecuteBiQuery("Select * from TokenDetails")
+        return checkBiQuery.getString(2)
     }
 }

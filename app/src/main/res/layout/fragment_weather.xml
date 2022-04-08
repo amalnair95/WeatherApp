@@ -29,6 +29,7 @@
                 android:id="@+id/weatherLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/weatherDetailsTextView"
                 android:orientation="horizontal"
                 android:padding="@dimen/_10dp">
 
@@ -60,7 +61,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/_8dp"
                     android:fontFamily="@font/segoe_ui_bold"
-                    android:text="@string/_176_c"
+                    android:text="@string/celsius"
                     android:textColor="@color/dark_grey"
                     android:textSize="@dimen/_20sp" />
 
@@ -69,10 +70,10 @@
                     android:layout_height="match_parent"
                     android:layout_marginVertical="@dimen/_12dp"
                     android:gravity="center"
-                    android:visibility="gone"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
-                <!--<TextView
+                    <!--<TextView
                 android:id="@+id/celsiusTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -99,7 +100,6 @@
                 android:id="@+id/addressTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/weatherLayout"
                 android:layout_marginStart="@dimen/_10dp"
                 android:layout_marginTop="@dimen/_10dp"
                 android:fontFamily="@font/segoe_ui_bold"
@@ -384,7 +384,7 @@
                 android:id="@+id/weatherDetailsLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/weatherDetailsTextView"
+                android:layout_below="@id/weatherLayout"
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
@@ -422,9 +422,9 @@
                                 android:id="@+id/apparentTempTextview"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center"
                                 android:layout_margin="@dimen/_8dp"
                                 android:layout_weight="1"
-                                android:layout_gravity="center"
                                 android:fontFamily="@font/segoe_ui"
                                 android:padding="@dimen/_6dp"
                                 android:textColor="@color/dark_grey"
@@ -454,15 +454,16 @@
                                 android:id="@+id/humidityTextview"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center"
                                 android:layout_margin="@dimen/_8dp"
                                 android:layout_weight="1"
-                                android:layout_gravity="center"
                                 android:fontFamily="@font/segoe_ui"
                                 android:padding="@dimen/_6dp"
                                 android:textColor="@color/dark_grey"
                                 android:textSize="@dimen/_16sp"
                                 tools:text="dskjfb" />
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -484,15 +485,16 @@
                                 android:id="@+id/windSpeedTextview"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center"
                                 android:layout_margin="@dimen/_8dp"
                                 android:layout_weight="1"
-                                android:layout_gravity="center"
                                 android:fontFamily="@font/segoe_ui"
                                 android:padding="@dimen/_6dp"
                                 android:textColor="@color/dark_grey"
                                 android:textSize="@dimen/_16sp"
                                 tools:text="dskjfb" />
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -514,15 +516,16 @@
                                 android:id="@+id/minTempTextview"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center"
                                 android:layout_margin="@dimen/_8dp"
                                 android:layout_weight="1"
-                                android:layout_gravity="center"
                                 android:fontFamily="@font/segoe_ui"
                                 android:padding="@dimen/_6dp"
                                 android:textColor="@color/dark_grey"
                                 android:textSize="@dimen/_16sp"
                                 tools:text="dskjfb" />
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -544,15 +547,16 @@
                                 android:id="@+id/maxTempTextview"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center"
                                 android:layout_margin="@dimen/_8dp"
                                 android:layout_weight="1"
                                 android:fontFamily="@font/segoe_ui"
-                                android:layout_gravity="center"
                                 android:padding="@dimen/_6dp"
                                 android:textColor="@color/dark_grey"
                                 android:textSize="@dimen/_16sp"
                                 tools:text="dskjfb" />
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -574,15 +578,16 @@
                                 android:id="@+id/cloudPrecipTextview"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center"
                                 android:layout_margin="@dimen/_8dp"
                                 android:layout_weight="1"
-                                android:layout_gravity="center"
                                 android:fontFamily="@font/segoe_ui"
                                 android:padding="@dimen/_6dp"
                                 android:textColor="@color/dark_grey"
                                 android:textSize="@dimen/_16sp"
                                 tools:text="dskjfb" />
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -604,8 +609,8 @@
                                 android:id="@+id/sunriseTimeTextview"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_margin="@dimen/_8dp"
                                 android:layout_gravity="center"
+                                android:layout_margin="@dimen/_8dp"
                                 android:layout_weight="1"
                                 android:fontFamily="@font/segoe_ui"
                                 android:padding="@dimen/_6dp"
@@ -613,6 +618,7 @@
                                 android:textSize="@dimen/_16sp"
                                 tools:text="dskjfb" />
                         </LinearLayout>
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -634,10 +640,10 @@
                                 android:id="@+id/sunsetTimeTextview"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center"
                                 android:layout_margin="@dimen/_8dp"
                                 android:layout_weight="1"
                                 android:fontFamily="@font/segoe_ui"
-                                android:layout_gravity="center"
                                 android:padding="@dimen/_6dp"
                                 android:textColor="@color/dark_grey"
                                 android:textSize="@dimen/_16sp"

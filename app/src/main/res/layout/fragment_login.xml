@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         android:id="@+id/imageView"
@@ -31,8 +31,26 @@
         android:layout_below="@id/welcomeTextView"
         android:layout_centerInParent="true"
         android:orientation="vertical">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/lastNameTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_baseline_email_24"
+            android:hint="@string/email_or_phone_number"
+            android:padding="@dimen/_10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
-        <EditText
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/userNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16sp"
+                android:fontFamily="@font/segoe_ui"
+                android:inputType="textCapSentences"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--<EditText
             android:id="@+id/userNameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -41,9 +59,29 @@
             android:drawableStart="@drawable/ic_baseline_email_24"
             android:fontFamily="@font/segoe_ui"
             android:hint="@string/email_or_phone_number"
-            android:padding="@dimen/_14dp" />
+            android:padding="@dimen/_14dp" />-->
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_baseline_lock_24"
+            android:hint="@string/password"
+            android:padding="@dimen/_10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16sp"
+                android:fontFamily="@font/segoe_ui"
+                android:inputType="textPassword"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--<EditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,7 +91,7 @@
             android:fontFamily="@font/segoe_ui"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:padding="@dimen/_14dp" />
+            android:padding="@dimen/_14dp" />-->
 
         <CheckBox
             android:id="@+id/showPasswordCheckbox"

@@ -54,7 +54,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             Log.d(TAG, "Frame layout touch event found")
             CommonMethod.hideKeyboard(fragmentLoginBinding.root, requireActivity())
             false
-
         }
 
         dbHelper = DatabaseHelper(requireContext())

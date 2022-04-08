@@ -62,7 +62,7 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
             }
 
             fragmentWeatherBinding.apparentTempTextview.text = "${it.apparentTemperature} \u2103"
-            fragmentWeatherBinding.humidityTextview.text = it.humidity
+            fragmentWeatherBinding.humidityTextview.text = "${it.humidity} %"
             fragmentWeatherBinding.windSpeedTextview.text = "${it.windSpeed} km/h"
             fragmentWeatherBinding.minTempTextview.text = "${it.minTemp} \u2103"
             fragmentWeatherBinding.maxTempTextview.text = "${it.maxTemp} \u2103"
@@ -110,7 +110,7 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
 
 
     private fun init() {
-        CommonMethod.playBeep(requireContext())
+        //CommonMethod.playBeep(requireContext())
         weatherViewModel = ViewModelProvider(requireActivity()).get(WeatherViewModel::class.java)
         weatherViewModel.clearResultSet()
         getData()
@@ -118,6 +118,5 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
             getData()
             fragmentWeatherBinding.swipeRefreshLayout.isRefreshing = false
         }*/
-
     }
 }

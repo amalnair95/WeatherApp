@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,7 +10,27 @@
         android:layout_centerInParent="true"
         android:orientation="vertical">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/userNameTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_baseline_email_24"
+            android:hint="@string/email_or_phone_number"
+            android:padding="@dimen/_10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/userNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16sp"
+                android:fontFamily="@font/segoe_ui"
+                android:inputType="textCapSentences"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--<EditText
             android:id="@+id/userNameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -19,9 +39,29 @@
             android:fontFamily="@font/segoe_ui"
             android:drawableStart="@drawable/ic_baseline_email_24"
             android:hint="@string/email_or_phone_number"
-            android:padding="@dimen/_14dp" />
+            android:padding="@dimen/_14dp" />-->
 
-        <EditText
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/verifyCodeTextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:startIconDrawable="@drawable/ic_baseline_confirmation_number_24"
+            android:hint="@string/verification_code"
+            android:padding="@dimen/_10dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/verifyCodeEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16sp"
+                android:fontFamily="@font/segoe_ui"
+                android:inputType="number"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+       <!-- <EditText
             android:id="@+id/verifyCodeEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,7 +71,7 @@
             android:drawableStart="@drawable/ic_baseline_confirmation_number_24"
             android:inputType="number"
             android:background="@drawable/edittext_bg"
-            android:padding="@dimen/_14dp" />
+            android:padding="@dimen/_14dp" />-->
 
         <Button
             android:id="@+id/verifyButton"

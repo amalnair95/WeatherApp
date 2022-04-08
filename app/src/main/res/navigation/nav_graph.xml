@@ -40,7 +40,7 @@
     <fragment
         android:id="@+id/foodDetailsFragment"
         android:name="com.example.weatherapp.foodFragment.FoodQualityDetailsFragment"
-        android:label="Food Quality Details"
+        android:label="Nutrition Details"
         tools:layout="@layout/fragment_food_details">
     </fragment>
     <fragment

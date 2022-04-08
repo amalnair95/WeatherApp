@@ -13,5 +13,11 @@
     <color name="cardBackground2">#F6FFEB</color>
     <color name="screenBackground">#fcfcf4</color>
     <color name="colorVirenxia">#6ec00c</color>
+    <color name="yellow_middle">#ffee58</color>
+    <color name="yellow_end">#7ae7de83</color>
+
+
+
+
 
 </resources>

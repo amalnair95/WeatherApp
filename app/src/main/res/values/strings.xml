@@ -72,5 +72,6 @@
     <string name="farmer_details">Farmer details</string>
     <string name="ozone">Ozone</string>
     <string name="submit">Submit</string>
+    <string name="celsius">℃</string>
 
 </resources>
