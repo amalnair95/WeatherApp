@@ -28,7 +28,6 @@
             android:padding="@dimen/_8dp"
             tools:text="Apple"
             android:textColor="@color/colorVirenxia"
-            android:textSize="@dimen/_16sp"
             app:drawableEndCompat="@drawable/ic_baseline_expand_more_24" />
         <LinearLayout
             android:id="@+id/foodDetailsLayout"
@@ -51,9 +50,9 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/segoe_ui_bold"
                     android:padding="@dimen/_6dp"
-                    android:text="Calories"
+                    android:text="@string/calories"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_16sp" />
+                    />
 
                 <TextView
                     android:id="@+id/caloriesTextview"
@@ -66,7 +65,6 @@
                     android:padding="@dimen/_6dp"
                     android:gravity="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_16sp"
                     tools:text="dkjfah" />
             </LinearLayout>
 
@@ -84,9 +82,9 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/segoe_ui_bold"
                     android:padding="@dimen/_6dp"
-                    android:text="Fat"
+                    android:text="@string/fat"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_16sp" />
+                    />
 
                 <TextView
                     android:id="@+id/fatTextview"
@@ -99,7 +97,6 @@
                     android:padding="@dimen/_6dp"
                     android:gravity="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_16sp"
                     tools:text="dskjfb" />
             </LinearLayout>
 
@@ -116,9 +113,9 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/segoe_ui_bold"
                     android:padding="@dimen/_6dp"
-                    android:text="Saturated Fat"
+                    android:text="@string/saturated_fat"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_16sp" />
+                    />
 
                 <TextView
                     android:id="@+id/saturatedFatTextview"
@@ -131,7 +128,6 @@
                     android:padding="@dimen/_6dp"
                     android:gravity="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_16sp"
                     tools:text="dskjfb" />
             </LinearLayout>
 
@@ -148,9 +144,8 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/segoe_ui_bold"
                     android:padding="@dimen/_6dp"
-                    android:text="Protein"
-                    android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_16sp" />
+                    android:text="@string/protein"
+                    android:textColor="@color/dark_grey" />
 
                 <TextView
                     android:id="@+id/proteinTextview"
@@ -163,7 +158,6 @@
                     android:padding="@dimen/_6dp"
                     android:gravity="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_16sp"
                     tools:text="dskjfb" />
             </LinearLayout>
 
@@ -180,9 +174,9 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/segoe_ui_bold"
                     android:padding="@dimen/_6dp"
-                    android:text="Sodium"
+                    android:text="@string/sodium"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_16sp" />
+                     />
 
                 <TextView
                     android:id="@+id/sodiumTextview"
@@ -195,7 +189,6 @@
                     android:padding="@dimen/_6dp"
                     android:gravity="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_16sp"
                     tools:text="dskjfb" />
             </LinearLayout>
 
@@ -212,9 +205,9 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/segoe_ui_bold"
                     android:padding="@dimen/_6dp"
-                    android:text="Potassium"
+                    android:text="@string/potassium"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_16sp" />
+                     />
 
                 <TextView
                     android:id="@+id/potassiumTextview"
@@ -227,7 +220,6 @@
                     android:padding="@dimen/_6dp"
                     android:gravity="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_16sp"
                     tools:text="dskjfb" />
             </LinearLayout>
 
@@ -244,9 +236,9 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/segoe_ui_bold"
                     android:padding="@dimen/_6dp"
-                    android:text="Cholesterol"
+                    android:text="@string/cholesterol"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_16sp" />
+                    />
 
                 <TextView
                     android:id="@+id/cholesterolTextview"
@@ -259,7 +251,6 @@
                     android:padding="@dimen/_6dp"
                     android:gravity="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_16sp"
                     tools:text="dskjfb" />
             </LinearLayout>
 
@@ -276,9 +267,9 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/segoe_ui_bold"
                     android:padding="@dimen/_6dp"
-                    android:text="Carbohydrates"
+                    android:text="@string/carbohydrates"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_16sp" />
+                     />
 
                 <TextView
                     android:id="@+id/carbohydratesTextview"
@@ -291,7 +282,6 @@
                     android:padding="@dimen/_6dp"
                     android:gravity="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_16sp"
                     tools:text="dskjfb" />
             </LinearLayout>
             <LinearLayout
@@ -307,9 +297,9 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/segoe_ui_bold"
                     android:padding="@dimen/_6dp"
-                    android:text="Fiber"
+                    android:text="@string/fiber"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_16sp" />
+                    />
 
                 <TextView
                     android:id="@+id/fiberTextview"
@@ -322,7 +312,6 @@
                     android:padding="@dimen/_6dp"
                     android:gravity="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_16sp"
                     tools:text="dskjfb" />
             </LinearLayout>
             <LinearLayout
@@ -338,9 +327,8 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/segoe_ui_bold"
                     android:padding="@dimen/_6dp"
-                    android:text="Sugar"
-                    android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_16sp" />
+                    android:text="@string/sugar"
+                    android:textColor="@color/dark_grey" />
 
                 <TextView
                     android:id="@+id/sugarTextview"
@@ -353,7 +341,6 @@
                     android:padding="@dimen/_6dp"
                     android:gravity="center"
                     android:textColor="@color/dark_grey"
-                    android:textSize="@dimen/_16sp"
                     tools:text="dskjfb" />
             </LinearLayout>
         </LinearLayout>

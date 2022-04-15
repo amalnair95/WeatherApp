@@ -47,5 +47,10 @@ class ChooseMiscCategoryFragment:Fragment(R.layout.fragment_misc_category) {
             Navigation.findNavController(fragmentMiscCategoryBinding.root)
                 .navigate(R.id.action_misc_cate_to_food_recipe)
         }
+
+        fragmentMiscCategoryBinding.dictionaryCardView.setOnClickListener {
+            Navigation.findNavController(fragmentMiscCategoryBinding.root)
+                .navigate(R.id.action_misc_cate_to_dictionary)
+        }
     }
 }

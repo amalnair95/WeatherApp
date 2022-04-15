@@ -4,7 +4,11 @@ import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
+import android.content.DialogInterface
+import android.content.SharedPreferences
 import android.content.res.AssetFileDescriptor
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.media.MediaPlayer
 import android.net.ConnectivityManager
 import android.telephony.TelephonyManager
@@ -16,14 +20,15 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.core.app.ActivityCompat
 import com.example.weatherapp.R
 import com.example.weatherapp.models.Coordinates
+import java.util.*
 
 
 class CommonMethod {
 
     companion object{
-        val rhia:String=""
         private val TAG = CommonMethod::class.java.simpleName
         fun isNetworkAvailable(context: Context): Boolean {
             val connectivityManager =
@@ -414,5 +419,45 @@ class CommonMethod {
                 e.printStackTrace()
             }
         }
+
+         fun showLanguageChange(context: Context,activity: Activity){
+            val listOfString= arrayOf("हिन्दी","English")
+            val builder= androidx.appcompat.app.AlertDialog.Builder(context)
+            builder.setTitle("Choose Language")
+            builder.setSingleChoiceItems(listOfString,-1,
+                DialogInterface.OnClickListener { dialogInterface, i ->
+                if(i==0){
+                    setLocale("hi",context)
+                    ActivityCompat.recreate(activity)
+                }else if(i==1){
+                    setLocale("en",context)
+                    ActivityCompat.recreate(activity)
+                }
+                dialogInterface.dismiss()
+            })
+
+            val dialog=builder.create()
+            dialog.show()
+        }
+
+         fun setLocale(s: String,context: Context) {
+            val locale= Locale(s)
+            Locale.setDefault(locale)
+            val config= Configuration()
+            config.locale=locale
+            context.resources?.updateConfiguration(config, context.resources.displayMetrics)
+            val editor: SharedPreferences.Editor= context.getSharedPreferences("Settings", Context.MODE_PRIVATE)!!.edit()
+            editor.putString("My_Lang",s)
+            editor.apply()
+        }
+
+         fun loadLocaleLang(context: Context){
+            val prefs = context.getSharedPreferences("Settings", Context.MODE_PRIVATE)
+            val language= prefs?.getString("My_Lang","")
+            if (language != null) {
+                setLocale(language,context)
+            }
+        }
+
     }
 }

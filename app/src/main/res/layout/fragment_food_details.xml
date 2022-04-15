@@ -24,9 +24,9 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/segoe_ui_bold"
                 android:padding="@dimen/_10dp"
-                android:text="Food Nutrition Details"
+                android:text="@string/food_nutrition_details"
                 android:textColor="@color/colorVirenxia"
-                android:textSize="@dimen/_16sp" />
+                />
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/foodDetailsTextView"
                 android:layout_marginTop="@dimen/_10dp"
-                android:hint="Food Item Name"
+                android:hint="@string/food_item_name"
                 android:padding="@dimen/_10dp"
                 app:startIconDrawable="@drawable/ic_baseline_fastfood_24">
 
@@ -45,7 +45,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/segoe_ui"
-                    android:textSize="@dimen/_16sp" />
+                    android:textSize="@dimen/_14sp" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -64,12 +64,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/foodNameTextInputLayout"
-                android:layout_alignParentEnd="true"
                 android:backgroundTint="@color/colorVirenxia"
                 android:elevation="@dimen/_6dp"
                 android:fontFamily="@font/segoe_ui_bold"
                 android:padding="@dimen/_12dp"
                 android:text="@string/submit"
+                android:layout_marginHorizontal="@dimen/_10dp"
                 android:textColor="@color/white"
                 android:visibility="visible" />
 
@@ -81,16 +81,17 @@
                 android:nestedScrollingEnabled="false"
                 tools:itemCount="5"
                 tools:listitem="@layout/item_product" />
+
+            <FrameLayout
+                android:id="@+id/touchLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="0dp">
+
+            </FrameLayout>
         </RelativeLayout>
 
 
     </ScrollView>
 
-    <FrameLayout
-        android:id="@+id/touchLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="0dp">
-
-    </FrameLayout>
 </RelativeLayout>

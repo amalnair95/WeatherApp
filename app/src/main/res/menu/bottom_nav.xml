@@ -4,11 +4,11 @@
 
     <item
         android:id="@+id/homeFrag"
-        android:title="Home"
+        android:title="@string/home"
         android:icon="@drawable/ic_icons8_home"/>
     <item
         android:id="@+id/miscFrag"
-        android:title="Misc"
+        android:title="@string/misc"
         android:icon="@drawable/ic_baseline_more_24"/>
 
 </menu>

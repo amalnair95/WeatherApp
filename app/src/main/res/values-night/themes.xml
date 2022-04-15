@@ -13,8 +13,16 @@
         <item name="colorSecondary">#6ec00c</item>
         <item name="colorSecondaryVariant">#6ec00c</item>
         <item name="colorOnSecondary">@color/black</item>
+        <!--for changing the color of menu dots-->
+        <item name="actionOverflowButtonStyle">@style/OverFlow</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <style name="OverFlow" parent="@style/Widget.AppCompat.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_overflow_icon</item>
+    </style>
+
 </resources>

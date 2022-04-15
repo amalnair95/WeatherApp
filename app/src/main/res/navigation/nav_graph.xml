@@ -24,7 +24,7 @@
     <fragment
         android:id="@+id/miscCategoryFragment"
         android:name="com.example.weatherapp.chooseMiscCategory.ChooseMiscCategoryFragment"
-        android:label="Choose Category"
+        android:label="@string/choose_misc"
         tools:layout="@layout/fragment_misc_category">
 
         <action
@@ -35,19 +35,33 @@
             android:id="@+id/action_misc_cate_to_food_recipe"
             app:destination="@+id/foodRecipeDetailsFragment" />
 
+        <action
+            android:id="@+id/action_misc_cate_to_dictionary"
+            app:destination="@+id/dictionaryFragment" />
+
     </fragment>
 
     <fragment
         android:id="@+id/foodDetailsFragment"
         android:name="com.example.weatherapp.foodFragment.FoodQualityDetailsFragment"
-        android:label="Nutrition Details"
+        android:label="@string/food_nutrition"
         tools:layout="@layout/fragment_food_details">
+
+
+        <action
+            android:id="@+id/action_food_details_to_category"
+            app:destination="@+id/miscCategoryFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/foodRecipeDetailsFragment"
         android:name="com.example.weatherapp.foodFragment.FoodRecipeFragment"
-        android:label="Food Recipe Details"
+        android:label="@string/food_recipe"
         tools:layout="@layout/fragment_food_recipe">
+
+        <action
+            android:id="@+id/action_food_recipe_to_category"
+            app:destination="@+id/miscCategoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -69,7 +83,7 @@
     <fragment
         android:id="@+id/categoryFragment"
         android:name="com.example.weatherapp.chooseCategory.ChooseCategoryFragment"
-        android:label="Choose Category"
+        android:label="@string/choose_category"
         tools:layout="@layout/fragment_category"
         >
         <action
@@ -111,7 +125,7 @@
     <fragment
         android:id="@+id/userProfileFragment"
         android:name="com.example.weatherapp.loginFragment.UserProfileFragment"
-        android:label="My Profile"
+        android:label="@string/profile"
         tools:layout="@layout/fragment_user_profile">
 
         <action
@@ -122,7 +136,7 @@
     <fragment
         android:id="@+id/weatherFragment"
         android:name="com.example.weatherapp.weatherFragment.WeatherFragment"
-        android:label="Weather Report"
+        android:label="@string/weather_report"
         tools:layout="@layout/fragment_weather">
 
         <action
@@ -132,7 +146,7 @@
     <fragment
         android:id="@+id/airFragment"
         android:name="com.example.weatherapp.airFragment.AirFragment"
-        android:label="Air Report"
+        android:label="@string/air_report"
         tools:layout="@layout/fragment_air">
         <action
             android:id="@+id/action_air_to_category"
@@ -168,14 +182,14 @@
     <fragment
         android:id="@+id/scannerFragment"
         android:name="com.example.weatherapp.barcodeScannerFragment.ScannerFragment"
-        android:label="Barcode Scanner"
+        android:label="@string/barcode_scanner"
         tools:layout="@layout/fragment_scanner">
     </fragment>
 
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.weatherapp.loginFragment.RegisterFragment"
-        android:label="Registration"
+        android:label="@string/registration"
         tools:layout="@layout/fragment_register">
 
         <action
@@ -185,7 +199,7 @@
     <fragment
         android:id="@+id/verificationFragment"
         android:name="com.example.weatherapp.loginFragment.VerificationFragment"
-        android:label="Verification"
+        android:label="@string/verification"
         tools:layout="@layout/fragment_verify">
         <action
             android:id="@+id/action_verification_to_login"
@@ -195,7 +209,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.weatherapp.loginFragment.LoginFragment"
-        android:label="Log In"
+        android:label="@string/log_in"
         tools:layout="@layout/fragment_login">
 
         <action
@@ -231,7 +245,7 @@
     <fragment
         android:id="@+id/farmerDetailsFragment"
         android:name="com.example.weatherapp.farmerDetailsFragment.FarmerDetailsFragment"
-        android:label="Farmer Information"
+        android:label="@string/farmer_information"
         tools:layout="@layout/fragment_farmer_details">
         <action
             android:id="@+id/action_farmer_details_to_category"
@@ -244,10 +258,20 @@
     <fragment
         android:id="@+id/forgotPasswordFragment"
         android:name="com.example.weatherapp.loginFragment.ForgotPasswordFragment"
-        android:label="Forgot Password"
+        android:label="@string/forgot_pass"
         tools:layout="@layout/fragment_forgot_password">
         <action
             android:id="@+id/action_forgot_password_to_login"
             app:destination="@+id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/dictionaryFragment"
+        android:name="com.example.weatherapp.Dictionary.DictionaryFragment"
+        android:label="@string/dictionary"
+        tools:layout="@layout/fragment_dictionary">
+        <action
+            android:id="@+id/action_dictionary_to_misc_cate"
+            app:destination="@+id/miscCategoryFragment" />
     </fragment>
 </navigation>

@@ -21,6 +21,7 @@ class WeatherViewModel:ViewModel() {
     private lateinit var fireCall: Call<FireResults>
     private lateinit var foodDetailCall: Call<List<FoodDetails>>
     private lateinit var foodRecipeDetailCall: Call<List<FoodRecipeDetails>>
+    private lateinit var wordDetailCall: Call<WordDetails>
     private var dbHelper: DatabaseHelper? = null
 
 
@@ -31,6 +32,7 @@ class WeatherViewModel:ViewModel() {
     var fireResultLiveDataList: MutableLiveData<List<FireData>> = MutableLiveData()
     var foodDetailResultLiveDataList: MutableLiveData<List<FoodDetails>> = MutableLiveData()
     var foodRecipeDetailResultLiveDataList: MutableLiveData<List<FoodRecipeDetails>> = MutableLiveData()
+    var wordDetailResultLiveDataList: MutableLiveData<WordDetails> = MutableLiveData()
 
 
     fun clearResultSet(){
@@ -41,6 +43,7 @@ class WeatherViewModel:ViewModel() {
         fireResultLiveDataList = MutableLiveData()
         foodDetailResultLiveDataList = MutableLiveData()
         foodRecipeDetailResultLiveDataList = MutableLiveData()
+        wordDetailResultLiveDataList = MutableLiveData()
     }
 
     fun getWeatherDetail(lat: Double,long:Double) {
@@ -191,7 +194,25 @@ class WeatherViewModel:ViewModel() {
 
         })
     }
+    fun getWordDetails(word:String) {
+        val apiInterface: WeatherApiInterface = WeatherApiClient.getRapidApiClient().create(WeatherApiInterface::class.java)
+        wordDetailCall = apiInterface.getWordDetail(word)
+        wordDetailCall.enqueue(object : retrofit2.Callback<WordDetails> {
+            override fun onResponse(call: Call<WordDetails>, response: Response<WordDetails>) {
+                if (response.body() != null && response.isSuccessful && response.body()!= null) {
+                    val  wordDetail = response.body()!!
+                    Log.d(TAG,"Food Details: $wordDetail")
+                    wordDetailResultLiveDataList.postValue(wordDetail)
+                }
+            }
+            override fun onFailure(call: Call<WordDetails>, t: Throwable) {
+                val responseResult = t.toString()
+                Log.e(TAG, "Response $responseResult")
+            }
 
+
+        })
+    }
     fun getUser(context: Context):String{
         dbHelper = DatabaseHelper(context)
         val checkBiQuery = dbHelper!!.ExecuteBiQuery("Select * from TokenDetails")

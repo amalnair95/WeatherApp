@@ -26,7 +26,7 @@
                 android:padding="@dimen/_10dp"
                 android:text="@string/farmer_details"
                 android:textColor="@color/colorVirenxia"
-                android:textSize="@dimen/_16sp" />
+                />
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -35,7 +35,7 @@
                 android:layout_height="wrap_content"
                 app:startIconDrawable="@drawable/ic_baseline_person_24"
                 android:layout_below="@id/farmerDetailsTextView"
-                android:hint="Full Name"
+                android:hint="@string/full_name"
                 android:layout_marginTop="@dimen/_10dp"
                 android:padding="@dimen/_10dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -44,7 +44,6 @@
                     android:id="@+id/farmerNameEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_16sp"
                     android:fontFamily="@font/segoe_ui"
                     />
 
@@ -80,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/farmerNameTextInputLayout"
-                android:hint="Area Owned"
+                android:hint="@string/area_owned"
                 app:startIconDrawable="@drawable/ic_baseline_landscape_24"
                 android:padding="@dimen/_10dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -89,7 +88,6 @@
                     android:id="@+id/farmerLandAreaEdittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_16sp"
                     android:fontFamily="@font/segoe_ui"
                     />
 
@@ -126,7 +124,7 @@
                 android:layout_height="wrap_content"
                 app:startIconDrawable="@drawable/ic_baseline_location_city_24"
                 android:layout_below="@id/areaOwnedTextInputLayout"
-                android:hint="Address"
+                android:hint="@string/address"
                 android:padding="@dimen/_10dp"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -134,7 +132,6 @@
                     android:id="@+id/farmerAddressEdittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_16sp"
                     android:fontFamily="@font/segoe_ui"
                     />
 
@@ -199,10 +196,10 @@
             android:backgroundTint="@color/colorVirenxia"
             android:fontFamily="@font/segoe_ui_bold"
             android:padding="@dimen/_12dp"
-            android:text="Proceed"
+            android:text="@string/proceed"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/_16sp" />
+            />
 
         <TextView
             android:id="@+id/buttonSkip"
@@ -211,9 +208,9 @@
             android:fontFamily="@font/segoe_ui_bold"
             android:gravity="center"
             android:padding="@dimen/_10dp"
-            android:text="Skip"
+            android:text="@string/skip"
             android:textColor="@color/colorVirenxia"
-            android:textSize="@dimen/_16sp" />
+            />
     </LinearLayout>
 
     <FrameLayout

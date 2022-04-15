@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:layout_marginEnd="@dimen/_10dp">
+
+            <TextView
+                android:id="@+id/foodRecipeDetailsTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/segoe_ui_bold"
+                android:padding="@dimen/_10dp"
+                android:text="@string/dictionary"
+                android:textColor="@color/colorVirenxia" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/wordSearchTextInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/foodRecipeDetailsTextView"
+                android:layout_marginTop="@dimen/_10dp"
+                android:hint="@string/enter_word_to_search"
+                android:padding="@dimen/_10dp"
+                app:startIconDrawable="@drawable/ic_baseline_book_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/dictWordEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/segoe_ui" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ProgressBar
+                android:id="@+id/loadingProgressBar"
+                style="?android:attr/progressBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/submitButton"
+                android:layout_centerInParent="true"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/wordSearchTextInputLayout"
+                android:backgroundTint="@color/colorVirenxia"
+                android:elevation="@dimen/_6dp"
+                android:fontFamily="@font/segoe_ui_bold"
+                android:layout_marginHorizontal="@dimen/_10dp"
+                android:padding="@dimen/_12dp"
+                android:text="@string/submit"
+                android:textColor="@color/white"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:id="@+id/wordDetailsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/submitButton"
+                android:orientation="vertical"
+                android:padding="@dimen/_8dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/segoe_ui_bold"
+                        android:padding="@dimen/_6dp"
+                        android:text="@string/word"
+                        android:textColor="@color/dark_grey" />
+
+                    <TextView
+                        android:id="@+id/wordTextview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_8dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/segoe_ui_italic"
+                        android:gravity="start"
+                        android:padding="@dimen/_6dp"
+                        android:textColor="@color/dark_grey"
+                        tools:text="dkjfah" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:weightSum="2">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_8dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/segoe_ui_bold"
+                        android:padding="@dimen/_6dp"
+                        android:text="@string/meaning"
+                        android:textColor="@color/dark_grey" />
+
+                    <TextView
+                        android:id="@+id/meaningTextview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_8dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/segoe_ui_italic"
+                        android:gravity="start"
+                        android:padding="@dimen/_6dp"
+                        android:textColor="@color/dark_grey"
+                        tools:text="dskjfb" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+    <FrameLayout
+        android:id="@+id/touchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp">
+
+    </FrameLayout>
+</RelativeLayout>

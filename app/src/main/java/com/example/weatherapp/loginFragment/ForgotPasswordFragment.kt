@@ -23,7 +23,7 @@ class ForgotPasswordFragment : Fragment(R.layout.fragment_forgot_password) {
     private var dbHelper: DatabaseHelper?=null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Log.e(TAG, "On create view started..")
-        (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(false)
+        (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         init()
         super.onViewCreated(view, savedInstanceState)
     }

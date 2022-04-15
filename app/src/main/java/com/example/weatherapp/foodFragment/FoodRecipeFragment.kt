@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.weatherapp.R
@@ -66,7 +67,12 @@ class FoodRecipeFragment : Fragment(R.layout.fragment_food_recipe) {
 
         fragmentFoodRecipeBinding.submitButton.setOnClickListener {
             Log.d(TAG, "Entered Text: ${fragmentFoodRecipeBinding.foodNameEditText.text.toString()}")
-            weatherViewModel.getFoodRecipeDetails(fragmentFoodRecipeBinding.foodNameEditText.text.toString())
+            fragmentFoodRecipeBinding.loadingProgressBar.visibility = View.VISIBLE
+            if (CommonMethod.isNetworkConnected(requireContext())) {
+                weatherViewModel.getFoodRecipeDetails(fragmentFoodRecipeBinding.foodNameEditText.text.toString())
+            }else{
+                Navigation.findNavController(fragmentFoodRecipeBinding.root).navigate(R.id.action_food_recipe_to_category)
+            }
         }
 
     }

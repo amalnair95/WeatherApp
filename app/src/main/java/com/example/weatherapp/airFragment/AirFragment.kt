@@ -62,6 +62,8 @@ class AirFragment : Fragment(R.layout.fragment_air) {
         if (CommonMethod.isNetworkConnected(requireContext())) {
             fragmentAirBinding.loadingProgressBar.visibility = View.VISIBLE
             getLocation()
+        }else{
+            Navigation.findNavController(fragmentAirBinding.root).navigate(R.id.action_air_to_category)
         }
     }
 

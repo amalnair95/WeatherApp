@@ -21,7 +21,7 @@
         android:layout_marginBottom="@dimen/_18dp"
         android:fontFamily="@font/segoe_ui_bold"
         android:padding="@dimen/_14sp"
-        android:text="Welcome Back! \n Please log in to continue!"
+        android:text="@string/welcome_note"
         android:textColor="@color/colorVirenxia"
         android:textSize="@dimen/_16sp" />
 
@@ -162,6 +162,7 @@
             android:layout_gravity="center"
             android:visibility="gone" />
     </LinearLayout>
+
     <FrameLayout
         android:id="@+id/touchLayout"
         android:layout_width="match_parent"

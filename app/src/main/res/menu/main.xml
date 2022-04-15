@@ -3,20 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/scanner"
-        android:title="Code Reader"
-        app:itemTextAppearance="@style/fontStyle"
+        android:title="@string/code_reader"
         android:icon="@drawable/ic_baseline_qr_code_scanner_24"
         app:actionViewClass="com.budiyev.android.codescanner.CodeScannerView"
         app:showAsAction="never" />
     <item
         android:id="@+id/userProfile"
-        android:title="My Profile"
+        android:title="@string/my_profile"
         android:icon="@drawable/ic_baseline_person_24"
         app:showAsAction="ifRoom" />
     <item
+        android:id="@+id/appTranslate"
+        android:title="@string/translate"
+        android:icon="@drawable/ic_baseline_g_translate_24"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/logoutProfile"
-        android:title="Logout"
-        app:itemTextAppearance="@style/fontStyle"
+        android:title="@string/logout"
         android:icon="@drawable/ic_baseline_person_24"
         app:showAsAction="never" />
 

@@ -105,6 +105,8 @@ class WeatherFragment : Fragment(R.layout.fragment_weather) {
         if (CommonMethod.isNetworkConnected(requireContext())) {
             fragmentWeatherBinding.loadingProgressBar.visibility = View.VISIBLE
             getLocation()
+        }else{
+            Navigation.findNavController(fragmentWeatherBinding.root).navigate(R.id.action_weather_to_category)
         }
     }
 

@@ -12,130 +12,126 @@
             app:cardBackgroundColor="@color/white"
             app:cardCornerRadius="@dimen/_6dp">-->
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8dp"
+        android:layout_marginTop="@dimen/_8dp"
+        android:layout_marginEnd="@dimen/_8dp"
+        android:layout_marginBottom="@dimen/_8dp"
+        android:orientation="vertical"
+        android:padding="@dimen/_8dp">
+
+        <TextView
+            android:id="@+id/itemNameTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/segoe_ui_bold"
+            android:padding="@dimen/_8dp"
+            android:textColor="@color/colorVirenxia"
+            app:drawableEndCompat="@drawable/ic_baseline_expand_more_24"
+            tools:text="Apple" />
+
+        <LinearLayout
+            android:id="@+id/foodRecipeDetailsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/_8dp"
+            android:visibility="gone">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_margin="@dimen/_8dp"
-                android:padding="@dimen/_8dp">
+                android:weightSum="2">
 
                 <TextView
-                    android:id="@+id/itemNameTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
                     android:fontFamily="@font/segoe_ui_bold"
-                    android:padding="@dimen/_8dp"
-                    android:textColor="@color/colorVirenxia"
-                    android:textSize="@dimen/_16sp"
-                    app:drawableEndCompat="@drawable/ic_baseline_expand_more_24"
-                    tools:text="Apple" />
+                    android:padding="@dimen/_6dp"
+                    android:text="@string/ingredients"
+                    android:textColor="@color/dark_grey" />
 
-                <LinearLayout
-                    android:id="@+id/foodRecipeDetailsLayout"
+                <TextView
+                    android:id="@+id/ingredientsTextview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="@dimen/_8dp"
-                    android:visibility="gone">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:weightSum="2">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="@dimen/_8dp"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/segoe_ui_bold"
-                            android:padding="@dimen/_6dp"
-                            android:text="Ingredients"
-                            android:textColor="@color/dark_grey"
-                            android:textSize="@dimen/_16sp" />
-
-                        <TextView
-                            android:id="@+id/ingredientsTextview"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginHorizontal="@dimen/_8dp"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/segoe_ui_italic"
-                            android:gravity="left"
-                            android:padding="@dimen/_6dp"
-                            android:textColor="@color/dark_grey"
-                            android:textSize="@dimen/_16sp"
-                            tools:text="dkjfah" />
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:weightSum="2">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="@dimen/_8dp"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/segoe_ui_bold"
-                            android:padding="@dimen/_6dp"
-                            android:text="How many Servings?"
-                            android:textColor="@color/dark_grey"
-                            android:textSize="@dimen/_16sp" />
-
-                        <TextView
-                            android:id="@+id/servingsTextview"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginHorizontal="@dimen/_8dp"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/segoe_ui_italic"
-                            android:gravity="left"
-                            android:padding="@dimen/_6dp"
-                            android:textColor="@color/dark_grey"
-                            android:textSize="@dimen/_16sp"
-                            tools:text="dskjfb" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:weightSum="2">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginHorizontal="@dimen/_8dp"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/segoe_ui_bold"
-                            android:padding="@dimen/_6dp"
-                            android:text="How to make?"
-                            android:textColor="@color/dark_grey"
-                            android:textSize="@dimen/_16sp" />
-
-                        <TextView
-                            android:id="@+id/instructionsTextview"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginHorizontal="@dimen/_8dp"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/segoe_ui_italic"
-                            android:gravity="left"
-                            android:padding="@dimen/_6dp"
-                            android:textColor="@color/dark_grey"
-                            android:textSize="@dimen/_16sp"
-                            tools:text="dskjfb" />
-                    </LinearLayout>
-
-                </LinearLayout>
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui_italic"
+                    android:gravity="start"
+                    android:padding="@dimen/_6dp"
+                    android:textColor="@color/dark_grey"
+                    tools:text="dkjfah" />
             </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui_bold"
+                    android:padding="@dimen/_6dp"
+                    android:text="@string/servings"
+                    android:textColor="@color/dark_grey" />
+
+                <TextView
+                    android:id="@+id/servingsTextview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui_italic"
+                    android:gravity="start"
+                    android:padding="@dimen/_6dp"
+                    android:textColor="@color/dark_grey"
+                    tools:text="dskjfb" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui_bold"
+                    android:padding="@dimen/_6dp"
+                    android:text="@string/how_to_make"
+                    android:textColor="@color/dark_grey" />
+
+                <TextView
+                    android:id="@+id/instructionsTextview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="@dimen/_8dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui_italic"
+                    android:gravity="start"
+                    android:padding="@dimen/_6dp"
+                    android:textColor="@color/dark_grey"
+                    tools:text="dskjfb" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
         <!--</androidx.cardview.widget.CardView>-->
 </RelativeLayout>

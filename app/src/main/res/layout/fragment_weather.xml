@@ -51,7 +51,7 @@
                     android:layout_margin="@dimen/_12dp"
                     android:fontFamily="@font/segoe_ui_bold"
                     android:textColor="@color/dark_grey"
-                    android:textSize="46sp"
+                    android:textSize="44sp"
                     tools:text="25" />
 
                 <TextView
@@ -106,7 +106,7 @@
                 android:padding="@dimen/_8dp"
                 android:text="@string/location"
                 android:textColor="@color/grey"
-                android:textSize="@dimen/_18sp" />
+                android:textSize="@dimen/_16sp" />
 
             <TextView
                 android:id="@+id/address"
@@ -117,7 +117,6 @@
                 android:fontFamily="@font/segoe_ui"
                 android:padding="@dimen/_8dp"
                 android:textColor="@color/dark_grey"
-                android:textSize="@dimen/_16sp"
                 tools:text="bsidbi" />
 
             <TextView
@@ -131,7 +130,7 @@
                 android:padding="@dimen/_8dp"
                 android:text="@string/weather_details"
                 android:textColor="@color/grey"
-                android:textSize="@dimen/_18sp" />
+                android:textSize="@dimen/_16sp" />
 <!--
             <LinearLayout
                 android:layout_width="match_parent"
@@ -416,7 +415,7 @@
                                 android:padding="@dimen/_6dp"
                                 android:text="@string/apparent_temperature"
                                 android:textColor="@color/dark_grey"
-                                android:textSize="@dimen/_16sp" />
+                                />
 
                             <TextView
                                 android:id="@+id/apparentTempTextview"
@@ -428,7 +427,6 @@
                                 android:fontFamily="@font/segoe_ui"
                                 android:padding="@dimen/_6dp"
                                 android:textColor="@color/dark_grey"
-                                android:textSize="@dimen/_16sp"
                                 tools:text="dkjfah" />
                         </LinearLayout>
 
@@ -447,8 +445,7 @@
                                 android:fontFamily="@font/segoe_ui_bold"
                                 android:padding="@dimen/_6dp"
                                 android:text="@string/humidity"
-                                android:textColor="@color/dark_grey"
-                                android:textSize="@dimen/_16sp" />
+                                android:textColor="@color/dark_grey" />
 
                             <TextView
                                 android:id="@+id/humidityTextview"
@@ -460,7 +457,6 @@
                                 android:fontFamily="@font/segoe_ui"
                                 android:padding="@dimen/_6dp"
                                 android:textColor="@color/dark_grey"
-                                android:textSize="@dimen/_16sp"
                                 tools:text="dskjfb" />
                         </LinearLayout>
 
@@ -479,7 +475,7 @@
                                 android:padding="@dimen/_6dp"
                                 android:text="@string/wind_speed"
                                 android:textColor="@color/dark_grey"
-                                android:textSize="@dimen/_16sp" />
+                                />
 
                             <TextView
                                 android:id="@+id/windSpeedTextview"
@@ -491,7 +487,6 @@
                                 android:fontFamily="@font/segoe_ui"
                                 android:padding="@dimen/_6dp"
                                 android:textColor="@color/dark_grey"
-                                android:textSize="@dimen/_16sp"
                                 tools:text="dskjfb" />
                         </LinearLayout>
 
@@ -510,7 +505,7 @@
                                 android:padding="@dimen/_6dp"
                                 android:text="@string/min_temp"
                                 android:textColor="@color/dark_grey"
-                                android:textSize="@dimen/_16sp" />
+                                />
 
                             <TextView
                                 android:id="@+id/minTempTextview"
@@ -522,7 +517,6 @@
                                 android:fontFamily="@font/segoe_ui"
                                 android:padding="@dimen/_6dp"
                                 android:textColor="@color/dark_grey"
-                                android:textSize="@dimen/_16sp"
                                 tools:text="dskjfb" />
                         </LinearLayout>
 
@@ -541,7 +535,7 @@
                                 android:padding="@dimen/_6dp"
                                 android:text="@string/max_temp"
                                 android:textColor="@color/dark_grey"
-                                android:textSize="@dimen/_16sp" />
+                                />
 
                             <TextView
                                 android:id="@+id/maxTempTextview"
@@ -553,7 +547,6 @@
                                 android:fontFamily="@font/segoe_ui"
                                 android:padding="@dimen/_6dp"
                                 android:textColor="@color/dark_grey"
-                                android:textSize="@dimen/_16sp"
                                 tools:text="dskjfb" />
                         </LinearLayout>
 
@@ -572,7 +565,7 @@
                                 android:padding="@dimen/_6dp"
                                 android:text="@string/cloud_precip"
                                 android:textColor="@color/dark_grey"
-                                android:textSize="@dimen/_16sp" />
+                                />
 
                             <TextView
                                 android:id="@+id/cloudPrecipTextview"
@@ -584,7 +577,6 @@
                                 android:fontFamily="@font/segoe_ui"
                                 android:padding="@dimen/_6dp"
                                 android:textColor="@color/dark_grey"
-                                android:textSize="@dimen/_16sp"
                                 tools:text="dskjfb" />
                         </LinearLayout>
 
@@ -602,8 +594,7 @@
                                 android:fontFamily="@font/segoe_ui_bold"
                                 android:padding="@dimen/_6dp"
                                 android:text="@string/sunrise"
-                                android:textColor="@color/dark_grey"
-                                android:textSize="@dimen/_16sp" />
+                                android:textColor="@color/dark_grey" />
 
                             <TextView
                                 android:id="@+id/sunriseTimeTextview"
@@ -615,7 +606,6 @@
                                 android:fontFamily="@font/segoe_ui"
                                 android:padding="@dimen/_6dp"
                                 android:textColor="@color/dark_grey"
-                                android:textSize="@dimen/_16sp"
                                 tools:text="dskjfb" />
                         </LinearLayout>
 
@@ -634,7 +624,7 @@
                                 android:padding="@dimen/_6dp"
                                 android:text="@string/sunset"
                                 android:textColor="@color/dark_grey"
-                                android:textSize="@dimen/_16sp" />
+                                />
 
                             <TextView
                                 android:id="@+id/sunsetTimeTextview"
@@ -646,7 +636,6 @@
                                 android:fontFamily="@font/segoe_ui"
                                 android:padding="@dimen/_6dp"
                                 android:textColor="@color/dark_grey"
-                                android:textSize="@dimen/_16sp"
                                 tools:text="dskjfb" />
                         </LinearLayout>
                     </LinearLayout>

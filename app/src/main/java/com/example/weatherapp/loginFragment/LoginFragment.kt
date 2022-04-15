@@ -4,6 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.method.PasswordTransformationMethod
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -43,11 +46,33 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private var dbHelper: DatabaseHelper? = null
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         Log.e(TAG, "On create view started..")
+        //CommonMethod.loadLocaleLang(requireContext())
         (activity as AppCompatActivity).supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         // CommonMethod.backButtonCode(view)
         init()
         super.onViewCreated(view, savedInstanceState)
     }
+
+    /*override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        CommonMethod.loadLocaleLang(requireContext())
+        inflater.inflate(R.menu.main,menu)
+        val userProfileItem = menu.findItem(R.id.userProfile)
+        userProfileItem.isVisible = false
+        val scannerItem = menu.findItem(R.id.scanner)
+        scannerItem.isVisible = false
+        val logoutProfileItem = menu.findItem(R.id.logoutProfile)
+        logoutProfileItem.isVisible = false
+        super.onCreateOptionsMenu(menu, inflater)
+    }*/
+
+   /* override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.appTranslate->{
+                CommonMethod.showLanguageChange(requireContext(),requireActivity())
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }*/
 
     private fun init() {
         fragmentLoginBinding.touchLayout.setOnTouchListener { view, motionEvent ->
