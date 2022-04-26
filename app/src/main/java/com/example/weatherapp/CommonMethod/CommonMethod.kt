@@ -8,7 +8,7 @@ import android.content.DialogInterface
 import android.content.SharedPreferences
 import android.content.res.AssetFileDescriptor
 import android.content.res.Configuration
-import android.content.res.Resources
+import android.graphics.drawable.Drawable
 import android.media.MediaPlayer
 import android.net.ConnectivityManager
 import android.telephony.TelephonyManager
@@ -19,8 +19,10 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
+import com.bumptech.glide.Glide
 import com.example.weatherapp.R
 import com.example.weatherapp.models.Coordinates
 import java.util.*
@@ -457,6 +459,17 @@ class CommonMethod {
             if (language != null) {
                 setLocale(language,context)
             }
+        }
+
+        fun loadImage(context: Context,imageUrl:String,imageView: ImageView){
+            Glide.with(context).load(getImage(imageUrl,context)).into(imageView)
+
+        }
+        private fun getImage(imageName:String, context: Context):Int {
+
+            val drawableResourceId = context.resources.getIdentifier(imageName, "drawable", context.packageName)
+
+            return drawableResourceId
         }
 
     }

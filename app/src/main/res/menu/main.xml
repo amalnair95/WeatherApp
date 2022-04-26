@@ -17,6 +17,13 @@
         android:title="@string/translate"
         android:icon="@drawable/ic_baseline_g_translate_24"
         app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/shoppingCart"
+        android:title="Cart"
+        android:icon="@drawable/ic_baseline_shopping_cart_24"
+        app:showAsAction="ifRoom"
+        app:actionLayout="@layout/cart_action_item"/>
     <item
         android:id="@+id/logoutProfile"
         android:title="@string/logout"

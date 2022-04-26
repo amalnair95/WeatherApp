@@ -10,7 +10,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/screenBackground"
+    android:background="@color/white"
     android:layout_height="match_parent">
 
     <ScrollView
@@ -390,7 +390,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_10dp"
-                    app:cardBackgroundColor="@color/cardBackground2"
+                    app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="@dimen/_6dp"
                     app:cardElevation="@dimen/_4dp">
 

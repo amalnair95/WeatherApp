@@ -107,8 +107,8 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash) {
             val checkBiQuery= dbHelper!!.ExecuteBiQuery("Select * from TokenDetails")
             if (checkBiQuery?.getString(1) == null){
                 Log.d(TAG,"No data")
-                Navigation.findNavController(fragmentSplashBinding.root)
-                    .navigate(R.id.action_splash_to_selection)
+                //Navigation.findNavController(fragmentSplashBinding.root).navigate(R.id.action_splash_to_selection)
+                Navigation.findNavController(fragmentSplashBinding.root).navigate(R.id.action_splash_to_category)
             }else{
                 var value=""
                 Log.d(TAG,"data ${checkBiQuery.columnCount}")
@@ -125,7 +125,7 @@ class SplashScreenFragment : Fragment(R.layout.fragment_splash) {
                 Navigation.findNavController(fragmentSplashBinding.root).navigate(R.id.action_splash_to_category,args)
             }
 
-        },4000)
+        },5000)
     }
 
     override fun onResume() {

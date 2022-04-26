@@ -31,21 +31,22 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/farmerNameTextInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:startIconDrawable="@drawable/ic_baseline_person_24"
                 android:layout_below="@id/farmerDetailsTextView"
+
                 android:hint="@string/full_name"
-                android:layout_marginTop="@dimen/_10dp"
                 android:padding="@dimen/_10dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                app:startIconDrawable="@drawable/ic_baseline_person_24">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/farmerNameEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/segoe_ui"
-                    />
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -88,6 +89,7 @@
                     android:id="@+id/farmerLandAreaEdittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:fontFamily="@font/segoe_ui"
                     />
 
@@ -120,20 +122,21 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/addressTextInputLayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:startIconDrawable="@drawable/ic_baseline_location_city_24"
                 android:layout_below="@id/areaOwnedTextInputLayout"
                 android:hint="@string/address"
                 android:padding="@dimen/_10dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                app:startIconDrawable="@drawable/ic_baseline_location_city_24">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/farmerAddressEdittext"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/segoe_ui"
-                    />
+                    android:inputType="text"
+                    android:imeOptions="actionNext" />
 
             </com.google.android.material.textfield.TextInputLayout>
 

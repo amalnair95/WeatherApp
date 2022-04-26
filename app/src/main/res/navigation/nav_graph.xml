@@ -121,7 +121,71 @@
             app:destination="@+id/selectionFragment" />
 
     </fragment>
+    <fragment
+        android:id="@+id/productCategoryFragment"
+        android:name="com.example.weatherapp.chooseProduct.ChooseProductFragment"
+        android:label="Product Shop"
+        tools:layout="@layout/choose_product_fragment"
+        >
+        <action
+            android:id="@+id/action_category_to_cart"
+            app:destination="@+id/cartFragment" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.weatherapp.shopProduct.CartFragment"
+        android:label="Shopping Cart"
+        tools:layout="@layout/fragment_cart"
+        >
+        <action
+            android:id="@+id/action_cart_to_payment"
+            app:destination="@+id/paymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/healthCategoryFragment"
+        android:name="com.example.weatherapp.chooseCategory.ChooseHealthCategoryFragment"
+        android:label="@string/health_category"
+        tools:layout="@layout/fragment_health_category"
+        >
+        <action
+            android:id="@+id/action_category_to_bmi"
+            app:destination="@+id/bmiFragment" />
+        <action
+            android:id="@+id/action_category_to_body_fat"
+            app:destination="@+id/bodyFatFragment" />
+        <action
+            android:id="@+id/action_category_to_ideal_weight"
+            app:destination="@+id/idealWeightFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/bodyFatFragment"
+        android:name="com.example.weatherapp.bodyMassIndexFragment.BodyFatFragment"
+        android:label="Body Fat Details"
+        tools:layout="@layout/fragment_body_fat"
+        >
+
+    </fragment>
+    <fragment
+        android:id="@+id/bmiFragment"
+        android:name="com.example.weatherapp.bodyMassIndexFragment.BodyMassIndexFragment"
+        android:label="@string/body_mass_index"
+        tools:layout="@layout/fragment_body_mass_index"
+        >
+        <action
+            android:id="@+id/action_bmi_to_health_cate"
+            app:destination="@+id/healthCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/idealWeightFragment"
+        android:name="com.example.weatherapp.bodyMassIndexFragment.IdealWeightFragment"
+        android:label="@string/ideal_weight"
+        tools:layout="@layout/fragment_ideal_weight"
+        >
+        <action
+            android:id="@+id/action_ideal_weight_to_health_cate"
+            app:destination="@+id/healthCategoryFragment" />
+    </fragment>
     <fragment
         android:id="@+id/userProfileFragment"
         android:name="com.example.weatherapp.loginFragment.UserProfileFragment"
@@ -273,5 +337,12 @@
         <action
             android:id="@+id/action_dictionary_to_misc_cate"
             app:destination="@+id/miscCategoryFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.example.weatherapp.PaymentFragment"
+        android:label="Payment Status"
+        tools:layout="@layout/fragment_payment">
     </fragment>
 </navigation>

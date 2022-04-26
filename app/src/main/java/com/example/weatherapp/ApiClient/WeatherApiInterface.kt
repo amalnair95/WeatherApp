@@ -5,6 +5,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query
+import javax.xml.transform.dom.DOMLocator
 
 interface WeatherApiInterface {
 
@@ -52,4 +53,12 @@ interface WeatherApiInterface {
     @Headers("X-Api-Key: aRfzVzRyKkS4os8j1UxwPA==gDJWVcU57YYvYe6t")
     @GET("/v1/dictionary")
     fun getWordDetail(@Query("word") word:String):Call<WordDetails>
+
+    @Headers("X-RapidAPI-Host: fitness-calculator.p.rapidapi.com","X-RapidAPI-Key: 8e02bdd098msh7586da9cc89dc19p1db311jsnf557ef38e4b1")
+    @GET("/bmi")
+    fun getBodyMassIndex(@Query("age") age:Double,@Query("weight") weight:Double,@Query("height") height:Double):Call<BodyMassIndexDetails>
+
+    @Headers("X-RapidAPI-Host: fitness-calculator.p.rapidapi.com","X-RapidAPI-Key: 8e02bdd098msh7586da9cc89dc19p1db311jsnf557ef38e4b1")
+    @GET("/idealweight")
+    fun getIdealWeightDetails(@Query("gender") gender:String,@Query("height") height:Double):Call<IdealWeightDetails>
 }

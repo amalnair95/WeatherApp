@@ -22,7 +22,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/segoe_ui_bold"
-                android:padding="@dimen/_10dp"
+                android:paddingTop="@dimen/_10dp"
                 android:text="@string/dictionary"
                 android:textColor="@color/colorVirenxia" />
 
@@ -33,7 +33,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/foodRecipeDetailsTextView"
-                android:layout_marginTop="@dimen/_10dp"
                 android:hint="@string/enter_word_to_search"
                 android:padding="@dimen/_10dp"
                 app:startIconDrawable="@drawable/ic_baseline_book_24">
@@ -42,7 +41,10 @@
                     android:id="@+id/dictWordEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/segoe_ui" />
+                    android:drawableEnd="@drawable/ic_baseline_search_24"
+                    android:fontFamily="@font/segoe_ui"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -67,7 +69,7 @@
                 android:padding="@dimen/_12dp"
                 android:text="@string/submit"
                 android:textColor="@color/white"
-                android:visibility="visible" />
+                android:visibility="gone" />
 
             <LinearLayout
                 android:id="@+id/wordDetailsLayout"
@@ -92,6 +94,7 @@
                         android:fontFamily="@font/segoe_ui_bold"
                         android:padding="@dimen/_6dp"
                         android:text="@string/word"
+                        android:textSize="@dimen/_16sp"
                         android:textColor="@color/dark_grey" />
 
                     <TextView
@@ -103,6 +106,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/segoe_ui_italic"
                         android:gravity="start"
+                        android:textSize="@dimen/_16sp"
                         android:padding="@dimen/_6dp"
                         android:textColor="@color/dark_grey"
                         tools:text="dkjfah" />
@@ -122,6 +126,7 @@
                         android:layout_weight="1"
                         android:fontFamily="@font/segoe_ui_bold"
                         android:padding="@dimen/_6dp"
+                        android:textSize="@dimen/_16sp"
                         android:text="@string/meaning"
                         android:textColor="@color/dark_grey" />
 
@@ -135,6 +140,7 @@
                         android:fontFamily="@font/segoe_ui_italic"
                         android:gravity="start"
                         android:padding="@dimen/_6dp"
+                        android:textSize="@dimen/_16sp"
                         android:textColor="@color/dark_grey"
                         tools:text="dskjfb" />
                 </LinearLayout>

@@ -126,5 +126,31 @@
     <string name="enter_word_to_search">Enter word to search</string>
     <string name="word">Word</string>
     <string name="meaning">Meaning</string>
+    <string name="body_mass_index">Body Mass Index</string>
+    <string name="body_fat_percent">Body Fat Percent</string>
+    <string name="ideal_weight">Ideal Weight</string>
+    <string name="health_category">Health Category</string>
+    <string name="health">Health</string>
+    <string name="age">Age</string>
+    <string name="weight_in_kg">Weight(in kg)</string>
+    <string name="height_in_cm">Height(in cm)</string>
+    <string name="you_are">You are</string>
+    <string name="ideal_weight_details">Ideal Weight Details</string>
+    <string name="select_gender">Select Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="ideal_weight_according_to">Ideal Weight According to:</string>
+    <string name="hamwi_method">Hamwi Method</string>
+    <string name="devine_method">Devine Method</string>
+    <string name="miller_method">Miller Method</string>
+    <string name="robinson_method">Robinson Method</string>
+
+    <string-array name="quantity_string_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
 
 </resources>

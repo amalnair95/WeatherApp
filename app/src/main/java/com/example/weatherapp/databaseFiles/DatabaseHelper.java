@@ -16,6 +16,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create Table TokenDetails(id Integer primary key,RefreshToken TEXT,UserName TEXT,Password TEXT)");
+        db.execSQL("create Table ProductMaster(Productid Integer primary key,ProductName TEXT,Price INTEGER,Quantity TEXT,Discount INTEGER)");
+        String sql = "INSERT or replace INTO ProductMaster (Productid, ProductName, Price,Quantity, Discount) VALUES('1','Somrith',1000,'500ml',10),('2','Asaava',1000,'500ml',0),('3','Yuuvani',1000,'500ml',0)";
+        db.execSQL(sql);
     }
 
     @Override

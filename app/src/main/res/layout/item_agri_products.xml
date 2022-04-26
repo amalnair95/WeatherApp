@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/_10dp"
+        android:weightSum="2">
+
+        <ImageView
+            android:id="@+id/productImageView"
+            android:layout_width="30dp"
+            android:layout_height="140dp"
+            android:layout_weight="0.5"
+            android:src="@drawable/product_1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/productNameQuantityTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/segoe_ui"
+                android:padding="@dimen/_10dp"
+                android:textColor="@color/dark_grey"
+                android:textSize="@dimen/_16sp"
+                tools:text="SOMIRTH 500ml" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/priceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui"
+                    android:padding="@dimen/_10dp"
+                    android:textColor="@color/colorVirenxia"
+                    android:textSize="@dimen/_12sp"
+                    android:visibility="visible"
+                    tools:text="\u20B9 500" />
+
+                <TextView
+                    android:id="@+id/discountedPriceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui"
+                    android:padding="@dimen/_10dp"
+                    android:textColor="@color/colorVirenxia"
+                    android:textSize="@dimen/_12sp"
+                    android:visibility="visible"
+                    tools:text="\u20B9 500" />
+
+                <TextView
+                    android:id="@+id/discountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui"
+                    android:padding="@dimen/_10dp"
+                    android:textColor="@color/colorVirenxia"
+                    android:textSize="@dimen/_12sp"
+                    android:visibility="visible"
+                    tools:text="-5%" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/addItemButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:backgroundTint="@color/white"
+                android:text="Add to Cart"
+                android:textColor="@color/colorVirenxia"
+                android:textSize="@dimen/_12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

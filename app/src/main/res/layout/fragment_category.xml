@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:background="@color/screenBackground">
+    android:background="@color/white">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,7 +43,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:layout_gravity="bottom"
-                    android:textColor="@color/colorVirenxia"
+                    android:textColor="@color/dark_grey"
                     android:fontFamily="@font/segoe_ui"
                     android:layout_weight="1"
                     android:text="@string/weather_details"/>
@@ -81,7 +81,7 @@
                 android:layout_gravity="bottom"
                 android:layout_weight="1"
                 android:fontFamily="@font/segoe_ui"
-                android:textColor="@color/colorVirenxia"
+                android:textColor="@color/dark_grey"
                 android:text="@string/air_quality_details"/>
 
             </LinearLayout>
@@ -116,7 +116,7 @@
                     android:gravity="center"
                     android:layout_weight="1"
                     android:layout_gravity="bottom"
-                    android:textColor="@color/colorVirenxia"
+                    android:textColor="@color/dark_grey"
                     android:fontFamily="@font/segoe_ui"
                     android:text="@string/code_reader"/>
             </LinearLayout>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/successLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/successImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/order_success" />
+
+        <TextView
+            android:id="@+id/successTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/successImageView"
+            android:fontFamily="@font/segoe_bold_italic"
+            android:layout_centerHorizontal="true"
+            android:text="Thank you for Placing an Order with VirenXia"
+            android:textAlignment="center"
+            android:textColor="@color/colorVirenxia"
+            android:textSize="@dimen/_20sp" />
+
+        <TextView
+            android:id="@+id/orderDetailsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/successTextView"
+            android:layout_marginStart="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:fontFamily="@font/segoe_ui_bold"
+            android:padding="@dimen/_8dp"
+            android:text="Order Details"
+            android:textColor="@color/colorVirenxia"
+            android:textSize="@dimen/_16sp" />
+
+        <LinearLayout
+            android:id="@+id/orderDetailsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/orderDetailsTextView"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="@dimen/_6dp"
+                app:cardElevation="@dimen/_4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_8dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_8dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/segoe_ui_bold"
+                            android:padding="@dimen/_6dp"
+                            android:text="Transaction Id"
+                            android:textColor="@color/dark_grey" />
+
+                        <TextView
+                            android:id="@+id/transactionIdTextview"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/_8dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/segoe_ui"
+                            android:padding="@dimen/_6dp"
+                            android:textColor="@color/dark_grey"
+                            tools:text="dkjfah" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_8dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/segoe_ui_bold"
+                            android:padding="@dimen/_6dp"
+                            android:text="Contact No."
+                            android:textColor="@color/dark_grey" />
+
+                        <TextView
+                            android:id="@+id/contactTextview"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/_8dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/segoe_ui"
+                            android:padding="@dimen/_6dp"
+                            android:textColor="@color/dark_grey"
+                            tools:text="dskjfb" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/_8dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/segoe_ui_bold"
+                            android:padding="@dimen/_6dp"
+                            android:text="Amount"
+                            android:textColor="@color/dark_grey" />
+
+                        <TextView
+                            android:id="@+id/amountTextview"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="@dimen/_8dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/segoe_ui"
+                            android:padding="@dimen/_6dp"
+                            android:textColor="@color/dark_grey"
+                            tools:text="dskjfb" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/continueShopping"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/orderDetailsLayout"
+            android:layout_marginStart="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:layout_marginEnd="@dimen/_10dp"
+            android:layout_marginBottom="@dimen/_10dp"
+            android:backgroundTint="@color/white"
+            android:padding="@dimen/_10dp"
+            android:layout_centerHorizontal="true"
+            android:text="Continue Shopping"
+            android:textAlignment="center"
+            android:textColor="@color/colorVirenxia" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/errorLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/moveToCartTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_10dp"
+            android:layout_marginEnd="@dimen/_10dp"
+            android:layout_marginBottom="@dimen/_10dp"
+            android:backgroundTint="@color/white"
+            android:padding="@dimen/_10dp"
+            android:layout_centerHorizontal="true"
+            android:text="Move to Cart"
+            android:textAlignment="center"
+            android:textColor="@color/colorVirenxia" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/makePaymentButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10dp"
+        android:layout_marginTop="@dimen/_10dp"
+        android:layout_marginEnd="@dimen/_10dp"
+        android:layout_marginBottom="@dimen/_10dp"
+        android:padding="@dimen/_10dp"
+        android:text="CLICK ME"
+        android:visibility="visible" />
+
+
+</RelativeLayout>

@@ -1,7 +1,9 @@
 package com.example.weatherapp.foodFragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -10,13 +12,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.weatherapp.PaymentActivity
 import com.example.weatherapp.R
 import com.example.weatherapp.commonMethod.CommonMethod
 import com.example.weatherapp.databinding.FragmentFoodRecipeBinding
-import com.example.weatherapp.models.FoodDetails
 import com.example.weatherapp.models.FoodRecipeDetails
 import com.example.weatherapp.weatherFragment.WeatherViewModel
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
+
 
 class FoodRecipeFragment : Fragment(R.layout.fragment_food_recipe) {
     private val fragmentFoodRecipeBinding by viewBinding(FragmentFoodRecipeBinding::bind)
@@ -65,6 +68,27 @@ class FoodRecipeFragment : Fragment(R.layout.fragment_food_recipe) {
             false
         }
 
+
+        fragmentFoodRecipeBinding.foodNameEditText.setOnTouchListener(View.OnTouchListener { v, event ->
+            val DRAWABLE_LEFT = 0
+            val DRAWABLE_TOP = 1
+            val DRAWABLE_RIGHT = 2
+            val DRAWABLE_BOTTOM = 3
+            if (event.action == MotionEvent.ACTION_UP) {
+                if (event.rawX >= fragmentFoodRecipeBinding.foodNameEditText.right - fragmentFoodRecipeBinding.foodNameEditText.compoundDrawables.get(DRAWABLE_RIGHT).bounds.width()) {
+                    Log.d(TAG, "Entered Text: ${fragmentFoodRecipeBinding.foodNameEditText.text.toString()}")
+                    fragmentFoodRecipeBinding.loadingProgressBar.visibility = View.VISIBLE
+                    if (CommonMethod.isNetworkConnected(requireContext())) {
+                        weatherViewModel.getFoodRecipeDetails(fragmentFoodRecipeBinding.foodNameEditText.text.toString())
+                    }else{
+                        Navigation.findNavController(fragmentFoodRecipeBinding.root).navigate(R.id.action_food_recipe_to_category)
+                    }
+                    return@OnTouchListener true
+                }
+            }
+            false
+        })
+
         fragmentFoodRecipeBinding.submitButton.setOnClickListener {
             Log.d(TAG, "Entered Text: ${fragmentFoodRecipeBinding.foodNameEditText.text.toString()}")
             fragmentFoodRecipeBinding.loadingProgressBar.visibility = View.VISIBLE
@@ -73,6 +97,7 @@ class FoodRecipeFragment : Fragment(R.layout.fragment_food_recipe) {
             }else{
                 Navigation.findNavController(fragmentFoodRecipeBinding.root).navigate(R.id.action_food_recipe_to_category)
             }
+
         }
 
     }

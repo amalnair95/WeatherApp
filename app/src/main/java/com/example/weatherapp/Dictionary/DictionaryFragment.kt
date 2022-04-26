@@ -2,6 +2,7 @@ package com.example.weatherapp.Dictionary
 
 import android.os.Bundle
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -59,6 +60,27 @@ class DictionaryFragment : Fragment(R.layout.fragment_dictionary) {
             CommonMethod.hideKeyboard(fragmentDictionaryBinding.root, requireActivity())
             false
         }
+
+        fragmentDictionaryBinding.dictWordEditText.setOnTouchListener(View.OnTouchListener { v, event ->
+            val DRAWABLE_LEFT = 0
+            val DRAWABLE_TOP = 1
+            val DRAWABLE_RIGHT = 2
+            val DRAWABLE_BOTTOM = 3
+            if (event.action == MotionEvent.ACTION_UP) {
+                if (event.rawX >= fragmentDictionaryBinding.dictWordEditText.right - fragmentDictionaryBinding.dictWordEditText.compoundDrawables.get(DRAWABLE_RIGHT).bounds.width()) {
+                    Log.d(TAG, "Entered Text: ${fragmentDictionaryBinding.dictWordEditText.text.toString()}")
+                    fragmentDictionaryBinding.loadingProgressBar.visibility = View.VISIBLE
+                    if (CommonMethod.isNetworkConnected(requireContext())) {
+                        weatherViewModel.getWordDetails(fragmentDictionaryBinding.dictWordEditText.text.toString())
+                    }else{
+                        Navigation.findNavController(fragmentDictionaryBinding.root).navigate(R.id.action_food_recipe_to_category)
+                    }
+                    return@OnTouchListener true
+                }
+            }
+            false
+        })
+
         fragmentDictionaryBinding.submitButton.setOnClickListener {
             fragmentDictionaryBinding.loadingProgressBar.visibility = View.VISIBLE
             if (CommonMethod.isNetworkConnected(requireContext())) {

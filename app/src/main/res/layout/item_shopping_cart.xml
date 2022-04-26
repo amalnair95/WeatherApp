@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_8dp"
+        android:layout_marginEnd="@dimen/_8dp"
+        android:orientation="horizontal"
+        android:padding="@dimen/_10dp"
+        android:weightSum="2">
+
+        <ImageView
+            android:id="@+id/productImageView"
+            android:layout_width="30dp"
+            android:layout_height="150dp"
+            android:layout_weight="0.5"
+            android:src="@drawable/product_1" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/productNameQuantityTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/segoe_ui_bold"
+                android:padding="@dimen/_10dp"
+                android:textColor="@color/dark_grey"
+                android:textSize="@dimen/_16sp"
+                tools:text="SOMIRTH 500ml" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <TextView
+                    android:id="@+id/priceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui"
+                    android:padding="@dimen/_10dp"
+                    android:textColor="@color/colorVirenxia"
+                    android:textSize="@dimen/_12sp"
+                    android:visibility="visible"
+                    tools:text="\u20B9 500" />
+
+                <TextView
+                    android:id="@+id/discountTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui"
+                    android:padding="@dimen/_10dp"
+                    android:textColor="@color/colorVirenxia"
+                    android:textSize="@dimen/_12sp"
+                    android:visibility="visible"
+                    tools:text="-5%" />
+
+                <TextView
+                    android:id="@+id/discountedPriceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/segoe_ui"
+                    android:padding="@dimen/_10dp"
+                    android:textColor="@color/colorVirenxia"
+                    android:textSize="@dimen/_12sp"
+                    android:visibility="visible"
+                    tools:text="\u20B9 500" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <Spinner
+                    android:id="@+id/quantitySpinner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:entries="@array/quantity_string_array"
+                    android:textAlignment="center" />
+
+                <Button
+                    android:id="@+id/removeItemButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/white"
+                    android:text="Remove Item"
+                    android:textColor="@color/colorVirenxia"
+                    android:textSize="@dimen/_12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

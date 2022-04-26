@@ -1,8 +1,11 @@
 package com.example.weatherapp.foodFragment
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
+import android.view.View.OnTouchListener
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -16,6 +19,7 @@ import com.example.weatherapp.databinding.FragmentFoodDetailsBinding
 import com.example.weatherapp.models.FoodDetails
 import com.example.weatherapp.weatherFragment.WeatherViewModel
 import com.zhuinden.fragmentviewbindingdelegatekt.viewBinding
+
 
 class FoodQualityDetailsFragment : Fragment(R.layout.fragment_food_details) {
     private val fragmentFoodDetailsBinding by viewBinding(FragmentFoodDetailsBinding::bind)
@@ -56,6 +60,7 @@ class FoodQualityDetailsFragment : Fragment(R.layout.fragment_food_details) {
         })
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private fun init() {
         weatherViewModel = ViewModelProvider(requireActivity()).get(WeatherViewModel::class.java)
         weatherViewModel.clearResultSet()
@@ -65,7 +70,27 @@ class FoodQualityDetailsFragment : Fragment(R.layout.fragment_food_details) {
             false
         }
 
-        fragmentFoodDetailsBinding.submitButton.setOnClickListener {
+        fragmentFoodDetailsBinding.foodNameEditText.setOnTouchListener(OnTouchListener { v, event ->
+            val DRAWABLE_LEFT = 0
+            val DRAWABLE_TOP = 1
+            val DRAWABLE_RIGHT = 2
+            val DRAWABLE_BOTTOM = 3
+            if (event.action == MotionEvent.ACTION_UP) {
+                if (event.rawX >=  fragmentFoodDetailsBinding.foodNameEditText.right -  fragmentFoodDetailsBinding.foodNameEditText.compoundDrawables.get(DRAWABLE_RIGHT).bounds.width()) {
+                    Log.d(TAG, "Entered Text: ${fragmentFoodDetailsBinding.foodNameEditText.text.toString()}")
+                    fragmentFoodDetailsBinding.loadingProgressBar.visibility = View.VISIBLE
+                    if (CommonMethod.isNetworkConnected(requireContext())) {
+                        weatherViewModel.getFoodDetails(fragmentFoodDetailsBinding.foodNameEditText.text.toString())
+                    }else{
+                        Navigation.findNavController(fragmentFoodDetailsBinding.root).navigate(R.id.action_food_details_to_category)
+                    }
+                    return@OnTouchListener true
+                }
+            }
+            false
+        })
+
+       /* fragmentFoodDetailsBinding.submitButton.setOnClickListener {
             Log.d(TAG, "Entered Text: ${fragmentFoodDetailsBinding.foodNameEditText.text.toString()}")
             fragmentFoodDetailsBinding.loadingProgressBar.visibility = View.VISIBLE
             if (CommonMethod.isNetworkConnected(requireContext())) {
@@ -74,6 +99,6 @@ class FoodQualityDetailsFragment : Fragment(R.layout.fragment_food_details) {
                 Navigation.findNavController(fragmentFoodDetailsBinding.root).navigate(R.id.action_food_details_to_category)
             }
 
-        }
+        }*/
     }
 }

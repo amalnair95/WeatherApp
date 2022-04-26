@@ -6,9 +6,20 @@
         android:id="@+id/homeFrag"
         android:title="@string/home"
         android:icon="@drawable/ic_icons8_home"/>
+
+    <item
+        android:id="@+id/healthFrag"
+        android:title="@string/health"
+        android:icon="@drawable/ic_baseline_fitness_center_24"/>
+
     <item
         android:id="@+id/miscFrag"
         android:title="@string/misc"
         android:icon="@drawable/ic_baseline_more_24"/>
+
+    <item
+        android:id="@+id/productFrag"
+        android:title="Buy"
+        android:icon="@drawable/ic_baseline_shopping_bag_24"/>
 
 </menu>

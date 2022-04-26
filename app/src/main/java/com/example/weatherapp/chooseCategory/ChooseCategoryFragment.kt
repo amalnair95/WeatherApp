@@ -122,14 +122,14 @@ class ChooseCategoryFragment : Fragment(R.layout.fragment_category) {
         }
 
         dbHelper= DatabaseHelper(requireContext())
-        val bundle = arguments
+       /* val bundle = arguments
         if (bundle != null) {
             userReceived = bundle.getString("@USERNAME").toString()
             percentCompleted = bundle.getString("@PROGRESSBAR").toString()
             Log.d(TAG,"UserName:$userReceived")
         }else{
             userReceived=weatherViewModel.getUser(requireContext())
-        }
+        }*/
 
 
         fragmentCategoryBinding.weatherCardView.setOnClickListener {
